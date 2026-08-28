@@ -1,153 +1,388 @@
-(kicad_sch (version 20230121) (generator eeschema)
-
-  (uuid 24901e4d-8246-6c3d-a980-c1f8cf14e631)
-
-  (paper "A3")
-
-  (title_block
-    (title "Exhaust-Mic - Stereo-Tonaufnahme Motor und Auspuff")
-    (date "2026-08-28")
-    (rev "A")
-    (company "Hayabusa / exhaust-mic")
-  )
-
-  (lib_symbols
-  )
-
-  (text "Exhaust-Mic" (at 30 40 0)
-    (effects (font (size 4.0 4.0)) (justify left bottom))
-    (uuid 2399547d-0971-a72c-e33e-16ebfc7cc787)
-  )
-  (text "Zweikanalige Tonaufnahme von Motor- und Auspuffgeraeuschen." (at 30 52 0)
-    (effects (font (size 2.0 2.0)) (justify left bottom))
-    (uuid c703d50d-7e4c-7c91-0088-bf81847f4b73)
-  )
-  (text "Zwei Mikrofonkoepfe IM73A135V01 (135 dBSPL AOP) an einem PCM1863," (at 30 60 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 824f6941-5f90-7476-8d09-819a2c0394af)
-  )
-  (text "aufgezeichnet von einem ESP32-S3 auf microSD." (at 30 65 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 9f3fa420-21b0-5fd4-0a90-c8a59b1c74ec)
-  )
-  (text "Der Mikrofonkopf ist ein eigenes Projekt: mic-head/mic-head.kicad_sch" (at 30 73 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid a7ae9edc-36d0-8b5d-0b89-604742709f5a)
-  )
-  (text "Auslegung, Rauschbudget und Pegelplan:" (at 30 81 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 11b8bb68-ebd3-ccc4-ff20-879574d22dcc)
-  )
-  (text "docs/superpowers/specs/2026-08-28-exhaust-mic-design.md" (at 30 86 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 73ea94af-47c1-9f96-ac34-80f4cf24d6e6)
-  )
-  (text "Kennwerte" (at 250 175 0)
-    (effects (font (size 2.0 2.0)) (justify left bottom))
-    (uuid 90fff965-cf0e-f91b-7bdc-b87661f916b0)
-  )
-  (text "Kanal A  Endrohr   PGA +12,5 dB   Vollaussteuerung 132,0 dB SPL" (at 250 183 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid cf899e3c-55ef-cf0d-9d95-db310bcb0b97)
-  )
-  (text "Kanal B  Airbox    PGA +20,0 dB   Vollaussteuerung 124,4 dB SPL" (at 250 188 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 49b53cff-df13-7365-4b28-2fbf30ccfa37)
-  )
-  (text "Rauschteppich 26,8 bzw. 25,5 dB(A) SPL" (at 250 193 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid f3917998-5758-fc6b-40c3-1cc5c419c843)
-  )
-  (text "Abtastung 48 kHz / 24 bit, optional 96 kHz" (at 250 198 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 6eb22eb6-9023-8ee3-e8f4-f18afd45edef)
-  )
-  (text "Versorgung 12 V Bordnetz, Standby rund 90 uA" (at 250 203 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 8b7ea912-5af3-9a77-8d0e-a1696e0876ec)
-  )
-  (sheet (at 30 110) (size 76.2 45.72)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 6e958477-663e-3b4d-8246-77c6be35b00d)
-    (property "Sheetname" "Versorgung" (at 30 109.3 0)
-      (effects (font (size 1.524 1.524)) (justify left bottom))
-    )
-    (property "Sheetfile" "01-power.kicad_sch" (at 30 157.12 0)
-      (effects (font (size 1.524 1.524)) (justify left top))
-    )
-    (instances
-      (project "exhaust-mic"
-        (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631" (page "2"))
-      )
-    )
-  )
-  (sheet (at 130 110) (size 76.2 45.72)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 4f6e83be-a672-50b5-b7a4-309c3b67adf4)
-    (property "Sheetname" "Analogeingang" (at 130 109.3 0)
-      (effects (font (size 1.524 1.524)) (justify left bottom))
-    )
-    (property "Sheetfile" "02-analog.kicad_sch" (at 130 157.12 0)
-      (effects (font (size 1.524 1.524)) (justify left top))
-    )
-    (instances
-      (project "exhaust-mic"
-        (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631" (page "3"))
-      )
-    )
-  )
-  (sheet (at 230 110) (size 76.2 45.72)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid a9bdaee9-c6ed-dc84-c113-e33f55a48100)
-    (property "Sheetname" "ADC" (at 230 109.3 0)
-      (effects (font (size 1.524 1.524)) (justify left bottom))
-    )
-    (property "Sheetfile" "03-adc.kicad_sch" (at 230 157.12 0)
-      (effects (font (size 1.524 1.524)) (justify left top))
-    )
-    (instances
-      (project "exhaust-mic"
-        (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631" (page "4"))
-      )
-    )
-  )
-  (sheet (at 30 175) (size 76.2 45.72)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid aa42088f-c695-e1ae-f9ab-ed9f37a26eb4)
-    (property "Sheetname" "MCU" (at 30 174.3 0)
-      (effects (font (size 1.524 1.524)) (justify left bottom))
-    )
-    (property "Sheetfile" "04-mcu.kicad_sch" (at 30 222.12 0)
-      (effects (font (size 1.524 1.524)) (justify left top))
-    )
-    (instances
-      (project "exhaust-mic"
-        (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631" (page "5"))
-      )
-    )
-  )
-  (sheet (at 130 175) (size 76.2 45.72)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 5a04efcd-e24a-0d89-f2fd-e1fa0e6e92cb)
-    (property "Sheetname" "IO" (at 130 174.3 0)
-      (effects (font (size 1.524 1.524)) (justify left bottom))
-    )
-    (property "Sheetfile" "05-io.kicad_sch" (at 130 222.12 0)
-      (effects (font (size 1.524 1.524)) (justify left top))
-    )
-    (instances
-      (project "exhaust-mic"
-        (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631" (page "6"))
-      )
-    )
-  )
-
-  (sheet_instances
-    (path "/" (page "1"))
-  )
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "24901e4d-8246-6c3d-a980-c1f8cf14e631")
+	(paper "A3")
+	(title_block
+		(title "Exhaust-Mic - Stereo-Tonaufnahme Motor und Auspuff")
+		(date "2026-08-28")
+		(rev "A")
+		(company "Hayabusa / exhaust-mic")
+	)
+	(lib_symbols)
+	(text "Auslegung, Rauschbudget und Pegelplan:"
+		(exclude_from_sim no)
+		(at 30 81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "11b8bb68-ebd3-ccc4-ff20-879574d22dcc")
+	)
+	(text "Exhaust-Mic"
+		(exclude_from_sim no)
+		(at 30 40 0)
+		(effects
+			(font
+				(size 4 4)
+			)
+			(justify left bottom)
+		)
+		(uuid "2399547d-0971-a72c-e33e-16ebfc7cc787")
+	)
+	(text "Kanal B  Airbox    PGA +20,0 dB   Vollaussteuerung 124,4 dB SPL"
+		(exclude_from_sim no)
+		(at 250 188 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "49b53cff-df13-7365-4b28-2fbf30ccfa37")
+	)
+	(text "Abtastung 48 kHz / 24 bit, optional 96 kHz"
+		(exclude_from_sim no)
+		(at 250 198 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6eb22eb6-9023-8ee3-e8f4-f18afd45edef")
+	)
+	(text "docs/superpowers/specs/2026-08-28-exhaust-mic-design.md"
+		(exclude_from_sim no)
+		(at 30 86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "73ea94af-47c1-9f96-ac34-80f4cf24d6e6")
+	)
+	(text "Zwei Mikrofonkoepfe IM73A135V01 (135 dBSPL AOP) an einem PCM1863,"
+		(exclude_from_sim no)
+		(at 30 60 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "824f6941-5f90-7476-8d09-819a2c0394af")
+	)
+	(text "Versorgung 12 V Bordnetz, Standby rund 90 uA"
+		(exclude_from_sim no)
+		(at 250 203 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8b7ea912-5af3-9a77-8d0e-a1696e0876ec")
+	)
+	(text "Kennwerte"
+		(exclude_from_sim no)
+		(at 250 175 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "90fff965-cf0e-f91b-7bdc-b87661f916b0")
+	)
+	(text "aufgezeichnet von einem ESP32-S3 auf microSD."
+		(exclude_from_sim no)
+		(at 30 65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9f3fa420-21b0-5fd4-0a90-c8a59b1c74ec")
+	)
+	(text "Der Mikrofonkopf ist ein eigenes Projekt: mic-head/mic-head.kicad_sch"
+		(exclude_from_sim no)
+		(at 30 73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a7ae9edc-36d0-8b5d-0b89-604742709f5a")
+	)
+	(text "Zweikanalige Tonaufnahme von Motor- und Auspuffgeraeuschen."
+		(exclude_from_sim no)
+		(at 30 52 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "c703d50d-7e4c-7c91-0088-bf81847f4b73")
+	)
+	(text "Kanal A  Endrohr   PGA +12,5 dB   Vollaussteuerung 132,0 dB SPL"
+		(exclude_from_sim no)
+		(at 250 183 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cf899e3c-55ef-cf0d-9d95-db310bcb0b97")
+	)
+	(text "Rauschteppich 26,8 bzw. 25,5 dB(A) SPL"
+		(exclude_from_sim no)
+		(at 250 193 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f3917998-5758-fc6b-40c3-1cc5c419c843")
+	)
+	(sheet
+		(at 130 110)
+		(size 76.2 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "4f6e83be-a672-50b5-b7a4-309c3b67adf4")
+		(property "Sheetname" "Analogeingang"
+			(at 130 109.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "02-analog.kicad_sch"
+			(at 130 157.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "exhaust-mic"
+				(path "/24901e4d-8246-6c3d-a980-c1f8cf14e631"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 130 175)
+		(size 76.2 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "5a04efcd-e24a-0d89-f2fd-e1fa0e6e92cb")
+		(property "Sheetname" "IO"
+			(at 130 174.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "05-io.kicad_sch"
+			(at 130 222.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "exhaust-mic"
+				(path "/24901e4d-8246-6c3d-a980-c1f8cf14e631"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30 110)
+		(size 76.2 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6e958477-663e-3b4d-8246-77c6be35b00d")
+		(property "Sheetname" "Versorgung"
+			(at 30 109.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "01-power.kicad_sch"
+			(at 30 157.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "exhaust-mic"
+				(path "/24901e4d-8246-6c3d-a980-c1f8cf14e631"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 230 110)
+		(size 76.2 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a9bdaee9-c6ed-dc84-c113-e33f55a48100")
+		(property "Sheetname" "ADC"
+			(at 230 109.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "03-adc.kicad_sch"
+			(at 230 157.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "exhaust-mic"
+				(path "/24901e4d-8246-6c3d-a980-c1f8cf14e631"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30 175)
+		(size 76.2 45.72)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "aa42088f-c695-e1ae-f9ab-ed9f37a26eb4")
+		(property "Sheetname" "MCU"
+			(at 30 174.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "04-mcu.kicad_sch"
+			(at 30 222.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "exhaust-mic"
+				(path "/24901e4d-8246-6c3d-a980-c1f8cf14e631"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )
