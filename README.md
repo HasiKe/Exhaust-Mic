@@ -168,17 +168,17 @@ Kabelverschraubungen. Zwei Punkte sind dabei bindend:
 | | Mikrofonkopf | Hauptplatine |
 |---|---|---|
 | Bauteile | 14 | 127 |
-| Leiterbahnen | 116 | 1147 |
-| Durchkontaktierungen | 3 | 863 |
-| Offene Verbindungen | **0** | **16** |
+| Leiterbahnen | 116 (259 mm) | 1143 (3249 mm) |
+| Durchkontaktierungen | 3 | 936 |
+| Offene Verbindungen | **0** | **7** |
 | DRC-Fehler | **0** | **0** |
-| DRC-Warnungen | 3 | 11 |
+| DRC-Warnungen | 0 | 10 |
 
-Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **16 Verbindungen
+Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **7 Verbindungen
 offen** — überwiegend Massefläche-Stücke auf der Rückseite, die durch die
 Leiterbahnen abgeschnitten wurden und deren Anbindung an die durchgehende
 Fläche auf In1 der Autorouter nicht findet. Sie sind in KiCads interaktivem
-Router (Push-and-Shove) in etwa einer halben Stunde zu schließen; der ist
+Router (Push-and-Shove) in wenigen Minuten zu schließen; der ist
 den hier verwendeten Werkzeugen an engen Stellen deutlich überlegen. Vor der
 Fertigung müssen sie geschlossen sein.
 
