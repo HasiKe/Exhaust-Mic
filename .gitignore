@@ -2,3 +2,5 @@ fp-info-cache
 *.kicad_prl
 *-backups/
 tools/__pycache__/
+logs/
+output/.gerber-*/

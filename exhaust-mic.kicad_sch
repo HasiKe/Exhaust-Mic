@@ -7,7 +7,8 @@
 	(title_block
 		(title "Exhaust-Mic - Stereo-Tonaufnahme Motor und Auspuff")
 		(date "2026-08-28")
-		(rev "1")
+		(rev "A")
+		(company "Hayabusa / exhaust-mic")
 	)
 	(lib_symbols)
 	(text "Auslegung, Rauschbudget und Pegelplan:"
@@ -383,5 +384,4 @@
 			(page "1")
 		)
 	)
-	(embedded_fonts no)
 )

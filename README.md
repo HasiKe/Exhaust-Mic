@@ -49,9 +49,36 @@ die beiden `build_*_pcb.py` beschreiben Kontur, Bestückung und Kupferflächen,
 
 ```sh
 kicad-cli sch export netlist --output output/main.net exhaust-mic.kicad_sch
-python3 tools/build_pcb.py output/main.net          # Bestückung + Flächen
-python3 tools/route.py exhaust-mic.kicad_pcb <arbeitsverzeichnis>
+tools/pipeline.sh <arbeitsverzeichnis>              # alles in einem Lauf
 python3 tools/build_outputs.py                      # Gerber, Bohrdaten, PDF
+```
+
+`pipeline.sh` führt der Reihe nach aus: Bestückung, Autorouting,
+Restverbindungen, Aufräumen, Regelprüfung. Die Einzelschritte lassen sich
+auch getrennt aufrufen:
+
+| Schritt | Was er tut |
+|---|---|
+| `build_pcb.py` | Kontur, Bestückung, Kupferflächen |
+| `route.py` | Autorouting über Specctra-DSN und freerouting |
+| `stitch.py` | Durchkontaktierung von Pads auf ihre Versorgungsfläche |
+| `handroute.py` | einfache Wege für den Rest, sonst Via auf die Fläche |
+| `cleanup.py` | doppelte Bohrungen, Nullbahnen, lose Enden entfernen |
+| `verify.py` | eigene Abnahme (Kontur, Durchgang, Abstände) |
+
+`stitch.py` und `handroute.py` nehmen die offenen Verbindungen aus
+`kicad-cli pcb drc` statt aus eigener Vermutung und lehnen jeden Weg ab,
+der die Abstandsregel verletzt. Bei `handroute.py` ist die Prüfung auf
+gleiche Netznamen nicht optional: KiCad nennt in „Missing connection
+between items" gelegentlich ein zweites Element aus einem fremden Netz —
+ohne die Sicherung entsteht daraus ein Kurzschluss.
+
+Seit KiCad 10 kommen die eingebauten Prüfungen dazu — die gab es in
+Version 7 noch nicht:
+
+```sh
+kicad-cli sch erc --severity-error exhaust-mic.kicad_sch
+kicad-cli pcb drc --severity-error --schematic-parity exhaust-mic.kicad_pcb
 ```
 
 `build_pcb.py --map` zeichnet eine grobe ASCII-Belegungskarte je Seite —
@@ -62,13 +89,16 @@ andere sortiert `pack()` regalweise in benannte Regionen. Das überlebt
 Änderungen an einzelnen Footprints, ohne dass 127 Koordinaten nachgeführt
 werden müssen.
 
-Für `route.py` muss `fr-2.1.0.jar` (freerouting) im Arbeitsverzeichnis
-liegen. Die Einstellung `optimizer.max_passes` ist dabei nicht optional:
-`router.max_passes` begrenzt nur die Routing-Durchgänge, danach optimiert
-freerouting **unbegrenzt** weiter und schreibt die SES-Datei erst ganz am
-Ende. Wer den Prozess von außen abbricht, verliert das komplette Routing.
-Weder `job_timeout` noch ein niedriges `max_passes` helfen — nur die
-Deckelung des Optimierers.
+Für `route.py` muss `fr-1.9.0.jar` (freerouting) im Arbeitsverzeichnis
+liegen, und `xvfb-run` muss installiert sein — freerouting baut auch im
+Stapelbetrieb eine Oberfläche auf und bricht ohne Display ab.
+
+Bewusst **nicht** die neuere v2.1.0: die schreibt die SES-Datei erst am
+Ende des Laufs, endet aber nur, wenn sie auf null offene Verbindungen
+kommt. Bleibt ein Rest, dreht sie endlos — `max_passes`, `stop_pass_no`,
+`job_timeout` und `optimizer.max_passes` werden allesamt ignoriert
+(beobachtet bis Durchgang 434). Ein Abbruch von außen verwirft dann das
+komplette Routing. v1.9.0 hält sich an `-mp`.
 
 ## Prüfen
 
@@ -104,6 +134,19 @@ Erzeugt wird KiCad-7-Format (`20230121`), weil die lokale Installation
 7.0.11 ist und die Pläne damit prüfbar bleiben. KiCad 9 und 10 öffnen die
 Dateien und migrieren sie beim ersten Speichern.
 
+## Bestückungsdruck
+
+Der Siebdruck trägt nur die Steckverbinder-Bezeichner. Alles andere —
+Referenzen der Kleinteile, Werte, Herstellernummern — liegt auf der
+Fab-Lage: zwischen zwei 0603-Bauteilen sind 0,5 mm, ein lesbarer Bezeichner
+passt dort nicht hin, ohne das Nachbarpad zu überdrucken. Für die
+Bestückung ist deshalb die Fab-Lage im PDF maßgeblich.
+
+Beschaffungsfelder werden beim Platzieren automatisch unsichtbar gesetzt
+und auf die Fab-Lage gelegt. Ohne das landen sie sichtbar im Siebdruck und
+überdecken die halbe Platine — das waren 151 der ursprünglich 214
+Regelwarnungen.
+
 ## Gehäuse
 
 Die Dichtheit macht das Gehäuse, nicht die Platinensteckverbinder: Superseal
@@ -122,5 +165,21 @@ Kabelverschraubungen. Zwei Punkte sind dabei bindend:
 
 ## Stand
 
-Schaltplan, Stückliste und Layout beider Platinen sind fertig und geprüft.
-Offen sind Gehäuse und Firmware.
+| | Mikrofonkopf | Hauptplatine |
+|---|---|---|
+| Bauteile | 14 | 127 |
+| Leiterbahnen | 116 | 1147 |
+| Durchkontaktierungen | 3 | 863 |
+| Offene Verbindungen | **0** | **16** |
+| DRC-Fehler | **0** | **0** |
+| DRC-Warnungen | 3 | 11 |
+
+Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **16 Verbindungen
+offen** — überwiegend Massefläche-Stücke auf der Rückseite, die durch die
+Leiterbahnen abgeschnitten wurden und deren Anbindung an die durchgehende
+Fläche auf In1 der Autorouter nicht findet. Sie sind in KiCads interaktivem
+Router (Push-and-Shove) in etwa einer halben Stunde zu schließen; der ist
+den hier verwendeten Werkzeugen an engen Stellen deutlich überlegen. Vor der
+Fertigung müssen sie geschlossen sein.
+
+Schaltplan-ERC ist fehlerfrei. Offen sind außerdem Gehäuse und Firmware.

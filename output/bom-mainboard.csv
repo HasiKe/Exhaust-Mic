@@ -29,7 +29,7 @@ Menge,Referenzen,Wert,Footprint,MPN,Bestueckung
 1,J7,I2C_Erweiterung,PinHeader_1x04_P2.54mm_Vertical,,ja
 1,L1,22u/1A2,L_Bourns_SRN6045TA,SRN6045TA-220M,ja
 2,L2 L3,1mH_CMC,L_CommonMode_Wuerth_WE-SL2,744232222,ja
-1,LS1,Piezo,Buzzer_12x9.5RM7.6,,ja
+1,LS1,Piezo_SMD,Buzzer_Murata_PKMCS0909E,PKMCS0909E4000-R1,ja
 1,Q1,ZXMP6A17E6,SOT-23,ZXMP6A17E6TA,ja
 2,Q3 Q4,2N7002,SOT-23,,ja
 10,R1 R30 R31 R42 R43 R44 R45 R46 R47 R48,10k,R_0603_1608Metric,,ja
