@@ -3217,7 +3217,7 @@
 				)
 			)
 		)
-		(property "MPN" "PCM1863DBTR"
+		(property "MPN" "PCM1863QDBTRQ1"
 			(at 190.5 150 0)
 			(hide yes)
 			(show_name no)
@@ -3239,7 +3239,18 @@
 				)
 			)
 		)
-		(property "DigiKey" "296-47817-1-ND"
+		(property "DigiKey" "296-50383-1-ND"
+			(at 190.5 150 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hinweis" "Ersatz fuer PCM1863DBTR: die Standardversion ist leer; gleicher Baustein in Automotive-Qualifizierung, gleiches 30-TSSOP - auf einem Motorrad ohnehin die passendere Wahl"
 			(at 190.5 150 0)
 			(hide yes)
 			(show_name no)

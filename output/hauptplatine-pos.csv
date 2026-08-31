@@ -108,7 +108,7 @@ Ref,Val,Package,PosX,PosY,Rot,Side
 "J1","JST_XH_6pol","JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal",178.950000,-121.520000,180.000000,top
 "J2","JST_XH_5pol_MicA","JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal",127.550000,-74.350000,0.000000,top
 "J3","JST_XH_5pol_MicB","JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal",144.550000,-74.350000,0.000000,top
-"J4","USB-C","USB_C_Receptacle_XKB_U262-16XN-4BVC11",175.850000,-75.350000,0.000000,top
+"J4","USB-C","USB_C_Receptacle_GCT_USB4085",172.880000,-71.620000,0.000000,top
 "J5","microSD_PushPush","microSD_HC_Hirose_DM3D-SF",182.050000,-91.050000,90.000000,top
 "J6","GPS_unbestueckt","PinHeader_1x05_P2.54mm_Vertical",165.350000,-73.550000,0.000000,top
 "J7","I2C_Erweiterung","PinHeader_1x04_P2.54mm_Vertical",160.350000,-73.550000,0.000000,top

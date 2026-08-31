@@ -1,76 +1,76 @@
 Platine,Referenzen,Menge,Wert,MPN,Hersteller,DigiKey,Bestand,Preis_EUR,Summe_EUR,Status,Hinweis
 Hauptplatine,BT1,1,CR1220,3000TR,Keystone Electronics,36-3000CT-ND,37336,0.980,0.98,lagernd,Layout traegt den 12-mm-Halter; CR1220 hat rund ein Viertel der Kapazitaet von CR2032
-Hauptplatine,"C1,C2",2,2u2/100V,GRM21BD72A225ME01K,Murata Electronics,490-GRM21BD72A225ME01KCT-ND,85205,0.400,0.80,lagernd,
+Hauptplatine,"C1,C2",2,2u2/100V,GRM21BD72A225ME01K,Murata Electronics,490-GRM21BD72A225ME01KCT-ND,84028,0.400,0.80,lagernd,
 Hauptplatine,C3,1,100n/100V,0603B104K101CT,Walsin Technology Corporation,1292-1392-1-ND,69843,0.090,0.09,lagernd,
-Hauptplatine,C4,1,2n2/50V,C0603C222K5RACTU,KEMET,399-C0603C222K5RACTUCT-ND,495347,0.090,0.09,lagernd,
+Hauptplatine,C4,1,2n2/50V,C0603C222K5RACTU,KEMET,399-C0603C222K5RACTUCT-ND,495335,0.090,0.09,lagernd,
 Hauptplatine,C5,1,100p,CL10C101JB8NNNC,Samsung Electro-Mechanics,1276-1008-1-ND,847051,0.090,0.09,lagernd,
 Hauptplatine,"C6,C7",2,22u/25V,CL32A226MAJNNNE,Samsung Electro-Mechanics,1276-3373-1-ND,41201,0.470,0.94,lagernd,
 Hauptplatine,"C8,C12,C16,C17,C31,C34,C36,C37,C42,C43,C46,C50-C52",14,100n,0603B104K250CT,Walsin Technology Corporation,1292-1642-1-ND,5171633,0.090,1.26,lagernd,
-Hauptplatine,"C9,C10,C13,C14,C23,C24,C28-C30,C44",10,1u/16V,CL10A105KA8NFNC,Samsung Electro-Mechanics,1276-1859-1-ND,325027,0.090,0.90,lagernd,
+Hauptplatine,"C9,C10,C13,C14,C23,C24,C28-C30,C44",10,1u/16V,CL10A105KA8NFNC,Samsung Electro-Mechanics,1276-1859-1-ND,324997,0.090,0.90,lagernd,
 Hauptplatine,"C11,C40",2,22u/10V,CL32A226MOJNNNE,Samsung Electro-Mechanics,1276-1851-1-ND,12248,0.320,0.64,lagernd,
 Hauptplatine,"C15,C20,C25,C32,C33,C35,C41,C45",8,10u/10V,EMK212ABJ106KG-T,Taiyo Yuden,587-5837-1-ND,38490,0.150,1.20,lagernd,
 Hauptplatine,"C21,C22,C26,C27",4,33p,CL10C330JB8NNNC,Samsung Electro-Mechanics,1276-1070-1-ND,1764765,0.090,0.36,lagernd,
-Hauptplatine,D1,1,BZX84C15,BZX84C15-7-F,Diodes Incorporated,BZX84C15-FDICT-ND,205308,0.170,0.17,Ersatz,"Ersatz fuer BZX84C15LT1G: onsemi-Typ nicht lagernd; Diodes-Typ gleiche Z-Spannung, gleiches SOT-23"
-Hauptplatine,D2,1,SMBJ36A,SMBJ36A-13-F,Diodes Incorporated,SMBJ36A-FDICT-ND,124608,0.520,0.52,lagernd,"unidirektional, Kathode nach +12V"
-Hauptplatine,"D3,D4",2,PMEG3020,"PMEG3020EP,115",Nexperia USA Inc.,1727-5836-1-ND,27923,0.520,1.04,Ersatz,"Ersatz fuer PMEG3020EP-115: gleicher Typ, DigiKey schreibt ihn mit Komma"
+Hauptplatine,D1,1,BZX84C15,BZX84C15-7-F,Diodes Incorporated,BZX84C15-FDICT-ND,205238,0.170,0.17,Ersatz,"Ersatz fuer BZX84C15LT1G: onsemi-Typ nicht lagernd; Diodes-Typ gleiche Z-Spannung, gleiches SOT-23"
+Hauptplatine,D2,1,SMBJ36A,SMBJ36A-13-F,Diodes Incorporated,SMBJ36A-FDICT-ND,124608,0.510,0.51,lagernd,"unidirektional, Kathode nach +12V"
+Hauptplatine,"D3,D4",2,PMEG3020,"PMEG3020EP,115",Nexperia USA Inc.,1727-5836-1-ND,27523,0.510,1.02,Ersatz,"Ersatz fuer PMEG3020EP-115: gleicher Typ, DigiKey schreibt ihn mit Komma"
 Hauptplatine,"D5,D6",2,BZX84C3V3,BZX84C3V3LT1G,onsemi,BZX84C3V3LT1GOSCT-ND,279240,0.140,0.28,lagernd,
 Hauptplatine,D10-D13,4,PESD3V3L1BA,SLPESD3V3L1BA,"Shenzhen Slkormicro Semicon Co., Ltd.",5399-SLPESD3V3L1BACT-ND,2980,0.160,0.64,lagernd,
-Hauptplatine,D20,1,gruen,LTST-C190GKT,Lite-On Inc.,160-LTST-C190GKTCT-ND,1366287,0.120,0.12,lagernd,
-Hauptplatine,D21,1,rot,LTST-C190KRKT,Lite-On Inc.,160-1436-1-ND,789235,0.120,0.12,lagernd,
+Hauptplatine,D20,1,gruen,LTST-C190GKT,Lite-On Inc.,160-LTST-C190GKTCT-ND,1358853,0.120,0.12,lagernd,
+Hauptplatine,D21,1,rot,LTST-C190KRKT,Lite-On Inc.,160-1436-1-ND,788545,0.120,0.12,lagernd,
 Hauptplatine,D22,1,weiss_Sync,LTW-170ZDC,Lite-On Inc.,160-2220-1-ND,10680,0.470,0.47,lagernd,
 Hauptplatine,F1,1,2A_traege,0453002.MR,Littelfuse Inc.,F3338CT-ND,14008,1.920,1.92,lagernd,
 Hauptplatine,FB2-FB4,3,600R@100MHz,BLM18AG601SN1D,Murata Electronics,490-1014-1-ND,1771202,0.090,0.27,lagernd,
 Hauptplatine,J1,1,JST_XH_6pol,S6B-XH-A,JST Sales America Inc.,455-S6B-XH-A-ND,43191,0.270,0.27,lagernd,Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH
 Hauptplatine,J2,1,JST_XH_5pol_MicA,S5B-XH-A,JST Sales America Inc.,455-S5B-XH-A-ND,20824,0.220,0.22,lagernd,Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH
 Hauptplatine,J3,1,JST_XH_5pol_MicB,S5B-XH-A,JST Sales America Inc.,455-S5B-XH-A-ND,20824,0.220,0.22,lagernd,Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH
-Hauptplatine,J4,1,USB-C,,,,,,,offen,Wert nicht in SPEC - von Hand entscheiden
-Hauptplatine,J5,1,microSD_PushPush,DM3D-SF,Hirose Electric Co Ltd,HR1941CT-ND,21687,1.990,1.99,lagernd,
+Hauptplatine,J4,1,USB-C,USB4085-GF-A,GCT,2073-USB4085-GF-ACT-ND,80128,0.780,0.78,lagernd,durchkontaktiert statt SMD; den XKB-Typ zum vorherigen Footprint fuehrt DigiKey nicht
+Hauptplatine,J5,1,microSD_PushPush,DM3D-SF,Hirose Electric Co Ltd,HR1941CT-ND,21684,1.990,1.99,lagernd,
 Hauptplatine,J6,1,GPS_unbestueckt,PREC005SAAN-RC,Sullins Connector Solutions,35-PREC005SAAN-RC-ND,2616,0.090,0.09,lagernd,
-Hauptplatine,J7,1,I2C_Erweiterung,PREC004SAAN-RC,Sullins Connector Solutions,35-PREC004SAAN-RC-ND,1008,0.090,0.09,lagernd,
-Hauptplatine,L1,1,22u/1A2,SRN6045TA-220M,Bourns Inc.,SRN6045TA-220MCT-ND,87,0.440,0.44,lagernd,
-Hauptplatine,"L2,L3",2,1mH_CMC,744232222,Würth Elektronik,732-1474-1-ND,40840,1.150,2.30,lagernd,
+Hauptplatine,J7,1,I2C_Erweiterung,PREC004SAAN-RC,Sullins Connector Solutions,35-PREC004SAAN-RC-ND,368,0.090,0.09,lagernd,
+Hauptplatine,L1,1,22u/1A2,SRN6045TA-220M,Bourns Inc.,SRN6045TA-220MCT-ND,77,0.430,0.43,lagernd,
+Hauptplatine,"L2,L3",2,1mH_CMC,744232222,Würth Elektronik,732-1474-1-ND,38820,1.120,2.24,lagernd,
 Hauptplatine,LS1,1,Piezo_9x9_SMD,CPT-9019A-SMT-TR,Same Sky (Formerly CUI Devices),2223-CPT-9019A-SMT-TRCT-ND,56020,1.120,1.12,lagernd,"Landmuster aus der Murata-Bibliothek; Murata PKMCS0909E ist abgekuendigt und nur fuer 1,5 V, darum ein 3-V-Typ gleicher Bauform - Landmuster gegen Datenblatt pruefen"
-Hauptplatine,Q1,1,SI2309CDS,SI2309CDS-T1-GE3,Vishay Siliconix,SI2309CDS-T1-GE3CT-ND,150431,0.760,0.76,Ersatz,"Drain am Bordnetz, Source zur Last | Ersatz fuer ZXMP6A17E6TA: ZXMP6A17E6 nicht lagernd und ohnehin SOT-26, der Footprint ist SOT-23; Si2309 60 V / 1,6 A / 345 mOhm passt zum Verpolschutz"
-Hauptplatine,"Q3,Q4",2,2N7002,"T2N7002BK,LM",Toshiba Semiconductor and Storage,T2N7002BKLMCT-ND,1040792,0.150,0.30,lagernd,
-Hauptplatine,"R1,R30,R31,R42-R48",10,10k,RC0603FR-0710KL,YAGEO,311-10.0KHRCT-ND,3936783,0.090,0.90,lagernd,
-Hauptplatine,R2,1,1M,ERJ-3EKF1004V,Panasonic Industry,P1.00MHCT-ND,1127720,0.090,0.09,lagernd,
-Hauptplatine,R3,1,150k,RC0603FR-07150KL,YAGEO,311-150KHRCT-ND,344113,0.090,0.09,lagernd,
+Hauptplatine,Q1,1,SI2309CDS,SI2309CDS-T1-GE3,Vishay Siliconix,SI2309CDS-T1-GE3CT-ND,198431,0.740,0.74,Ersatz,"Drain am Bordnetz, Source zur Last | Ersatz fuer ZXMP6A17E6TA: ZXMP6A17E6 nicht lagernd und ohnehin SOT-26, der Footprint ist SOT-23; Si2309 60 V / 1,6 A / 345 mOhm passt zum Verpolschutz"
+Hauptplatine,"Q3,Q4",2,2N7002,"T2N7002BK,LM",Toshiba Semiconductor and Storage,T2N7002BKLMCT-ND,1031744,0.150,0.30,lagernd,
+Hauptplatine,"R1,R30,R31,R42-R48",10,10k,RC0603FR-0710KL,YAGEO,311-10.0KHRCT-ND,3879345,0.090,0.90,lagernd,
+Hauptplatine,R2,1,1M,ERJ-3EKF1004V,Panasonic Industry,P1.00MHCT-ND,1612428,0.090,0.09,lagernd,
+Hauptplatine,R3,1,150k,RC0603FR-07150KL,YAGEO,311-150KHRCT-ND,308295,0.090,0.09,lagernd,
 Hauptplatine,R4,1,28k7,RMCF0603FT28K7,Stackpole Electronics Inc,RMCF0603FT28K7CT-ND,89045,0.090,0.09,lagernd,
 Hauptplatine,R5,1,34k0,CRCW060334K0FKEAC,Vishay Dale,541-5362-1-ND,66716,0.090,0.09,lagernd,
 Hauptplatine,R6,1,12k0,RMCF0603FT12K0,Stackpole Electronics Inc,RMCF0603FT12K0CT-ND,190025,0.090,0.09,lagernd,
-Hauptplatine,R7,1,0R1,RCWE0805R100FKEA,Vishay Dale,541-2727-1-ND,411519,0.210,0.21,lagernd,"Rippelerzeugung Type-2, ggf. am Aufbau nachziehen"
-Hauptplatine,"R9,R54,R55",3,100k,RC0603FR-07100KL,YAGEO,311-100KHRCT-ND,2568539,0.090,0.27,lagernd,
-Hauptplatine,R10,1,47k,RC0603FR-0747KL,YAGEO,311-47.0KHRCT-ND,2145201,0.090,0.09,lagernd,
-Hauptplatine,R11,1,470k,RC0603FR-07470KL,YAGEO,311-470KHRCT-ND,460872,0.090,0.09,lagernd,
+Hauptplatine,R7,1,0R1,RCWE0805R100FKEA,Vishay Dale,541-2727-1-ND,411504,0.210,0.21,lagernd,"Rippelerzeugung Type-2, ggf. am Aufbau nachziehen"
+Hauptplatine,"R9,R54,R55",3,100k,RC0603FR-07100KL,YAGEO,311-100KHRCT-ND,2564833,0.090,0.27,lagernd,
+Hauptplatine,R10,1,47k,RC0603FR-0747KL,YAGEO,311-47.0KHRCT-ND,2136912,0.090,0.09,lagernd,
+Hauptplatine,R11,1,470k,RC0603FR-07470KL,YAGEO,311-470KHRCT-ND,460350,0.090,0.09,lagernd,
 Hauptplatine,R12,1,68k,RC0603FR-0768KL,YAGEO,311-68.0KHRCT-ND,155631,0.090,0.09,lagernd,
-Hauptplatine,R20-R23,4,100R,CRCW0603100RFKEA,Vishay Dale,541-100HCT-ND,1807305,0.090,0.36,lagernd,
-Hauptplatine,R24,1,33R,RC0603FR-0733RL,YAGEO,13-RC0603FR-0733RLCT-ND,1316260,0.090,0.09,lagernd,
-Hauptplatine,"R34,R35",2,5k1,RMCF0603FT5K10,Stackpole Electronics Inc,RMCF0603FT5K10CT-ND,172756,0.090,0.18,lagernd,
-Hauptplatine,"R40,R41",2,4k7,RC0603FR-074K7L,YAGEO,311-4.70KHRCT-ND,1724909,0.090,0.18,lagernd,
-Hauptplatine,R49,1,120R,RMCF0805FT120R,Stackpole Electronics Inc,738-RMCF0805FT120RCT-ND,249849,0.090,0.09,lagernd,
-Hauptplatine,R50-R52,3,1k,CRCW06031K00FKEA,Vishay Dale,541-1.00KHCT-ND,3860457,0.090,0.27,lagernd,
+Hauptplatine,R20-R23,4,100R,CRCW0603100RFKEA,Vishay Dale,541-100HCT-ND,2085520,0.090,0.36,lagernd,
+Hauptplatine,R24,1,33R,RC0603FR-0733RL,YAGEO,13-RC0603FR-0733RLCT-ND,1314429,0.090,0.09,lagernd,
+Hauptplatine,"R34,R35",2,5k1,RMCF0603FT5K10,Stackpole Electronics Inc,RMCF0603FT5K10CT-ND,167729,0.090,0.18,lagernd,
+Hauptplatine,"R40,R41",2,4k7,RC0603FR-074K7L,YAGEO,311-4.70KHRCT-ND,1717894,0.090,0.18,lagernd,
+Hauptplatine,R49,1,120R,RMCF0805FT120R,Stackpole Electronics Inc,738-RMCF0805FT120RCT-ND,249549,0.090,0.09,lagernd,
+Hauptplatine,R50-R52,3,1k,CRCW06031K00FKEA,Vishay Dale,541-1.00KHCT-ND,3858022,0.090,0.27,lagernd,
 Hauptplatine,R53,1,18R,RK73H2ATTD18R0F,"KOA Speer Electronics, Inc.",2019-RK73H2ATTD18R0FCT-ND,62174,0.090,0.09,lagernd,
-Hauptplatine,SW1,1,RESET,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.540,0.54,lagernd,
-Hauptplatine,SW2,1,BOOT,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.540,0.54,lagernd,
-Hauptplatine,SW3,1,REC,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.540,0.54,lagernd,
-Hauptplatine,SW4,1,MARK,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.540,0.54,lagernd,
+Hauptplatine,SW1,1,RESET,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.530,0.53,lagernd,
+Hauptplatine,SW2,1,BOOT,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.530,0.53,lagernd,
+Hauptplatine,SW3,1,REC,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.530,0.53,lagernd,
+Hauptplatine,SW4,1,MARK,TL3342F260QG,E-Switch,EG5470CT-ND,164956,0.530,0.53,lagernd,
 Hauptplatine,TP1,1,UART0_TX,,,,,,,offen,
 Hauptplatine,TP2,1,UART0_RX,,,,,,,offen,
-Hauptplatine,U1,1,LM5164DDA,LM5164DDAT,Texas Instruments,296-53428-1-ND,8403,4.700,4.70,Ersatz,"Ersatz fuer LM5164DDAR: gleicher Baustein, nur kleinere Rolle - die grosse Rolle ist leer"
+Hauptplatine,U1,1,LM5164DDA,LM5164DDAT,Texas Instruments,296-53428-1-ND,8347,4.600,4.60,Ersatz,"Ersatz fuer LM5164DDAR: gleicher Baustein, nur kleinere Rolle - die grosse Rolle ist leer"
 Hauptplatine,U2,1,NCP1117ST33,NCP1117ST33T3G,onsemi,NCP1117ST33T3GOSCT-ND,15015,0.530,0.53,Ersatz,"Ersatz fuer TLV1117LV33DCYR: TLV1117LV komplett leer; NCP1117 SOT-223, gleiche Belegung, 1 A, Abfall 1,2 V bei 4,6 V Eingang noch ausreichend"
-Hauptplatine,U3,1,LP5907MFX-3.3,LP5907MFX-3.3/NOPB,Texas Instruments,296-38557-1-ND,192417,0.580,0.58,Ersatz,"Ersatz fuer TPS7A2033PDBVR: TPS7A2033 in SOT-23-5 leer; LP5907 gleiche Belegung, 6,5 uVrms Rauschen - passt zur Analogversorgung des ADC"
-Hauptplatine,U5,1,PCM1863DBT,PCM1863DBTR,Texas Instruments,296-47817-1-ND,21,4.060,4.06,lagernd,
-Hauptplatine,U6,1,ESP32-S3-WROOM-1-N8R2,ESP32-S3-WROOM-1-N8R2,Espressif Systems,5407-ESP32-S3-WROOM-1-N8R2CT-ND,16,5.030,5.03,lagernd,
-Hauptplatine,U7,1,DS3231SN,DS3231SN#,Analog Devices Inc./Maxim Integrated,DS3231SN#-ND,3692,16.410,16.41,lagernd,
-Hauptplatine,U8,1,SN65HVD230Q,SN65HVD230QDG4Q1,Texas Instruments,296-23353-5-ND,126,3.550,3.55,Ersatz,"Ersatz fuer SN65HVD230DR: gleicher Baustein in Automotive-Qualifizierung, mit Flankensteuerung an Rs wie im Schaltplan"
-Hauptplatine,Y1,1,24.576MHz,ASEMB-24.576MHZ-LC-T,Abracon LLC,535-11749-1-ND,8892,2.780,2.78,Ersatz,"Ersatz fuer ASE-24.576MHZ-ET: ASE-Reihe leer; ASEMB gleiches Gehaeuse 3,2 x 2,5 mm, gleiche Belegung, 1,8-3,3 V"
-Mikrofonkopf,"C1,C4",2,10u/16V,GRM21BR61E106MA73L,Murata Electronics,490-10748-1-ND,144344,0.150,0.30,lagernd,
-Mikrofonkopf,"C3,C7",2,1u/16V,CL10A105KA8NFNC,Samsung Electro-Mechanics,1276-1859-1-ND,325027,0.090,0.18,lagernd,
+Hauptplatine,U3,1,LP5907MFX-3.3,LP5907MFX-3.3/NOPB,Texas Instruments,296-38557-1-ND,192006,0.570,0.57,Ersatz,"Ersatz fuer TPS7A2033PDBVR: TPS7A2033 in SOT-23-5 leer; LP5907 gleiche Belegung, 6,5 uVrms Rauschen - passt zur Analogversorgung des ADC"
+Hauptplatine,U5,1,PCM1863DBT,PCM1863QDBTRQ1,Texas Instruments,296-50383-1-ND,2932,4.940,4.94,Ersatz,"Ersatz fuer PCM1863DBTR: die Standardversion ist leer; gleicher Baustein in Automotive-Qualifizierung, gleiches 30-TSSOP - auf einem Motorrad ohnehin die passendere Wahl"
+Hauptplatine,U6,1,ESP32-S3-WROOM-1-N8R2,ESP32-S3-WROOM-1-N8R2,Espressif Systems,5407-ESP32-S3-WROOM-1-N8R2CT-ND,13,5.030,5.03,lagernd,
+Hauptplatine,U7,1,DS3231SN,DS3231SN#,Analog Devices Inc./Maxim Integrated,DS3231SN#-ND,2992,16.070,16.07,lagernd,
+Hauptplatine,U8,1,SN65HVD230Q,SN65HVD230QDG4Q1,Texas Instruments,296-23353-5-ND,126,3.480,3.48,Ersatz,"Ersatz fuer SN65HVD230DR: gleicher Baustein in Automotive-Qualifizierung, mit Flankensteuerung an Rs wie im Schaltplan"
+Hauptplatine,Y1,1,24.576MHz,ASEMB-24.576MHZ-LC-T,Abracon LLC,535-11749-1-ND,8892,2.720,2.72,Ersatz,"Ersatz fuer ASE-24.576MHZ-ET: ASE-Reihe leer; ASEMB gleiches Gehaeuse 3,2 x 2,5 mm, gleiche Belegung, 1,8-3,3 V"
+Mikrofonkopf,"C1,C4",2,10u/16V,GRM21BR61E106MA73L,Murata Electronics,490-10748-1-ND,62564,0.150,0.30,lagernd,
+Mikrofonkopf,"C3,C7",2,1u/16V,CL10A105KA8NFNC,Samsung Electro-Mechanics,1276-1859-1-ND,324997,0.090,0.18,lagernd,
 Mikrofonkopf,"C5,C6",2,100n,0603B104K250CT,Walsin Technology Corporation,1292-1642-1-ND,5171633,0.090,0.18,lagernd,
 Mikrofonkopf,FB1,1,600R@100MHz,BLM18AG601SN1D,Murata Electronics,490-1014-1-ND,1771202,0.090,0.09,lagernd,
 Mikrofonkopf,J1,1,Loetpads_Kabel_5x,-,,,,,,offen,
 Mikrofonkopf,MK1,1,IM73A135V01,IM73A135V01XTSA1,,,,,,offen,nicht lagernd
-Mikrofonkopf,"R1,R2",2,100R,CRCW0603100RFKEA,Vishay Dale,541-100HCT-ND,1807305,0.090,0.18,lagernd,
-Mikrofonkopf,R3,1,47k,RC0603FR-0747KL,YAGEO,311-47.0KHRCT-ND,2145201,0.090,0.09,lagernd,
-Mikrofonkopf,U1,1,TPS7A2028,TPS7A2028PDBVR,Texas Instruments,296-TPS7A2028PDBVRCT-ND,2630,0.310,0.31,lagernd,
-Mikrofonkopf,U2,1,OPA2325,OPA2325ID,Texas Instruments,296-45120-5-ND,16,2.650,2.65,Ersatz,"Ersatz fuer OPA2325AIDR: die Nummer im Schaltplan gibt es nicht; OPA2325ID ist der SOIC-8-Typ, nur 16 Stueck am Lager"
+Mikrofonkopf,"R1,R2",2,100R,CRCW0603100RFKEA,Vishay Dale,541-100HCT-ND,2085520,0.090,0.18,lagernd,
+Mikrofonkopf,R3,1,47k,RC0603FR-0747KL,YAGEO,311-47.0KHRCT-ND,2138032,0.090,0.09,lagernd,
+Mikrofonkopf,U1,1,TPS7A2028,LP5907MFX-2.8/NOPB,Texas Instruments,296-39063-1-ND,77694,0.530,0.53,Ersatz,"Ersatz fuer TPS7A2028PDBVR: TPS7A2028 leer; LP5907 gleiche Belegung in SOT-23-5, 2,8 V, 6,5 uVrms - passt zur Mikrofonversorgung"
+Mikrofonkopf,U2,1,OPA2325,OPA2325ID,Texas Instruments,296-45120-5-ND,16,2.590,2.59,Ersatz,"Ersatz fuer OPA2325AIDR: die Nummer im Schaltplan gibt es nicht; OPA2325ID ist der SOIC-8-Typ, nur 16 Stueck am Lager"

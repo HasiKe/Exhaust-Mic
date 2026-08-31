@@ -2618,7 +2618,7 @@
 				)
 			)
 		)
-		(property "Value" "TPS7A2028"
+		(property "Value" "LP5907MFX-2.8"
 			(at 0 2.4 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2652,7 +2652,7 @@
 				)
 			)
 		)
-		(property "MPN" "TPS7A2028PDBVR"
+		(property "MPN" "LP5907MFX-2.8/NOPB"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2676,7 +2676,7 @@
 				)
 			)
 		)
-		(property "DigiKey" "296-TPS7A2028PDBVRCT-ND"
+		(property "DigiKey" "296-39063-1-ND"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2685,6 +2685,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "Hinweis" "Ersatz fuer TPS7A2028PDBVR: TPS7A2028 leer; LP5907 gleiche Belegung in SOT-23-5, 2,8 V, 6,5 uVrms - passt zur Mikrofonversorgung"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3d478965-5209-4a4b-b05c-04d072f4e532")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)

@@ -23,7 +23,7 @@ Menge,Referenzen,Wert,Footprint,MPN,Hersteller,DigiKey,Hinweis,Bestueckung
 1,J1,JST_XH_6pol,JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal,S6B-XH-A,JST Sales America Inc.,455-S6B-XH-A-ND,Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH,ja
 1,J2,JST_XH_5pol_MicA,JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal,S5B-XH-A,JST Sales America Inc.,455-S5B-XH-A-ND,Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH,ja
 1,J3,JST_XH_5pol_MicB,JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal,S5B-XH-A,JST Sales America Inc.,455-S5B-XH-A-ND,Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH,ja
-1,J4,USB-C,USB_C_Receptacle_XKB_U262-16XN-4BVC11,,,,,ja
+1,J4,USB-C,USB_C_Receptacle_GCT_USB4085,USB4085-GF-A,GCT,2073-USB4085-GF-ACT-ND,durchkontaktiert statt SMD; den XKB-Typ zum vorherigen Footprint fuehrt DigiKey nicht,ja
 1,J5,microSD_PushPush,microSD_HC_Hirose_DM3D-SF,DM3D-SF,Hirose Electric Co Ltd,HR1941CT-ND,,ja
 1,J6,GPS_unbestueckt,PinHeader_1x05_P2.54mm_Vertical,PREC005SAAN-RC,Sullins Connector Solutions,35-PREC005SAAN-RC-ND,,ja
 1,J7,I2C_Erweiterung,PinHeader_1x04_P2.54mm_Vertical,PREC004SAAN-RC,Sullins Connector Solutions,35-PREC004SAAN-RC-ND,,ja
@@ -59,7 +59,7 @@ Menge,Referenzen,Wert,Footprint,MPN,Hersteller,DigiKey,Hinweis,Bestueckung
 1,U1,LM5164DDA,SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm,LM5164DDAT,Texas Instruments,296-53428-1-ND,"Ersatz fuer LM5164DDAR: gleicher Baustein, nur kleinere Rolle - die grosse Rolle ist leer",ja
 1,U2,NCP1117ST33,SOT-223-3_TabPin2,NCP1117ST33T3G,onsemi,NCP1117ST33T3GOSCT-ND,"Ersatz fuer TLV1117LV33DCYR: TLV1117LV komplett leer; NCP1117 SOT-223, gleiche Belegung, 1 A, Abfall 1,2 V bei 4,6 V Eingang noch ausreichend",ja
 1,U3,LP5907MFX-3.3,SOT-23-5,LP5907MFX-3.3/NOPB,Texas Instruments,296-38557-1-ND,"Ersatz fuer TPS7A2033PDBVR: TPS7A2033 in SOT-23-5 leer; LP5907 gleiche Belegung, 6,5 uVrms Rauschen - passt zur Analogversorgung des ADC",ja
-1,U5,PCM1863DBT,TSSOP-30_4.4x7.8mm_P0.5mm,PCM1863DBTR,Texas Instruments,296-47817-1-ND,,ja
+1,U5,PCM1863DBT,TSSOP-30_4.4x7.8mm_P0.5mm,PCM1863QDBTRQ1,Texas Instruments,296-50383-1-ND,"Ersatz fuer PCM1863DBTR: die Standardversion ist leer; gleicher Baustein in Automotive-Qualifizierung, gleiches 30-TSSOP - auf einem Motorrad ohnehin die passendere Wahl",ja
 1,U6,ESP32-S3-WROOM-1-N8R2,ESP32-S3-WROOM-1,ESP32-S3-WROOM-1-N8R2,Espressif Systems,5407-ESP32-S3-WROOM-1-N8R2CT-ND,,ja
 1,U7,DS3231SN,SOIC-16W_7.5x10.3mm_P1.27mm,DS3231SN#,Analog Devices Inc./Maxim Integrated,DS3231SN#-ND,,ja
 1,U8,SN65HVD230Q,SOIC-8_3.9x4.9mm_P1.27mm,SN65HVD230QDG4Q1,Texas Instruments,296-23353-5-ND,"Ersatz fuer SN65HVD230DR: gleicher Baustein in Automotive-Qualifizierung, mit Flankensteuerung an Rs wie im Schaltplan",optional

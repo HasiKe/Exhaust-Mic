@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/mic-head/mic-head.kicad_sch")
-		(date "2026-08-31T22:02:54")
+		(date "2026-08-31T22:30:28")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
@@ -913,16 +913,18 @@
 		)
 		(comp
 			(ref "U1")
-			(value "TPS7A2028")
+			(value "LP5907MFX-2.8")
 			(footprint "Package_TO_SOT_SMD:SOT-23-5")
 			(datasheet "https://www.ti.com/lit/ds/symlink/tps7a20.pdf")
 			(fields
 				(field
-					(name "MPN") "TPS7A2028PDBVR")
+					(name "MPN") "LP5907MFX-2.8/NOPB")
 				(field
 					(name "Hersteller") "Texas Instruments")
 				(field
-					(name "DigiKey") "296-TPS7A2028PDBVRCT-ND")
+					(name "DigiKey") "296-39063-1-ND")
+				(field
+					(name "Hinweis") "Ersatz fuer TPS7A2028PDBVR: TPS7A2028 leer; LP5907 gleiche Belegung in SOT-23-5, 2,8 V, 6,5 uVrms - passt zur Mikrofonversorgung")
 				(field
 					(name "Footprint") "Package_TO_SOT_SMD:SOT-23-5")
 				(field
@@ -938,7 +940,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "TPS7A2028PDBVR")
+				(value "LP5907MFX-2.8/NOPB")
 			)
 			(property
 				(name "Hersteller")
@@ -946,7 +948,11 @@
 			)
 			(property
 				(name "DigiKey")
-				(value "296-TPS7A2028PDBVRCT-ND")
+				(value "296-39063-1-ND")
+			)
+			(property
+				(name "Hinweis")
+				(value "Ersatz fuer TPS7A2028PDBVR: TPS7A2028 leer; LP5907 gleiche Belegung in SOT-23-5, 2,8 V, 6,5 uVrms - passt zur Mikrofonversorgung")
 			)
 			(property
 				(name "Sheetname")

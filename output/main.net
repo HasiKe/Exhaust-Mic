@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/exhaust-mic.kicad_sch")
-		(date "2026-08-31T22:02:54")
+		(date "2026-08-31T22:30:27")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
@@ -5835,11 +5835,13 @@
 			(datasheet "https://www.ti.com/lit/ds/symlink/pcm1863.pdf")
 			(fields
 				(field
-					(name "MPN") "PCM1863DBTR")
+					(name "MPN") "PCM1863QDBTRQ1")
 				(field
 					(name "Hersteller") "Texas Instruments")
 				(field
-					(name "DigiKey") "296-47817-1-ND")
+					(name "DigiKey") "296-50383-1-ND")
+				(field
+					(name "Hinweis") "Ersatz fuer PCM1863DBTR: die Standardversion ist leer; gleicher Baustein in Automotive-Qualifizierung, gleiches 30-TSSOP - auf einem Motorrad ohnehin die passendere Wahl")
 				(field
 					(name "Footprint") "exhaust-mic:TSSOP-30_4.4x7.8mm_P0.5mm")
 				(field
@@ -5855,7 +5857,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "PCM1863DBTR")
+				(value "PCM1863QDBTRQ1")
 			)
 			(property
 				(name "Hersteller")
@@ -5863,7 +5865,11 @@
 			)
 			(property
 				(name "DigiKey")
-				(value "296-47817-1-ND")
+				(value "296-50383-1-ND")
+			)
+			(property
+				(name "Hinweis")
+				(value "Ersatz fuer PCM1863DBTR: die Standardversion ist leer; gleicher Baustein in Automotive-Qualifizierung, gleiches 30-TSSOP - auf einem Motorrad ohnehin die passendere Wahl")
 			)
 			(property
 				(name "Sheetname")
@@ -6571,10 +6577,18 @@
 		(comp
 			(ref "J4")
 			(value "USB-C")
-			(footprint "Connector_USB:USB_C_Receptacle_XKB_U262-16XN-4BVC11")
+			(footprint "Connector_USB:USB_C_Receptacle_GCT_USB4085")
 			(fields
 				(field
-					(name "Footprint") "Connector_USB:USB_C_Receptacle_XKB_U262-16XN-4BVC11")
+					(name "MPN") "USB4085-GF-A")
+				(field
+					(name "Hersteller") "GCT")
+				(field
+					(name "DigiKey") "2073-USB4085-GF-ACT-ND")
+				(field
+					(name "Hinweis") "durchkontaktiert statt SMD; den XKB-Typ zum vorherigen Footprint fuehrt DigiKey nicht")
+				(field
+					(name "Footprint") "Connector_USB:USB_C_Receptacle_GCT_USB4085")
 				(field
 					(name "Datasheet")
 				)
@@ -6586,6 +6600,22 @@
 				(lib "Connector")
 				(part "USB_C_Receptacle_USB2.0_16P")
 				(description "USB 2.0-only 16P Type-C Receptacle connector")
+			)
+			(property
+				(name "MPN")
+				(value "USB4085-GF-A")
+			)
+			(property
+				(name "Hersteller")
+				(value "GCT")
+			)
+			(property
+				(name "DigiKey")
+				(value "2073-USB4085-GF-ACT-ND")
+			)
+			(property
+				(name "Hinweis")
+				(value "durchkontaktiert statt SMD; den XKB-Typ zum vorherigen Footprint fuehrt DigiKey nicht")
 			)
 			(property
 				(name "Sheetname")
