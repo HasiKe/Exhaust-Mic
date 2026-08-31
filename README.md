@@ -252,16 +252,27 @@ damit das Bauteil ändert, sind Wert und Bestellnummer mitgezogen — BT1 ist
 jetzt **CR1220** statt CR2032, also rund ein Viertel der Kapazität für die
 Uhr-Pufferung.
 
-KiCads Abgleich meldet danach noch **9 Abweichungen** auf der Hauptplatine
-und **2** auf dem Mikrofonkopf. Das sind keine Footprints mehr, sondern
-Symbole:
+Die beiden Symbolfehler sind ebenfalls behoben (`tools/fix_symbols.py`):
 
-| Position | Befund |
-|---|---|
-| U2 | Das Symbol `exhaust-mic:TLV1117LV33` hat einen Pin 4, den es am SOT-223 nicht gibt. Er liegt am selben Netz wie Pin 2, elektrisch also folgenlos — der Pin gehört aus dem Symbol heraus. |
-| J5 | Das Symbol `Connector:Micro_SD_Card_Det1` kennt keinen Schirmanschluss; auf der Platine liegt Pad 11 auf GND. Richtig wäre ein Symbol mit Schirmpin. |
-| H1–H4, H1–H2 | Befestigungsbohrungen ohne Symbol im Schaltplan — Absicht. |
+* **U2** trug ein Symbol mit vier Pins. Das SOT-223 hat drei Anschlüsse und
+  eine Kühlfahne, die innen an Pin 2 hängt — Pin 4 gab es nie. Er lag am
+  selben Netz wie Pin 2, elektrisch also folgenlos, und ist samt seiner
+  beiden Drähte und dem Verbindungspunkt heraus. Damit ist auch der
+  ERC-Fehler „Stromausgang gegen Stromausgang" weg.
+* **J5** verwendete `Micro_SD_Card_Det1`. Dieses Symbol kennt einen
+  Schaltkontakt und legt den Schirm auf Pin 10. Der DM3D-SF hat zwei
+  Schaltkontakte (Pad 9 und 10) und den Schirm auf Pad 11. Jetzt steht dort
+  `Micro_SD_Card_Det2`; die gemeinsamen Pins liegen an denselben Stellen,
+  der neue Pin 10 (DET_A) ist an Masse gelegt.
 
-Beides sind Eingriffe am Symbol samt Verdrahtung, keine Footprint-Zuordnung.
+KiCads Abgleich meldet danach noch **4 Abweichungen** auf der Hauptplatine
+und **2** auf dem Mikrofonkopf — ausschließlich die Befestigungsbohrungen
+H1–H4 beziehungsweise H1–H2, die absichtlich kein Symbol im Schaltplan
+haben.
+
+Im ERC bleiben **3 Fehler**, alle derselben Art: `power_pin_not_driven` an
++4V6, an AVDD (U5 Pin 8) und an VBAT (U7 Pin 14). KiCad sieht dort keine
+speisende Quelle, weil an diesen Netzen kein `PWR_FLAG` hängt. Das ist eine
+Ergänzung im Schaltplan, keine Schaltungsänderung.
 
 Offen sind außerdem Gehäuse und Firmware.

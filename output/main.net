@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/exhaust-mic.kicad_sch")
-		(date "2026-08-31T14:59:13")
+		(date "2026-08-31T21:50:43")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
@@ -3250,9 +3250,6 @@
 						)
 						(pin
 							(num "2")
-						)
-						(pin
-							(num "4")
 						)
 					)
 				)
@@ -6692,8 +6689,8 @@
 			)
 			(libsource
 				(lib "Connector")
-				(part "Micro_SD_Card_Det1")
-				(description "Micro SD Card Socket with one card detection pin")
+				(part "Micro_SD_Card_Det2")
+				(description "Micro SD Card Socket with two card detection pins")
 			)
 			(property
 				(name "MPN")
@@ -6757,10 +6754,13 @@
 							(num "8")
 						)
 						(pin
+							(num "10")
+						)
+						(pin
 							(num "9")
 						)
 						(pin
-							(num "10")
+							(num "11")
 						)
 					)
 				)
@@ -9866,9 +9866,9 @@
 	(libparts
 		(libpart
 			(lib "Connector")
-			(part "Micro_SD_Card_Det1")
-			(description "Micro SD Card Socket with one card detection pin")
-			(docs "https://datasheet.lcsc.com/lcsc/2110151630_XKB-Connectivity-XKTF-015-N_C381082.pdf")
+			(part "Micro_SD_Card_Det2")
+			(description "Micro SD Card Socket with two card detection pins")
+			(docs "https://www.hirose.com/en/product/document?clcode=&productname=&series=DM3&documenttype=Catalog&lang=en&documentid=D49662_en")
 			(footprints
 				(fp "microSD*")
 			)
@@ -9876,14 +9876,14 @@
 				(field
 					(name "Reference") "J")
 				(field
-					(name "Value") "Micro_SD_Card_Det1")
+					(name "Value") "Micro_SD_Card_Det2")
 				(field
 					(name "Footprint")
 				)
 				(field
-					(name "Datasheet") "https://datasheet.lcsc.com/lcsc/2110151630_XKB-Connectivity-XKTF-015-N_C381082.pdf")
+					(name "Datasheet") "https://www.hirose.com/en/product/document?clcode=&productname=&series=DM3&documenttype=Catalog&lang=en&documentid=D49662_en")
 				(field
-					(name "Description") "Micro SD Card Socket with one card detection pin")
+					(name "Description") "Micro SD Card Socket with two card detection pins")
 			)
 			(pins
 				(pin
@@ -9928,11 +9928,16 @@
 				)
 				(pin
 					(num "9")
-					(name "DET")
+					(name "DET_B")
 					(type "passive")
 				)
 				(pin
 					(num "10")
+					(name "DET_A")
+					(type "passive")
+				)
+				(pin
+					(num "11")
 					(name "SHIELD")
 					(type "passive")
 				)
@@ -11422,11 +11427,6 @@
 					(name "IN")
 					(type "power_in")
 				)
-				(pin
-					(num "4")
-					(name "OUT(tab)")
-					(type "power_out")
-				)
 			)
 		)
 		(libpart
@@ -11715,12 +11715,6 @@
 				(ref "U2")
 				(pin "2")
 				(pinfunction "OUT_2")
-				(pintype "power_out")
-			)
-			(node
-				(ref "U2")
-				(pin "4")
-				(pinfunction "OUT(tab)_4")
 				(pintype "power_out")
 			)
 			(node
@@ -12465,7 +12459,13 @@
 			(node
 				(ref "J5")
 				(pin "10")
-				(pinfunction "SHIELD_10")
+				(pinfunction "DET_A_10")
+				(pintype "passive")
+			)
+			(node
+				(ref "J5")
+				(pin "11")
+				(pinfunction "SHIELD_11")
 				(pintype "passive")
 			)
 			(node
@@ -12477,7 +12477,7 @@
 			(node
 				(ref "J5")
 				(pin "9")
-				(pinfunction "DET_9")
+				(pinfunction "DET_B_9")
 				(pintype "passive")
 			)
 			(node

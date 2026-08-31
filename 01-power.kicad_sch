@@ -2441,24 +2441,6 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 15.24 0 180)
-					(length 2.54)
-					(name "OUT(tab)"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 			)
 			(embedded_fonts no)
 		)
@@ -3063,12 +3045,6 @@
 		(uuid "10b659e6-4f92-e349-efc2-9018fb24e4e8")
 	)
 	(junction
-		(at 191.77 220.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "202a2cfa-ea84-78e0-0899-114b07810b5b")
-	)
-	(junction
 		(at 316.23 220.98)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3306,16 +3282,6 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 223.52) (xy 191.77 223.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0ce71a53-e8c2-4d87-da23-55acda8dae81")
-	)
-	(wire
-		(pts
 			(xy 58.42 149.86) (xy 58.42 158.75)
 		)
 		(stroke
@@ -3473,16 +3439,6 @@
 			(type default)
 		)
 		(uuid "2dc0d0be-bb93-49a3-8453-6719fb4893a5")
-	)
-	(wire
-		(pts
-			(xy 191.77 220.98) (xy 191.77 223.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "34963b03-0012-ae63-79e7-451e03c2591f")
 	)
 	(wire
 		(pts
@@ -8830,9 +8786,6 @@
 		)
 		(pin "3"
 			(uuid "75448a23-b29b-4a86-4bf8-03bff5e427a8")
-		)
-		(pin "4"
-			(uuid "7e0ce6d2-5665-1a22-8968-7313dc36d026")
 		)
 		(instances
 			(project "exhaust-mic"
