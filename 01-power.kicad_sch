@@ -7275,7 +7275,7 @@
 				)
 			)
 		)
-		(property "Value" "Superseal_1.0_6pol"
+		(property "Value" "JST_XH_6pol"
 			(at 73.66 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7285,7 +7285,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_TE:TE_Superseal_1.0_6way"
+		(property "Footprint" "Connector_JST:JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal"
 			(at 73.66 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -7309,6 +7309,50 @@
 		)
 		(property "Description" ""
 			(at 73.66 63.5 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hinweis" "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH"
+			(at 73.66 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "S6B-XH-A"
+			(at 73.66 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "JST Sales America Inc."
+			(at 73.66 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "455-S6B-XH-A-ND"
+			(at 73.66 63.5 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

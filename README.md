@@ -226,43 +226,42 @@ den hier verwendeten Werkzeugen an engen Stellen deutlich überlegen. Vor der
 Fertigung müssen sie geschlossen sein.
 
 Beschaffung: von 75 Stücklistenpositionen brauchen drei kein Bauteil (TP1,
-TP2, Lötpads am Mikrofonkopf), 67 haben eine bei DigiKey lagernde
+TP2, Lötpads am Mikrofonkopf), 70 haben eine bei DigiKey lagernde
 Herstellernummer — Stand 31.08.2026, siehe `output/beschaffung-digikey.csv`;
-rund 62 EUR Bauteilkosten für die Hauptplatine und 4 EUR für den
+rund 64 EUR Bauteilkosten für die Hauptplatine und 4 EUR für den
 Mikrofonkopf. Neun Positionen mussten auf einen gleichwertigen Ersatz
-ausweichen, weil der eingetragene Typ leer war — der Grund steht jeweils im
-Feld `Hinweis` des Bauteils. Bei vier davon wurde auch der `Value` im Plan
-nachgezogen (U2 → NCP1117ST33, U3 → LP5907MFX-3.3, U8 → SN65HVD230Q,
-Q1 → SI2309CDS); die übrigen fünf tragen Typbezeichnungen, die für den
-Ersatztyp weiter gelten. Fünf Positionen sind offen:
+ausweichen, weil der eingetragene Typ leer war; bei vier davon wurde auch
+der `Value` nachgezogen (U2 → NCP1117ST33, U3 → LP5907MFX-3.3,
+U8 → SN65HVD230Q, Q1 → SI2309CDS). Der Grund steht jeweils im Feld
+`Hinweis` des Bauteils und damit auch in der Stückliste. Zwei Positionen
+sind offen:
 
 | Position | Grund |
 |---|---|
-| J1, J2, J3 | DigiKey führt Superseal 1.0 nur kabelseitig, keine Platinenversion in 5- und 6-polig |
 | J4 | den XKB-Typ zum Footprint `USB_C_Receptacle_XKB_U262-16XN-4BVC11` führt DigiKey nicht |
 | MK1 | IM73A135V01XTSA1 ist aktiv, aber bei DigiKey ohne Bestand; ein Ersatz mit gleichem Gehäuse und Schallöffnung von unten existiert nicht |
 
 ### Schaltplan gegen Platine
 
-KiCads Abgleich meldet auf der Hauptplatine **18 Abweichungen**, auf dem
-Mikrofonkopf **2**. Sie stammen nicht aus der Beschaffung, sondern daher,
-dass die Schaltplandateien auf der Platte älter sind als das Layout:
+Die Footprints im Schaltplan sind auf den Stand des Layouts gezogen: U5 auf
+`TSSOP-30_4.4x7.8mm_P0.5mm` (so steht es im Datenblatt), U6 auf das
+S3-Modul, L2/L3 auf `L_CommonMode_Wuerth_WE-SL2`, J1–J3 auf JST XH
+(Superseal 1.0 sitzt im Kabelbaum, es gibt sie nicht als Platinenversion),
+BT1 auf den 12-mm-Halter und LS1 auf den 9 × 9 mm großen SMD-Piezo. Wo sich
+damit das Bauteil ändert, sind Wert und Bestellnummer mitgezogen — BT1 ist
+jetzt **CR1220** statt CR2032, also rund ein Viertel der Kapazität für die
+Uhr-Pufferung.
 
-| Position | Schaltplan | Platine |
-|---|---|---|
-| J1, J2, J3 | Superseal 1.0 direkt auf der Platine | JST XH, Superseal sitzt im Kabelbaum |
-| U5 | `TSSOP-30_4.4x9.7mm_P0.65mm` | `TSSOP-30_4.4x7.8mm_P0.5mm` (so steht es im Datenblatt) |
-| U6 | `RF_Module:ESP32-S2-WROOM` | Footprint des S3-Moduls |
-| BT1 | Keystone 3034 / CR2032 | Keystone 3000 / CR1220 |
-| LS1 | Piezo bedrahtet 12 × 9,5 mm | Murata PKMCS0909E, SMD |
-| L2, L3 | Wüerth WE-SL2 | Footprint auf der Platine abweichend |
-| U2 | Pin 4 am SOT-223 | auf der Platine nicht vorhanden |
-| J5 Pad 11 | – | Schirm auf GND |
-| H1–H4 | – | Befestigungsbohrungen, absichtlich ohne Symbol |
+KiCads Abgleich meldet danach noch **9 Abweichungen** auf der Hauptplatine
+und **2** auf dem Mikrofonkopf. Das sind keine Footprints mehr, sondern
+Symbole:
 
-Das Layout ist an diesen Stellen das Richtige — die Bauteile im Schaltplan
-sind so nicht baubar. Wer den Schaltplan als Quelle behalten will, muss die
-Footprints dort nachziehen; sonst überschreibt der nächste Import aus dem
-Schaltplan das Layout.
+| Position | Befund |
+|---|---|
+| U2 | Das Symbol `exhaust-mic:TLV1117LV33` hat einen Pin 4, den es am SOT-223 nicht gibt. Er liegt am selben Netz wie Pin 2, elektrisch also folgenlos — der Pin gehört aus dem Symbol heraus. |
+| J5 | Das Symbol `Connector:Micro_SD_Card_Det1` kennt keinen Schirmanschluss; auf der Platine liegt Pad 11 auf GND. Richtig wäre ein Symbol mit Schirmpin. |
+| H1–H4, H1–H2 | Befestigungsbohrungen ohne Symbol im Schaltplan — Absicht. |
+
+Beides sind Eingriffe am Symbol samt Verdrahtung, keine Footprint-Zuordnung.
 
 Offen sind außerdem Gehäuse und Firmware.

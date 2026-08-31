@@ -5520,7 +5520,7 @@
 				)
 			)
 		)
-		(property "Footprint" "RF_Module:ESP32-S2-WROOM"
+		(property "Footprint" "RF_Module:ESP32-S3-WROOM-1"
 			(at 165.1 144.78 0)
 			(hide yes)
 			(show_name no)

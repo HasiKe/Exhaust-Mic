@@ -4550,7 +4550,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Piezo"
+		(property "Value" "Piezo_9x9_SMD"
 			(at 322.58 203.835 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4561,7 +4561,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Buzzer_Beeper:Buzzer_12x9.5RM7.6"
+		(property "Footprint" "Buzzer_Beeper:Buzzer_Murata_PKMCS0909E"
 			(at 317.5 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -4593,7 +4593,7 @@
 				)
 			)
 		)
-		(property "MPN" "AT-1240-TT"
+		(property "MPN" "CPT-9019A-SMT-TR"
 			(at 317.5 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -4604,7 +4604,7 @@
 				)
 			)
 		)
-		(property "Hersteller" "PUI Audio, Inc."
+		(property "Hersteller" "Same Sky (Formerly CUI Devices)"
 			(at 317.5 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -4615,7 +4615,18 @@
 				)
 			)
 		)
-		(property "DigiKey" "668-AT-1240-TT-ND"
+		(property "DigiKey" "2223-CPT-9019A-SMT-TRCT-ND"
+			(at 317.5 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hinweis" "Landmuster aus der Murata-Bibliothek; Murata PKMCS0909E ist abgekuendigt und nur fuer 1,5 V, darum ein 3-V-Typ gleicher Bauform - Landmuster gegen Datenblatt pruefen"
 			(at 317.5 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -6218,7 +6229,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CR2032"
+		(property "Value" "CR1220"
 			(at 142.24 70.485 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6229,7 +6240,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Battery:BatteryHolder_Keystone_3034_1x20mm"
+		(property "Footprint" "Battery:BatteryHolder_Keystone_3000_1x12mm"
 			(at 139.7 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -6261,7 +6272,7 @@
 				)
 			)
 		)
-		(property "MPN" "3034TR"
+		(property "MPN" "3000TR"
 			(at 139.7 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -6283,7 +6294,18 @@
 				)
 			)
 		)
-		(property "DigiKey" "36-3034CT-ND"
+		(property "DigiKey" "36-3000CT-ND"
+			(at 139.7 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hinweis" "Layout traegt den 12-mm-Halter; CR1220 hat rund ein Viertel der Kapazitaet von CR2032"
 			(at 139.7 68.58 0)
 			(hide yes)
 			(show_name no)

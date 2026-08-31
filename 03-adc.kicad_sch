@@ -2977,7 +2977,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:TSSOP-30_4.4x9.7mm_P0.65mm"
+		(property "Footprint" "exhaust-mic:TSSOP-30_4.4x7.8mm_P0.5mm"
 			(at 190.5 150 0)
 			(hide yes)
 			(show_name no)

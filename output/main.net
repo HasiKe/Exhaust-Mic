@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/exhaust-mic.kicad_sch")
-		(date "2026-08-31T14:45:04")
+		(date "2026-08-31T14:59:13")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
@@ -2048,11 +2048,19 @@
 		)
 		(comp
 			(ref "J1")
-			(value "Superseal_1.0_6pol")
-			(footprint "Connector_TE:TE_Superseal_1.0_6way")
+			(value "JST_XH_6pol")
+			(footprint "Connector_JST:JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal")
 			(fields
 				(field
-					(name "Footprint") "Connector_TE:TE_Superseal_1.0_6way")
+					(name "Hinweis") "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH")
+				(field
+					(name "MPN") "S6B-XH-A")
+				(field
+					(name "Hersteller") "JST Sales America Inc.")
+				(field
+					(name "DigiKey") "455-S6B-XH-A-ND")
+				(field
+					(name "Footprint") "Connector_JST:JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal")
 				(field
 					(name "Datasheet")
 				)
@@ -2064,6 +2072,22 @@
 				(lib "Connector_Generic")
 				(part "Conn_01x06")
 				(description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Hinweis")
+				(value "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH")
+			)
+			(property
+				(name "MPN")
+				(value "S6B-XH-A")
+			)
+			(property
+				(name "Hersteller")
+				(value "JST Sales America Inc.")
+			)
+			(property
+				(name "DigiKey")
+				(value "455-S6B-XH-A-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -4471,11 +4495,19 @@
 		)
 		(comp
 			(ref "J2")
-			(value "Superseal_1.0_5pol_MicA")
-			(footprint "Connector_TE:TE_Superseal_1.0_5way")
+			(value "JST_XH_5pol_MicA")
+			(footprint "Connector_JST:JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal")
 			(fields
 				(field
-					(name "Footprint") "Connector_TE:TE_Superseal_1.0_5way")
+					(name "Hinweis") "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH")
+				(field
+					(name "MPN") "S5B-XH-A")
+				(field
+					(name "Hersteller") "JST Sales America Inc.")
+				(field
+					(name "DigiKey") "455-S5B-XH-A-ND")
+				(field
+					(name "Footprint") "Connector_JST:JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal")
 				(field
 					(name "Datasheet")
 				)
@@ -4487,6 +4519,22 @@
 				(lib "Connector_Generic")
 				(part "Conn_01x05")
 				(description "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Hinweis")
+				(value "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH")
+			)
+			(property
+				(name "MPN")
+				(value "S5B-XH-A")
+			)
+			(property
+				(name "Hersteller")
+				(value "JST Sales America Inc.")
+			)
+			(property
+				(name "DigiKey")
+				(value "455-S5B-XH-A-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -4534,11 +4582,19 @@
 		)
 		(comp
 			(ref "J3")
-			(value "Superseal_1.0_5pol_MicB")
-			(footprint "Connector_TE:TE_Superseal_1.0_5way")
+			(value "JST_XH_5pol_MicB")
+			(footprint "Connector_JST:JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal")
 			(fields
 				(field
-					(name "Footprint") "Connector_TE:TE_Superseal_1.0_5way")
+					(name "Hinweis") "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH")
+				(field
+					(name "MPN") "S5B-XH-A")
+				(field
+					(name "Hersteller") "JST Sales America Inc.")
+				(field
+					(name "DigiKey") "455-S5B-XH-A-ND")
+				(field
+					(name "Footprint") "Connector_JST:JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal")
 				(field
 					(name "Datasheet")
 				)
@@ -4550,6 +4606,22 @@
 				(lib "Connector_Generic")
 				(part "Conn_01x05")
 				(description "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Hinweis")
+				(value "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH")
+			)
+			(property
+				(name "MPN")
+				(value "S5B-XH-A")
+			)
+			(property
+				(name "Hersteller")
+				(value "JST Sales America Inc.")
+			)
+			(property
+				(name "DigiKey")
+				(value "455-S5B-XH-A-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -4598,7 +4670,7 @@
 		(comp
 			(ref "L2")
 			(value "1mH_CMC")
-			(footprint "Inductor_SMD:L_CommonModeChoke_Wuerth_WE-SL2")
+			(footprint "Inductor_SMD:L_CommonMode_Wuerth_WE-SL2")
 			(fields
 				(field
 					(name "MPN") "744232222")
@@ -4607,7 +4679,7 @@
 				(field
 					(name "DigiKey") "732-1474-1-ND")
 				(field
-					(name "Footprint") "Inductor_SMD:L_CommonModeChoke_Wuerth_WE-SL2")
+					(name "Footprint") "Inductor_SMD:L_CommonMode_Wuerth_WE-SL2")
 				(field
 					(name "Datasheet")
 				)
@@ -4676,7 +4748,7 @@
 		(comp
 			(ref "L3")
 			(value "1mH_CMC")
-			(footprint "Inductor_SMD:L_CommonModeChoke_Wuerth_WE-SL2")
+			(footprint "Inductor_SMD:L_CommonMode_Wuerth_WE-SL2")
 			(fields
 				(field
 					(name "MPN") "744232222")
@@ -4685,7 +4757,7 @@
 				(field
 					(name "DigiKey") "732-1474-1-ND")
 				(field
-					(name "Footprint") "Inductor_SMD:L_CommonModeChoke_Wuerth_WE-SL2")
+					(name "Footprint") "Inductor_SMD:L_CommonMode_Wuerth_WE-SL2")
 				(field
 					(name "Datasheet")
 				)
@@ -5762,7 +5834,7 @@
 		(comp
 			(ref "U5")
 			(value "PCM1863DBT")
-			(footprint "Package_SO:TSSOP-30_4.4x9.7mm_P0.65mm")
+			(footprint "exhaust-mic:TSSOP-30_4.4x7.8mm_P0.5mm")
 			(datasheet "https://www.ti.com/lit/ds/symlink/pcm1863.pdf")
 			(fields
 				(field
@@ -5772,7 +5844,7 @@
 				(field
 					(name "DigiKey") "296-47817-1-ND")
 				(field
-					(name "Footprint") "Package_SO:TSSOP-30_4.4x9.7mm_P0.65mm")
+					(name "Footprint") "exhaust-mic:TSSOP-30_4.4x7.8mm_P0.5mm")
 				(field
 					(name "Datasheet") "https://www.ti.com/lit/ds/symlink/pcm1863.pdf")
 				(field
@@ -7121,7 +7193,7 @@
 		(comp
 			(ref "U6")
 			(value "ESP32-S3-WROOM-1-N8R2")
-			(footprint "RF_Module:ESP32-S2-WROOM")
+			(footprint "RF_Module:ESP32-S3-WROOM-1")
 			(fields
 				(field
 					(name "MPN") "ESP32-S3-WROOM-1-N8R2")
@@ -7132,7 +7204,7 @@
 				(field
 					(name "DigiKey") "5407-ESP32-S3-WROOM-1-N8R2CT-ND")
 				(field
-					(name "Footprint") "RF_Module:ESP32-S2-WROOM")
+					(name "Footprint") "RF_Module:ESP32-S3-WROOM-1")
 				(field
 					(name "Datasheet")
 				)
@@ -7315,17 +7387,19 @@
 		)
 		(comp
 			(ref "BT1")
-			(value "CR2032")
-			(footprint "Battery:BatteryHolder_Keystone_3034_1x20mm")
+			(value "CR1220")
+			(footprint "Battery:BatteryHolder_Keystone_3000_1x12mm")
 			(fields
 				(field
-					(name "MPN") "3034TR")
+					(name "MPN") "3000TR")
 				(field
 					(name "Hersteller") "Keystone Electronics")
 				(field
-					(name "DigiKey") "36-3034CT-ND")
+					(name "DigiKey") "36-3000CT-ND")
 				(field
-					(name "Footprint") "Battery:BatteryHolder_Keystone_3034_1x20mm")
+					(name "Hinweis") "Layout traegt den 12-mm-Halter; CR1220 hat rund ein Viertel der Kapazitaet von CR2032")
+				(field
+					(name "Footprint") "Battery:BatteryHolder_Keystone_3000_1x12mm")
 				(field
 					(name "Datasheet")
 				)
@@ -7340,7 +7414,7 @@
 			)
 			(property
 				(name "MPN")
-				(value "3034TR")
+				(value "3000TR")
 			)
 			(property
 				(name "Hersteller")
@@ -7348,7 +7422,11 @@
 			)
 			(property
 				(name "DigiKey")
-				(value "36-3034CT-ND")
+				(value "36-3000CT-ND")
+			)
+			(property
+				(name "Hinweis")
+				(value "Layout traegt den 12-mm-Halter; CR1220 hat rund ein Viertel der Kapazitaet von CR2032")
 			)
 			(property
 				(name "Sheetname")
@@ -7977,17 +8055,19 @@
 		)
 		(comp
 			(ref "LS1")
-			(value "Piezo")
-			(footprint "Buzzer_Beeper:Buzzer_12x9.5RM7.6")
+			(value "Piezo_9x9_SMD")
+			(footprint "Buzzer_Beeper:Buzzer_Murata_PKMCS0909E")
 			(fields
 				(field
-					(name "MPN") "AT-1240-TT")
+					(name "MPN") "CPT-9019A-SMT-TR")
 				(field
-					(name "Hersteller") "PUI Audio, Inc.")
+					(name "Hersteller") "Same Sky (Formerly CUI Devices)")
 				(field
-					(name "DigiKey") "668-AT-1240-TT-ND")
+					(name "DigiKey") "2223-CPT-9019A-SMT-TRCT-ND")
 				(field
-					(name "Footprint") "Buzzer_Beeper:Buzzer_12x9.5RM7.6")
+					(name "Hinweis") "Landmuster aus der Murata-Bibliothek; Murata PKMCS0909E ist abgekuendigt und nur fuer 1,5 V, darum ein 3-V-Typ gleicher Bauform - Landmuster gegen Datenblatt pruefen")
+				(field
+					(name "Footprint") "Buzzer_Beeper:Buzzer_Murata_PKMCS0909E")
 				(field
 					(name "Datasheet")
 				)
@@ -8002,15 +8082,19 @@
 			)
 			(property
 				(name "MPN")
-				(value "AT-1240-TT")
+				(value "CPT-9019A-SMT-TR")
 			)
 			(property
 				(name "Hersteller")
-				(value "PUI Audio, Inc.")
+				(value "Same Sky (Formerly CUI Devices)")
 			)
 			(property
 				(name "DigiKey")
-				(value "668-AT-1240-TT-ND")
+				(value "2223-CPT-9019A-SMT-TRCT-ND")
+			)
+			(property
+				(name "Hinweis")
+				(value "Landmuster aus der Murata-Bibliothek; Murata PKMCS0909E ist abgekuendigt und nur fuer 1,5 V, darum ein 3-V-Typ gleicher Bauform - Landmuster gegen Datenblatt pruefen")
 			)
 			(property
 				(name "Sheetname")

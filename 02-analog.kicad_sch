@@ -4163,7 +4163,7 @@
 				)
 			)
 		)
-		(property "Value" "Superseal_1.0_5pol_MicA"
+		(property "Value" "JST_XH_5pol_MicA"
 			(at 44.7 82.55 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4173,7 +4173,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_TE:TE_Superseal_1.0_5way"
+		(property "Footprint" "Connector_JST:JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal"
 			(at 44.7 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -4197,6 +4197,50 @@
 		)
 		(property "Description" ""
 			(at 44.7 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hinweis" "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH"
+			(at 44.7 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "S5B-XH-A"
+			(at 44.7 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "JST Sales America Inc."
+			(at 44.7 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "455-S5B-XH-A-ND"
+			(at 44.7 73.66 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4260,7 +4304,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_CommonModeChoke_Wuerth_WE-SL2"
+		(property "Footprint" "Inductor_SMD:L_CommonMode_Wuerth_WE-SL2"
 			(at 228.6 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -4864,7 +4908,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_CommonModeChoke_Wuerth_WE-SL2"
+		(property "Footprint" "Inductor_SMD:L_CommonMode_Wuerth_WE-SL2"
 			(at 228.9 203.2 0)
 			(hide yes)
 			(show_name no)
@@ -6173,7 +6217,7 @@
 				)
 			)
 		)
-		(property "Value" "Superseal_1.0_5pol_MicB"
+		(property "Value" "JST_XH_5pol_MicB"
 			(at 44.45 208.28 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6183,7 +6227,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_TE:TE_Superseal_1.0_5way"
+		(property "Footprint" "Connector_JST:JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal"
 			(at 44.45 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -6207,6 +6251,50 @@
 		)
 		(property "Description" ""
 			(at 44.45 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hinweis" "Superseal 1.0 sitzt im Kabelbaum; auf der Platine JST XH"
+			(at 44.45 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "S5B-XH-A"
+			(at 44.45 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "JST Sales America Inc."
+			(at 44.45 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "455-S5B-XH-A-ND"
+			(at 44.45 199.39 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
