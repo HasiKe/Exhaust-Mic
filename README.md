@@ -216,6 +216,8 @@ Kabelverschraubungen. Zwei Punkte sind dabei bindend:
 | Offene Verbindungen | **0** | **7** |
 | DRC-Fehler | **0** | **0** |
 | DRC-Warnungen | 0 | 10 |
+| ERC-Fehler | **0** | **0** |
+| Schaltplanparität | 2 (Bohrungen) | 4 (Bohrungen) |
 
 Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **7 Verbindungen
 offen** — überwiegend Massefläche-Stücke auf der Rückseite, die durch die
@@ -270,9 +272,14 @@ und **2** auf dem Mikrofonkopf — ausschließlich die Befestigungsbohrungen
 H1–H4 beziehungsweise H1–H2, die absichtlich kein Symbol im Schaltplan
 haben.
 
-Im ERC bleiben **3 Fehler**, alle derselben Art: `power_pin_not_driven` an
-+4V6, an AVDD (U5 Pin 8) und an VBAT (U7 Pin 14). KiCad sieht dort keine
-speisende Quelle, weil an diesen Netzen kein `PWR_FLAG` hängt. Das ist eine
-Ergänzung im Schaltplan, keine Schaltungsänderung.
+Die fehlenden `PWR_FLAG` sind gesetzt (`tools/add_pwr_flags.py`): an **+4V6**,
+an **AVDD** (U5 Pin 8) und an **VBAT** (U7 Pin 14) auf der Hauptplatine, am
+Reglereingang und an Masse beim Mikrofonkopf. KiCad prüft, ob jedes
+Versorgungsnetz von einem Ausgang gespeist wird; diese fünf Netze kommen aus
+einer Ferritperle, aus der Knopfzelle oder über das Kabel herein, also aus
+etwas, das KiCad nicht als Quelle erkennt. Das Flag sagt dem ERC, dass das
+Absicht ist — an der Schaltung ändert es nichts.
+
+**ERC ist damit auf beiden Platinen fehlerfrei.**
 
 Offen sind außerdem Gehäuse und Firmware.
