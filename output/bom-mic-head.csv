@@ -3,10 +3,9 @@ Menge,Referenzen,Wert,Footprint,MPN,Bestueckung
 2,C3 C7,1u/16V,C_0603_1608Metric,,ja
 2,C5 C6,100n,C_0603_1608Metric,,ja
 1,FB1,600R@100MHz,R_0603_1608Metric,,ja
-1,J1,Superseal_1.0_5pol,TE_Superseal_1.0_5way,TE 282108-1,ja
-1,MK1,IM73A135V01,Infineon_PG-LLGA-5-1_4x3mm_BottomPort,IM73A135V01XTSA1,ja
+1,J1,Loetpads_Kabel_5x,SolderWire-0.25sqmm_1x05_P4.2mm_D0.65mm_OD1.7mm_Relief,-,ja
+1,MK1,IM73A135V01,Infineon_PG-LLGA-5-1,IM73A135V01XTSA1,ja
 2,R1 R2,100R,R_0603_1608Metric,,ja
 1,R3,47k,R_0603_1608Metric,,ja
-1,R5,0R,R_0603_1608Metric,,ja
 1,U1,TPS7A2028,SOT-23-5,TPS7A2028PDBVR,ja
 1,U2,OPA2325,SOIC-8_3.9x4.9mm_P1.27mm,OPA2325AIDR,ja

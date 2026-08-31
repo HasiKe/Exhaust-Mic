@@ -1,5 +1,5 @@
 Menge,Referenzen,Wert,Footprint,MPN,Bestueckung
-1,BT1,CR2032,BatteryHolder_Keystone_3034_1x20mm,,ja
+1,BT1,CR1220,BatteryHolder_Keystone_3000_1x12mm,Keystone 3000,ja
 2,C1 C2,2u2/100V,C_0805_2012Metric,,ja
 1,C3,100n/100V,C_0603_1608Metric,,ja
 1,C4,2n2/50V,C_0603_1608Metric,,ja
@@ -20,15 +20,15 @@ Menge,Referenzen,Wert,Footprint,MPN,Bestueckung
 1,D22,weiss_Sync,LED_0805_2012Metric,,ja
 1,F1,2A_traege,Fuse_1206_3216Metric,0453002.MR,ja
 3,FB2 FB3 FB4,600R@100MHz,R_0603_1608Metric,,ja
-1,J1,Superseal_1.0_6pol,TE_Superseal_1.0_6way,,ja
-1,J2,Superseal_1.0_5pol_MicA,TE_Superseal_1.0_5way,,ja
-1,J3,Superseal_1.0_5pol_MicB,TE_Superseal_1.0_5way,,ja
+1,J1,XH-6pol_Power_CAN,JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal,S6B-XH-A(LF)(SN),ja
+1,J2,XH-5pol_MicA,JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal,S5B-XH-A(LF)(SN),ja
+1,J3,XH-5pol_MicB,JST_XH_S5B-XH-A_1x05_P2.50mm_Horizontal,S5B-XH-A(LF)(SN),ja
 1,J4,USB-C,USB_C_Receptacle_XKB_U262-16XN-4BVC11,,ja
 1,J5,microSD_PushPush,microSD_HC_Hirose_DM3D-SF,,ja
 1,J6,GPS_unbestueckt,PinHeader_1x05_P2.54mm_Vertical,,ja
 1,J7,I2C_Erweiterung,PinHeader_1x04_P2.54mm_Vertical,,ja
 1,L1,22u/1A2,L_Bourns_SRN6045TA,SRN6045TA-220M,ja
-2,L2 L3,1mH_CMC,L_CommonModeChoke_Wuerth_WE-SL2,744232222,ja
+2,L2 L3,1mH_CMC,L_CommonMode_Wuerth_WE-SL2,744232222,ja
 1,LS1,Piezo,Buzzer_12x9.5RM7.6,,ja
 1,Q1,ZXMP6A17E6,SOT-23,ZXMP6A17E6TA,ja
 2,Q3 Q4,2N7002,SOT-23,,ja
@@ -59,8 +59,8 @@ Menge,Referenzen,Wert,Footprint,MPN,Bestueckung
 1,U1,LM5164DDA,SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm,LM5164DDAR,ja
 1,U2,TLV1117LV33,SOT-223-3_TabPin2,TLV1117LV33DCYR,ja
 1,U3,TPS7A2033,SOT-23-5,TPS7A2033PDBVR,ja
-1,U5,PCM1863DBT,TSSOP-30_4.4x9.7mm_P0.65mm,PCM1863DBTR,ja
-1,U6,ESP32-S3-WROOM-1-N8R2,ESP32-S2-WROOM,ESP32-S3-WROOM-1-N8R2,ja
+1,U5,PCM1863DBT,TSSOP-30_4.4x7.8mm_P0.5mm,PCM1863DBTR,ja
+1,U6,ESP32-S3-WROOM-1-N8R2,ESP32-S3-WROOM-1,ESP32-S3-WROOM-1-N8R2,ja
 1,U7,DS3231SN,SOIC-16W_7.5x10.3mm_P1.27mm,DS3231SN#,ja
 1,U8,SN65HVD230D,SOIC-8_3.9x4.9mm_P1.27mm,SN65HVD230DR,optional
 1,Y1,24.576MHz,Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm,ASE-24.576MHZ-ET,ja
