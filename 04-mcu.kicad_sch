@@ -12,7 +12,7 @@
   )
 
   (lib_symbols
-    (symbol "Connector:Micro_SD_Card_Det1"
+    (symbol "Connector:Micro_SD_Card_Det2"
       (in_bom yes)
       (on_board yes)
       (property "Reference" "J"
@@ -23,7 +23,7 @@
           )
         )
       )
-      (property "Value" "Micro_SD_Card_Det1"
+      (property "Value" "Micro_SD_Card_Det2"
         (at 16.51 17.78 0)
         (effects
           (font
@@ -40,8 +40,8 @@
           ) hide
         )
       )
-      (property "Datasheet" "https://datasheet.lcsc.com/lcsc/2110151630_XKB-Connectivity-XKTF-015-N_C381082.pdf"
-        (at 0 2.54 0)
+      (property "Datasheet" "https://www.hirose.com/en/product/document?clcode=&productname=&series=DM3&documenttype=Catalog&lang=en&documentid=D49662_en"
+        (at 2.54 2.54 0)
         (effects
           (font
             (size 1.27 1.27)
@@ -56,7 +56,7 @@
           ) hide
         )
       )
-      (property "ki_description" "Micro SD Card Socket with one card detection pin"
+      (property "ki_description" "Micro SD Card Socket with two card detection pins"
         (at 0 0 0)
         (effects
           (font
@@ -72,7 +72,7 @@
           ) hide
         )
       )
-      (symbol "Micro_SD_Card_Det1_0_1"
+      (symbol "Micro_SD_Card_Det2_0_1"
         (rectangle
           (start -7.62 -6.985)
           (end -5.08 -8.255)
@@ -201,7 +201,7 @@
           )
         )
       )
-      (symbol "Micro_SD_Card_Det1_1_1"
+      (symbol "Micro_SD_Card_Det2_1_1"
         (pin bidirectional line
           (at -22.86 10.16 0)
           (length 3.81)
@@ -221,6 +221,24 @@
           )
         )
         (pin passive line
+          (at -22.86 -10.16 0)
+          (length 3.81)
+          (name "DET_A"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "10"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
           (at 20.32 -12.7 180)
           (length 3.81)
           (name "SHIELD"
@@ -230,7 +248,7 @@
               )
             )
           )
-          (number "10"
+          (number "11"
             (effects
               (font
                 (size 1.27 1.27)
@@ -367,7 +385,7 @@
         (pin passive line
           (at -22.86 -12.7 0)
           (length 3.81)
-          (name "DET"
+          (name "DET_B"
             (effects
               (font
                 (size 1.27 1.27)
@@ -2819,9 +2837,13 @@
     (stroke (width 0) (type default))
     (uuid 93150c6a-052d-93a6-d6c9-3ccaa833807d)
   )
-  (wire (pts (xy 317.14 212.7) (xy 308.25 212.7))
+  (wire (pts (xy 317.14 210.16) (xy 308.25 210.16))
     (stroke (width 0) (type default))
-    (uuid c8fffd5e-2c65-2c72-4605-d185b3e6387b)
+    (uuid 7877355b-486d-d3b8-258e-e3b51a962bc2)
+  )
+  (wire (pts (xy 317.14 212.7) (xy 304.44 212.7))
+    (stroke (width 0) (type default))
+    (uuid 32da794a-2a54-b94a-7bca-776c4738b238)
   )
   (wire (pts (xy 360.32 212.7) (xy 369.21 212.7))
     (stroke (width 0) (type default))
@@ -3225,7 +3247,7 @@
     (property "Value" "ESP32-S3-WROOM-1-N8R2" (at 165 176.75 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "RF_Module:ESP32-S2-WROOM" (at 165 145 0)
+    (property "Footprint" "RF_Module:ESP32-S3-WROOM-1" (at 165 145 0)
       (effects (font (size 0.508 0.508)) hide)
     )
     (property "Datasheet" "" (at 165 145 0)
@@ -4009,9 +4031,9 @@
       )
     )
   )
-  (symbol (lib_id "Connector:Micro_SD_Card_Det1") (at 340 200 0) (unit 1)
+  (symbol (lib_id "Connector:Micro_SD_Card_Det2") (at 340 200 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
-    (uuid 925bc5fe-e0fe-aabf-487a-86b55d11d30b)
+    (uuid 3590938f-f27b-9baa-2d7e-d06a1b730258)
     (property "Reference" "J5" (at 340 183.49 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -4024,16 +4046,17 @@
     (property "Datasheet" "" (at 340 200 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 938f8b60-53f2-08db-991f-bd939f29dd02))
-    (pin "2" (uuid 3504e217-3b64-9ff6-7a14-cf1e3e217fa1))
-    (pin "3" (uuid 1c6fae40-c6d3-3b4a-f187-2b9ce13a6dc7))
-    (pin "4" (uuid 9c485b47-7634-96cb-d1a4-b53fa7218149))
-    (pin "5" (uuid 1781c3b1-df35-8cb6-8980-c38a493dbdbc))
-    (pin "6" (uuid 938e7f98-12ee-dc96-31ce-48bf92edbca3))
-    (pin "7" (uuid 03e2383a-3085-8e7a-2680-e6d4f60d51f0))
-    (pin "8" (uuid c49c98eb-04b8-e645-e6ea-debab3e6a426))
-    (pin "9" (uuid f085e020-b506-a511-f2e1-6eb763bfd07a))
-    (pin "10" (uuid a286012a-75ac-0fda-6ed1-eea5a693b01c))
+    (pin "1" (uuid a1c45de4-1ade-0288-855f-28c068b48482))
+    (pin "2" (uuid 0b5f68da-a0bf-b4e2-df3e-48564bdb8274))
+    (pin "3" (uuid 8d36a79a-7440-cad4-5981-ae33107541a6))
+    (pin "4" (uuid 34904f21-37b4-77d9-67b6-0cac33f84e8f))
+    (pin "5" (uuid a2b9aa8b-d8f9-8f23-5862-0dc671b745d2))
+    (pin "6" (uuid 2608c81c-a943-4706-753e-5efe86fc2b4a))
+    (pin "7" (uuid 644f00df-d614-9088-e5a4-ce48acab2aa9))
+    (pin "8" (uuid a870f0d0-75ab-2353-47b1-d754cf9a439c))
+    (pin "9" (uuid 7126d8be-24f9-46c5-9e47-deecc2c01e0c))
+    (pin "10" (uuid 41cf69ed-513a-1bff-da14-17dc9973857d))
+    (pin "11" (uuid c48d2512-566b-c395-561c-60a3bbd3adb6))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
@@ -4066,22 +4089,22 @@
       )
     )
   )
-  (symbol (lib_id "power:GND") (at 308.25 212.7 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 308.25 210.16 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
-    (uuid ce192fad-8d58-2b7e-f4c7-1ce4fc61c45f)
-    (property "Reference" "#PWR0018" (at 308.25 208.89 0)
+    (uuid 15ac26da-8a94-60a1-d27f-ecd9d1e8db00)
+    (property "Reference" "#PWR0018" (at 308.25 206.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 308.25 216.51 0)
+    (property "Value" "GND" (at 308.25 213.97 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 308.25 212.7 0)
+    (property "Footprint" "" (at 308.25 210.16 0)
       (effects (font (size 0.508 0.508)) hide)
     )
-    (property "Datasheet" "" (at 308.25 212.7 0)
+    (property "Datasheet" "" (at 308.25 210.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 62021c28-b048-69cd-1388-f2c60ab26000))
+    (pin "1" (uuid 76eb4b3c-7c4b-dee0-23b2-9e2ad9ffafe7))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
@@ -4090,10 +4113,34 @@
       )
     )
   )
+  (symbol (lib_id "power:GND") (at 304.44 212.7 0) (unit 1)
+    (in_bom no) (on_board yes) (dnp no)
+    (uuid fe6dcc94-936e-03b6-c203-851be4342a45)
+    (property "Reference" "#PWR0019" (at 304.44 208.89 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 304.44 216.51 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 304.44 212.7 0)
+      (effects (font (size 0.508 0.508)) hide)
+    )
+    (property "Datasheet" "" (at 304.44 212.7 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 1b55bc1d-44d9-ab80-4cb4-6d4a4b50ff9e))
+    (instances
+      (project "exhaust-mic"
+        (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
+          (reference "#PWR0019") (unit 1)
+        )
+      )
+    )
+  )
   (symbol (lib_id "power:GND") (at 369.21 212.7 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
-    (uuid bd720864-5f2c-71db-edbe-18e11b7371a5)
-    (property "Reference" "#PWR0019" (at 369.21 208.89 0)
+    (uuid d43dbfbc-f4a2-4f8c-ac0e-881d9519fe79)
+    (property "Reference" "#PWR0020" (at 369.21 208.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 369.21 216.51 0)
@@ -4105,19 +4152,19 @@
     (property "Datasheet" "" (at 369.21 212.7 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 3ac29ea6-9d4b-c667-39a8-05543922b568))
+    (pin "1" (uuid 6e15f877-9aa1-f4f3-4943-3bb33a29ac37))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
-          (reference "#PWR0019") (unit 1)
+          (reference "#PWR0020") (unit 1)
         )
       )
     )
   )
   (symbol (lib_id "exhaust-mic:+3V3D") (at 308.25 197.46 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
-    (uuid ee0d0f4a-672b-25c6-0683-57d2e2088b9e)
-    (property "Reference" "#PWR0020" (at 308.25 193.65 0)
+    (uuid 6d6e608f-0213-706d-2bd1-fb2b803d9439)
+    (property "Reference" "#PWR0021" (at 308.25 193.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3D" (at 308.25 201.27 0)
@@ -4129,11 +4176,11 @@
     (property "Datasheet" "" (at 308.25 197.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a1128862-9bac-2a32-388f-e0def1c0c6a0))
+    (pin "1" (uuid 9ebb1bae-c8b8-0890-174a-03917e37e174))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
-          (reference "#PWR0020") (unit 1)
+          (reference "#PWR0021") (unit 1)
         )
       )
     )
@@ -4165,8 +4212,8 @@
   )
   (symbol (lib_id "exhaust-mic:+3V3D") (at 305 236.19 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
-    (uuid 495e0611-a0a9-aeda-831b-72d146bc2881)
-    (property "Reference" "#PWR0021" (at 305 232.38 0)
+    (uuid 5652b651-92a7-d2a1-4baf-69193e2aeff1)
+    (property "Reference" "#PWR0022" (at 305 232.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3D" (at 305 240 0)
@@ -4178,19 +4225,19 @@
     (property "Datasheet" "" (at 305 236.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 413dd306-0df9-a2fb-aba1-5640dcd25f31))
+    (pin "1" (uuid 2ab844a9-a25a-5906-ef44-74c639af75de))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
-          (reference "#PWR0021") (unit 1)
+          (reference "#PWR0022") (unit 1)
         )
       )
     )
   )
   (symbol (lib_id "power:GND") (at 305 243.81 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
-    (uuid 9aa51514-ecf6-95ff-aead-fff7b4eeb2f0)
-    (property "Reference" "#PWR0022" (at 305 240 0)
+    (uuid e9e73ac4-90a8-0d09-b77f-7d50efdaac06)
+    (property "Reference" "#PWR0023" (at 305 240 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 305 247.62 0)
@@ -4202,11 +4249,11 @@
     (property "Datasheet" "" (at 305 243.81 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 7a92b821-319f-356e-d489-2d23a3c3f65b))
+    (pin "1" (uuid 7c8b04d6-d306-974d-bbdf-c8edd83ad57c))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
-          (reference "#PWR0022") (unit 1)
+          (reference "#PWR0023") (unit 1)
         )
       )
     )
@@ -4238,8 +4285,8 @@
   )
   (symbol (lib_id "exhaust-mic:+3V3D") (at 322 236.19 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
-    (uuid 5f06d7ea-a13a-3f17-a150-02756ea8c004)
-    (property "Reference" "#PWR0023" (at 322 232.38 0)
+    (uuid 46fb7edd-ebee-a61b-b206-23b85dc76687)
+    (property "Reference" "#PWR0024" (at 322 232.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3D" (at 322 240 0)
@@ -4251,19 +4298,19 @@
     (property "Datasheet" "" (at 322 236.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ae4d6692-7fcf-8b3b-9bd1-488b6bd9e258))
+    (pin "1" (uuid 30a11cf8-fcad-c0f7-3408-7fc18492b5b8))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
-          (reference "#PWR0023") (unit 1)
+          (reference "#PWR0024") (unit 1)
         )
       )
     )
   )
   (symbol (lib_id "power:GND") (at 322 243.81 0) (unit 1)
     (in_bom no) (on_board yes) (dnp no)
-    (uuid 851229bd-460f-a0e2-c9e7-77b4a449bdda)
-    (property "Reference" "#PWR0024" (at 322 240 0)
+    (uuid b4f7ff95-24ba-ed7b-19d5-0a8eeb7b236c)
+    (property "Reference" "#PWR0025" (at 322 240 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 322 247.62 0)
@@ -4275,11 +4322,11 @@
     (property "Datasheet" "" (at 322 243.81 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid f7ade0fc-ea2e-7c2f-3fd3-e8247063ed07))
+    (pin "1" (uuid dec29ffe-5838-8fa9-1e1c-c2c38a3ae82c))
     (instances
       (project "exhaust-mic"
         (path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
-          (reference "#PWR0024") (unit 1)
+          (reference "#PWR0025") (unit 1)
         )
       )
     )

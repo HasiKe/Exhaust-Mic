@@ -786,7 +786,7 @@
           (justify left top)
         )
       )
-      (property "Footprint" "Package_SO:TSSOP-30_4.4x9.7mm_P0.65mm"
+      (property "Footprint" "exhaust-mic:TSSOP-30_4.4x7.8mm_P0.5mm"
         (at 0 0 0)
         (effects
           (font
@@ -1837,7 +1837,7 @@
     (property "Value" "PCM1863DBT" (at 190.5 180.48 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Package_SO:TSSOP-30_4.4x9.7mm_P0.65mm" (at 190.5 150 0)
+    (property "Footprint" "exhaust-mic:TSSOP-30_4.4x7.8mm_P0.5mm" (at 190.5 150 0)
       (effects (font (size 0.508 0.508)) hide)
     )
     (property "Datasheet" "https://www.ti.com/lit/ds/symlink/pcm1863.pdf" (at 190.5 150 0)
