@@ -241,7 +241,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": "A"
+      "sch_revision": "1"
     },
     "layer_pairs": [],
     "layer_presets": [],
@@ -489,7 +489,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "mic-head.kicad_pro",
+    "filename": "exhaust-mic.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -646,9 +646,9 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "mic-head.kicad_sch",
-        "name": "mic-head",
-        "uuid": "bb90a52f-cb71-49dc-9ad9-077f6584f34a"
+        "filename": "exhaust-mic.kicad_sch",
+        "name": "exhaust-mic",
+        "uuid": "24901e4d-8246-6c3d-a980-c1f8cf14e631"
       }
     ],
     "used_designators": "",
@@ -656,8 +656,28 @@
   },
   "sheets": [
     [
-      "bb90a52f-cb71-49dc-9ad9-077f6584f34a",
-      "mic-head"
+      "24901e4d-8246-6c3d-a980-c1f8cf14e631",
+      "exhaust-mic"
+    ],
+    [
+      "6e958477-663e-3b4d-8246-77c6be35b00d",
+      "Versorgung"
+    ],
+    [
+      "4f6e83be-a672-50b5-b7a4-309c3b67adf4",
+      "Analogeingang"
+    ],
+    [
+      "a9bdaee9-c6ed-dc84-c113-e33f55a48100",
+      "ADC"
+    ],
+    [
+      "aa42088f-c695-e1ae-f9ab-ed9f37a26eb4",
+      "MCU"
+    ],
+    [
+      "5a04efcd-e24a-0d89-f2fd-e1fa0e6e92cb",
+      "IO"
     ]
   ],
   "text_variables": {},
