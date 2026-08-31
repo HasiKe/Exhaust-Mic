@@ -37,9 +37,52 @@ python3 tools/build_mic_head.py   # mic-head/mic-head.kicad_sch
 python3 tools/build_main.py       # Hauptplatine, alle sechs Blätter
 ```
 
+> **Achtung:** Die Dateien auf der Platte sind inzwischen weiter als die
+> Generatoren. `build_main.py` und `build_mic_head.py` überschreiben sie
+> vollständig — unter anderem gehen die Beschaffungsfelder und die von Hand
+> nachgezogenen Änderungen verloren. Vor einem Lauf den Stand sichern und
+> danach `tools/apply_digikey.py` erneut ausführen.
+
 `build_main.py` meldet beim Lauf jede Leitung, die über einen Bauteilpin
 hinwegläuft — solche Stellen sind fast immer versehentliche Kurzschlüsse und
 im gedruckten Plan nicht zu sehen. Ein sauberer Lauf gibt keine Warnungen aus.
+
+## Beschaffung
+
+Die Bauteilfelder **MPN**, **Hersteller** und **DigiKey** stehen in den
+Schaltplänen und wandern von dort in die Stückliste. Sie werden nicht von
+Hand gepflegt, sondern gegen DigiKeys Produktdatenbank ermittelt — mit
+Lagerfilter, damit nichts in der Stückliste steht, was man nicht bestellen
+kann.
+
+```sh
+set -a; . ~/.config/secrets.env; set +a     # DIGIKEY_CLIENT_ID / _SECRET
+kicad-cli sch export bom \
+    --fields 'Reference,Value,Footprint,MPN,${QUANTITY}' \
+    --labels 'Referenzen,Wert,Footprint,MPN,Menge' \
+    --group-by 'Value,Footprint,MPN' -o /tmp/grp-main.csv exhaust-mic.kicad_sch
+python3 tools/pick_digikey.py /tmp/grp-main.csv /tmp/grp-mic.csv \
+        -o tools/digikey-wahl.json
+python3 tools/apply_digikey.py tools/digikey-wahl.json
+python3 tools/build_bom.py output/main.net output/bom-mainboard.csv
+```
+
+`pick_digikey.py` prüft jeden Treffer gegen die Parameter, die DigiKey selbst
+mitliefert — Kapazität, Spannungsfestigkeit, Dielektrikum, Widerstandswert,
+Toleranz, Bauform. Die Stichwortsuche allein reicht nicht: auf „10 kOhm 1 %
+0603“ antwortet DigiKey auch mit 11,5 k in 0201. Was aus der Schaltung kommt
+und nicht in der Stückliste steht (100 V am Bordnetzeingang, C0G im Filter,
+1 % am Reglerteiler), steht in der Tabelle `SPEC`; Mechanik und
+Steckverbinder in `MANUELL`; nicht lagernde Typen mit ihrem Ersatz und der
+Begründung in `ERSATZ`.
+
+`apply_digikey.py` schreibt die Felder in die **vorhandenen** Schaltplandateien
+— es erzeugt nichts neu. Vorhandene Hinweise bleiben stehen und werden
+ergänzt, nicht überschrieben.
+
+`output/beschaffung-digikey.csv` hält Bestand, Einzelpreis und Ersatzgrund zum
+Abfragezeitpunkt fest. Preise und Bestände altern; die Datei ist ein Beleg,
+keine laufende Quelle.
 
 ## Platinen neu erzeugen
 
@@ -182,4 +225,18 @@ Router (Push-and-Shove) in wenigen Minuten zu schließen; der ist
 den hier verwendeten Werkzeugen an engen Stellen deutlich überlegen. Vor der
 Fertigung müssen sie geschlossen sein.
 
-Schaltplan-ERC ist fehlerfrei. Offen sind außerdem Gehäuse und Firmware.
+Beschaffung: von 75 Stücklistenpositionen brauchen drei kein Bauteil (TP1,
+TP2, Lötpads am Mikrofonkopf), 67 haben eine bei DigiKey lagernde
+Herstellernummer — Stand 31.08.2026, siehe `output/beschaffung-digikey.csv`;
+rund 62 EUR Bauteilkosten für die Hauptplatine und 4 EUR für den
+Mikrofonkopf. Neun Positionen mussten auf einen gleichwertigen Ersatz
+ausweichen, weil der eingetragene Typ leer war — der Grund steht jeweils im
+Feld `Hinweis` des Bauteils. Fünf Positionen sind offen:
+
+| Position | Grund |
+|---|---|
+| J1, J2, J3 | DigiKey führt Superseal 1.0 nur kabelseitig, keine Platinenversion in 5- und 6-polig |
+| J4 | den XKB-Typ zum Footprint `USB_C_Receptacle_XKB_U262-16XN-4BVC11` führt DigiKey nicht |
+| MK1 | IM73A135V01XTSA1 ist aktiv, aber bei DigiKey ohne Bestand; ein Ersatz mit gleichem Gehäuse und Schallöffnung von unten existiert nicht |
+
+Offen sind außerdem Gehäuse und Firmware.

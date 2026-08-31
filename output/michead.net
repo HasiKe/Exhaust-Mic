@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/mic-head/mic-head.kicad_sch")
-		(date "2026-08-31T10:09:06")
+		(date "2026-08-31T14:18:49")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
@@ -60,6 +60,12 @@
 			(footprint "Capacitor_SMD:C_0805_2012Metric")
 			(fields
 				(field
+					(name "MPN") "GRM21BR61E106MA73L")
+				(field
+					(name "Hersteller") "Murata Electronics")
+				(field
+					(name "DigiKey") "490-10748-1-ND")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
 				(field
 					(name "Datasheet")
@@ -72,6 +78,18 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "MPN")
+				(value "GRM21BR61E106MA73L")
+			)
+			(property
+				(name "Hersteller")
+				(value "Murata Electronics")
+			)
+			(property
+				(name "DigiKey")
+				(value "490-10748-1-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -114,6 +132,12 @@
 			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "CL10A105KA8NFNC")
+				(field
+					(name "Hersteller") "Samsung Electro-Mechanics")
+				(field
+					(name "DigiKey") "1276-1859-1-ND")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -126,6 +150,18 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "MPN")
+				(value "CL10A105KA8NFNC")
+			)
+			(property
+				(name "Hersteller")
+				(value "Samsung Electro-Mechanics")
+			)
+			(property
+				(name "DigiKey")
+				(value "1276-1859-1-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -168,6 +204,12 @@
 			(footprint "Capacitor_SMD:C_0805_2012Metric")
 			(fields
 				(field
+					(name "MPN") "GRM21BR61E106MA73L")
+				(field
+					(name "Hersteller") "Murata Electronics")
+				(field
+					(name "DigiKey") "490-10748-1-ND")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
 				(field
 					(name "Datasheet")
@@ -180,6 +222,18 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "MPN")
+				(value "GRM21BR61E106MA73L")
+			)
+			(property
+				(name "Hersteller")
+				(value "Murata Electronics")
+			)
+			(property
+				(name "DigiKey")
+				(value "490-10748-1-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -222,6 +276,12 @@
 			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "0603B104K250CT")
+				(field
+					(name "Hersteller") "Walsin Technology Corporation")
+				(field
+					(name "DigiKey") "1292-1642-1-ND")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -234,6 +294,18 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "MPN")
+				(value "0603B104K250CT")
+			)
+			(property
+				(name "Hersteller")
+				(value "Walsin Technology Corporation")
+			)
+			(property
+				(name "DigiKey")
+				(value "1292-1642-1-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -276,6 +348,12 @@
 			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "0603B104K250CT")
+				(field
+					(name "Hersteller") "Walsin Technology Corporation")
+				(field
+					(name "DigiKey") "1292-1642-1-ND")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -288,6 +366,18 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "MPN")
+				(value "0603B104K250CT")
+			)
+			(property
+				(name "Hersteller")
+				(value "Walsin Technology Corporation")
+			)
+			(property
+				(name "DigiKey")
+				(value "1292-1642-1-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -330,6 +420,12 @@
 			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "CL10A105KA8NFNC")
+				(field
+					(name "Hersteller") "Samsung Electro-Mechanics")
+				(field
+					(name "DigiKey") "1276-1859-1-ND")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -342,6 +438,18 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "MPN")
+				(value "CL10A105KA8NFNC")
+			)
+			(property
+				(name "Hersteller")
+				(value "Samsung Electro-Mechanics")
+			)
+			(property
+				(name "DigiKey")
+				(value "1276-1859-1-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -384,6 +492,12 @@
 			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "BLM18AG601SN1D")
+				(field
+					(name "Hersteller") "Murata Electronics")
+				(field
+					(name "DigiKey") "490-1014-1-ND")
+				(field
 					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -396,6 +510,18 @@
 				(lib "Device")
 				(part "FerriteBead")
 				(description "Ferrite bead")
+			)
+			(property
+				(name "MPN")
+				(value "BLM18AG601SN1D")
+			)
+			(property
+				(name "Hersteller")
+				(value "Murata Electronics")
+			)
+			(property
+				(name "DigiKey")
+				(value "490-1014-1-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -572,6 +698,12 @@
 			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "CRCW0603100RFKEA")
+				(field
+					(name "Hersteller") "Vishay Dale")
+				(field
+					(name "DigiKey") "541-100HCT-ND")
+				(field
 					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -584,6 +716,18 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "MPN")
+				(value "CRCW0603100RFKEA")
+			)
+			(property
+				(name "Hersteller")
+				(value "Vishay Dale")
+			)
+			(property
+				(name "DigiKey")
+				(value "541-100HCT-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -626,6 +770,12 @@
 			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "CRCW0603100RFKEA")
+				(field
+					(name "Hersteller") "Vishay Dale")
+				(field
+					(name "DigiKey") "541-100HCT-ND")
+				(field
 					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -638,6 +788,18 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "MPN")
+				(value "CRCW0603100RFKEA")
+			)
+			(property
+				(name "Hersteller")
+				(value "Vishay Dale")
+			)
+			(property
+				(name "DigiKey")
+				(value "541-100HCT-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -680,6 +842,12 @@
 			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(fields
 				(field
+					(name "MPN") "RC0603FR-0747KL")
+				(field
+					(name "Hersteller") "YAGEO")
+				(field
+					(name "DigiKey") "311-47.0KHRCT-ND")
+				(field
 					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
@@ -692,6 +860,18 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "MPN")
+				(value "RC0603FR-0747KL")
+			)
+			(property
+				(name "Hersteller")
+				(value "YAGEO")
+			)
+			(property
+				(name "DigiKey")
+				(value "311-47.0KHRCT-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -740,6 +920,10 @@
 				(field
 					(name "MPN") "TPS7A2028PDBVR")
 				(field
+					(name "Hersteller") "Texas Instruments")
+				(field
+					(name "DigiKey") "296-TPS7A2028PDBVRCT-ND")
+				(field
 					(name "Footprint") "Package_TO_SOT_SMD:SOT-23-5")
 				(field
 					(name "Datasheet") "https://www.ti.com/lit/ds/symlink/tps7a20.pdf")
@@ -755,6 +939,14 @@
 			(property
 				(name "MPN")
 				(value "TPS7A2028PDBVR")
+			)
+			(property
+				(name "Hersteller")
+				(value "Texas Instruments")
+			)
+			(property
+				(name "DigiKey")
+				(value "296-TPS7A2028PDBVRCT-ND")
 			)
 			(property
 				(name "Sheetname")
@@ -802,7 +994,13 @@
 			(footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
 			(fields
 				(field
-					(name "MPN") "OPA2325AIDR")
+					(name "MPN") "OPA2325ID")
+				(field
+					(name "Hersteller") "Texas Instruments")
+				(field
+					(name "DigiKey") "296-45120-5-ND")
+				(field
+					(name "Hinweis") "Ersatz fuer OPA2325AIDR: die Nummer im Schaltplan gibt es nicht; OPA2325ID ist der SOIC-8-Typ, nur 16 Stueck am Lager")
 				(field
 					(name "Footprint") "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
 				(field
@@ -819,7 +1017,19 @@
 			)
 			(property
 				(name "MPN")
-				(value "OPA2325AIDR")
+				(value "OPA2325ID")
+			)
+			(property
+				(name "Hersteller")
+				(value "Texas Instruments")
+			)
+			(property
+				(name "DigiKey")
+				(value "296-45120-5-ND")
+			)
+			(property
+				(name "Hinweis")
+				(value "Ersatz fuer OPA2325AIDR: die Nummer im Schaltplan gibt es nicht; OPA2325ID ist der SOIC-8-Typ, nur 16 Stueck am Lager")
 			)
 			(property
 				(name "Sheetname")
