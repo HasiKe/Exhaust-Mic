@@ -231,12 +231,38 @@ Herstellernummer — Stand 31.08.2026, siehe `output/beschaffung-digikey.csv`;
 rund 62 EUR Bauteilkosten für die Hauptplatine und 4 EUR für den
 Mikrofonkopf. Neun Positionen mussten auf einen gleichwertigen Ersatz
 ausweichen, weil der eingetragene Typ leer war — der Grund steht jeweils im
-Feld `Hinweis` des Bauteils. Fünf Positionen sind offen:
+Feld `Hinweis` des Bauteils. Bei vier davon wurde auch der `Value` im Plan
+nachgezogen (U2 → NCP1117ST33, U3 → LP5907MFX-3.3, U8 → SN65HVD230Q,
+Q1 → SI2309CDS); die übrigen fünf tragen Typbezeichnungen, die für den
+Ersatztyp weiter gelten. Fünf Positionen sind offen:
 
 | Position | Grund |
 |---|---|
 | J1, J2, J3 | DigiKey führt Superseal 1.0 nur kabelseitig, keine Platinenversion in 5- und 6-polig |
 | J4 | den XKB-Typ zum Footprint `USB_C_Receptacle_XKB_U262-16XN-4BVC11` führt DigiKey nicht |
 | MK1 | IM73A135V01XTSA1 ist aktiv, aber bei DigiKey ohne Bestand; ein Ersatz mit gleichem Gehäuse und Schallöffnung von unten existiert nicht |
+
+### Schaltplan gegen Platine
+
+KiCads Abgleich meldet auf der Hauptplatine **18 Abweichungen**, auf dem
+Mikrofonkopf **2**. Sie stammen nicht aus der Beschaffung, sondern daher,
+dass die Schaltplandateien auf der Platte älter sind als das Layout:
+
+| Position | Schaltplan | Platine |
+|---|---|---|
+| J1, J2, J3 | Superseal 1.0 direkt auf der Platine | JST XH, Superseal sitzt im Kabelbaum |
+| U5 | `TSSOP-30_4.4x9.7mm_P0.65mm` | `TSSOP-30_4.4x7.8mm_P0.5mm` (so steht es im Datenblatt) |
+| U6 | `RF_Module:ESP32-S2-WROOM` | Footprint des S3-Moduls |
+| BT1 | Keystone 3034 / CR2032 | Keystone 3000 / CR1220 |
+| LS1 | Piezo bedrahtet 12 × 9,5 mm | Murata PKMCS0909E, SMD |
+| L2, L3 | Wüerth WE-SL2 | Footprint auf der Platine abweichend |
+| U2 | Pin 4 am SOT-223 | auf der Platine nicht vorhanden |
+| J5 Pad 11 | – | Schirm auf GND |
+| H1–H4 | – | Befestigungsbohrungen, absichtlich ohne Symbol |
+
+Das Layout ist an diesen Stellen das Richtige — die Bauteile im Schaltplan
+sind so nicht baubar. Wer den Schaltplan als Quelle behalten will, muss die
+Footprints dort nachziehen; sonst überschreibt der nächste Import aus dem
+Schaltplan das Layout.
 
 Offen sind außerdem Gehäuse und Firmware.

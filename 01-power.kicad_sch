@@ -5074,7 +5074,7 @@
 				)
 			)
 		)
-		(property "Value" "ZXMP6A17E6"
+		(property "Value" "SI2309CDS"
 			(at 149.86 68.44 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5849,7 +5849,7 @@
 				)
 			)
 		)
-		(property "Value" "TPS7A2033"
+		(property "Value" "LP5907MFX-3.3"
 			(at 290.83 221.234 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8692,7 +8692,7 @@
 				)
 			)
 		)
-		(property "Value" "TLV1117LV33"
+		(property "Value" "NCP1117ST33"
 			(at 163.068 220.726 0)
 			(show_name no)
 			(do_not_autoplace no)

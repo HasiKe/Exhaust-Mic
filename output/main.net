@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/exhaust-mic.kicad_sch")
-		(date "2026-08-31T14:18:49")
+		(date "2026-08-31T14:45:04")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
@@ -2186,7 +2186,7 @@
 		)
 		(comp
 			(ref "Q1")
-			(value "ZXMP6A17E6")
+			(value "SI2309CDS")
 			(footprint "Package_TO_SOT_SMD:SOT-23")
 			(fields
 				(field
@@ -3156,7 +3156,7 @@
 		)
 		(comp
 			(ref "U2")
-			(value "TLV1117LV33")
+			(value "NCP1117ST33")
 			(footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
 			(datasheet "https://www.ti.com/lit/ds/symlink/tlv1117lv.pdf")
 			(fields
@@ -3236,7 +3236,7 @@
 		)
 		(comp
 			(ref "U3")
-			(value "TPS7A2033")
+			(value "LP5907MFX-3.3")
 			(footprint "Package_TO_SOT_SMD:SOT-23-5")
 			(datasheet "https://www.ti.com/lit/ds/symlink/tps7a20.pdf")
 			(fields
@@ -9676,7 +9676,7 @@
 		)
 		(comp
 			(ref "U8")
-			(value "SN65HVD230D")
+			(value "SN65HVD230Q")
 			(footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
 			(fields
 				(field

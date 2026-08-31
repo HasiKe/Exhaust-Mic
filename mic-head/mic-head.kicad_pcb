@@ -138,7 +138,7 @@
 				)
 			)
 		)
-		(property "MPN" "OPA2325AIDR"
+		(property "MPN" "OPA2325ID"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -147,6 +147,39 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "Hersteller" "Texas Instruments"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d5fd71d6-821a-4c15-95eb-cb09f29c21ca")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "296-45120-5-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0d9655b5-32e5-405b-83c4-35aaa86b6a2c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hinweis" "Ersatz fuer OPA2325AIDR: die Nummer im Schaltplan gibt es nicht; OPA2325ID ist der SOIC-8-Typ, nur 16 Stueck am Lager"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dc16450f-b3be-402c-a9f4-9175485dbb78")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -433,6 +466,39 @@
 				)
 			)
 		)
+		(property "MPN" "0603B104K250CT"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "827372f2-961a-4c0f-9546-fbbe0d45af7a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Walsin Technology Corporation"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "371df708-37f2-4b19-8961-57e5d6b6446b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "1292-1642-1-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "42bd2019-1291-4501-8112-627ffd119964")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -626,6 +692,39 @@
 				)
 			)
 		)
+		(property "MPN" "GRM21BR61E106MA73L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fa3a26f0-774d-4661-8a6e-9a7899e7cd34")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Murata Electronics"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "123c5794-41d8-481d-8d24-ad6daada2fc7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "490-10748-1-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "06035ffa-b25c-4916-b905-6d62ef09fe6b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -813,6 +912,39 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "c2f4ccc2-1ef6-4916-9320-09df9d06046c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW0603100RFKEA"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e83cc75e-9f79-42f6-ba24-014d6739a1f2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Vishay Dale"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "46217ea6-8442-46fc-92cc-1075c7c0d9d8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "541-100HCT-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b7f0b7a9-2b30-4a65-aa14-c106cccc5794")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1533,6 +1665,39 @@
 				)
 			)
 		)
+		(property "MPN" "CL10A105KA8NFNC"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6f0653e4-daf8-4f2a-85a0-0c4002c10152")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6f86d800-cf46-43e5-9af5-5698b963c8a6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "1276-1859-1-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1e083604-d5c9-4469-8260-0e00e9f1cbe5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1720,6 +1885,39 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "6bd266d8-dd95-4466-9138-c4d84b3b055b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BLM18AG601SN1D"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b5cb85b8-70ed-48c7-89fb-00a21df5b430")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Murata Electronics"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "03e8a6e9-797f-406e-b71d-4eb3aac74412")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "490-1014-1-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "17ec05fa-cd41-4bf6-bd4c-45de16b4dab8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1978,6 +2176,39 @@
 				)
 			)
 		)
+		(property "MPN" "GRM21BR61E106MA73L"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "55232995-a800-4333-9eee-5f04cb937dab")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Murata Electronics"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "036f0394-c10d-4b48-90a8-7a2f2232f156")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "490-10748-1-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd723f8b-6015-41e2-8049-376183c40e09")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2171,6 +2402,39 @@
 				)
 			)
 		)
+		(property "MPN" "0603B104K250CT"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "48c815d9-d5e8-4dce-a794-27f0d427a903")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Walsin Technology Corporation"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fc536f5a-79ee-4dfd-95ff-ec49cf363f18")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "1292-1642-1-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6c1abdb3-a059-4d32-9567-e5b6a6d89c63")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2342,7 +2606,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps7a20.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2373,6 +2637,28 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "Hersteller" "Texas Instruments"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "32c1a6e4-e10b-469c-a837-8aa38591195e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "296-TPS7A2028PDBVRCT-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6668bb27-380c-4160-99fb-48a1fe5e8c92")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -2635,6 +2921,39 @@
 				)
 			)
 		)
+		(property "MPN" "CRCW0603100RFKEA"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "41b46d42-7717-41dc-8940-e226513d889a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Vishay Dale"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "33616db2-b9c0-445f-94a4-dba624044be1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "541-100HCT-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "66684c08-fb08-478f-9220-3d1f6e6e13b6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2881,6 +3200,39 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e8da6e48-d525-4cb2-be89-922ea5b1ee9c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-0747KL"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2d90c933-3ee8-472b-9fdf-48e8ac60e411")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "YAGEO"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "94aac1ff-25ea-492a-b3ed-7aa926ab4a9a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "311-47.0KHRCT-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "226274fc-454c-4cd4-bd65-68576c803413")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3954,6 +4306,39 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "2b6ca689-e89d-473c-8dae-c7e258002bdb")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL10A105KA8NFNC"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5629bd5a-b53d-4bcd-9032-27a02cb0fc84")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Hersteller" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a335e600-aeca-437c-8459-d830423ad1e7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DigiKey" "1276-1859-1-ND"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3345538e-fdeb-43ed-a82f-652299fdca25")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5043,38 +5428,6 @@
 		(uuid "f849d644-2918-4537-972a-0da17dc299d9")
 	)
 	(segment
-		(start 137.7 95.1322)
-		(end 138.6662 94.166)
-		(width 0.18)
-		(layer "F.Cu")
-		(net "VIN_3V3")
-		(uuid "2a4fe64f-dc28-4baf-aaef-4febda5200c5")
-	)
-	(segment
-		(start 144.291 94.166)
-		(end 144.38 94.255)
-		(width 0.18)
-		(layer "F.Cu")
-		(net "VIN_3V3")
-		(uuid "a4baab8f-28b6-4e6a-8ad1-1ad36d56b7de")
-	)
-	(segment
-		(start 137.7 102)
-		(end 137.7 95.1322)
-		(width 0.18)
-		(layer "F.Cu")
-		(net "VIN_3V3")
-		(uuid "c355aeee-c6d1-4ee3-a0b2-94be7dc75d6b")
-	)
-	(segment
-		(start 138.6662 94.166)
-		(end 144.291 94.166)
-		(width 0.18)
-		(layer "F.Cu")
-		(net "VIN_3V3")
-		(uuid "e057dada-0de2-4c14-a597-33cdc83364c3")
-	)
-	(segment
 		(start 152.3786 87.779)
 		(end 152.3786 85.9064)
 		(width 0.18)
@@ -5121,6 +5474,38 @@
 		(layer "B.Cu")
 		(net "OUT_P")
 		(uuid "b8e7a110-36c9-4e8e-a36f-f39414f7a431")
+	)
+	(segment
+		(start 137.7 95.1322)
+		(end 138.6662 94.166)
+		(width 0.18)
+		(layer "F.Cu")
+		(net "VIN_3V3")
+		(uuid "2a4fe64f-dc28-4baf-aaef-4febda5200c5")
+	)
+	(segment
+		(start 144.291 94.166)
+		(end 144.38 94.255)
+		(width 0.18)
+		(layer "F.Cu")
+		(net "VIN_3V3")
+		(uuid "a4baab8f-28b6-4e6a-8ad1-1ad36d56b7de")
+	)
+	(segment
+		(start 137.7 102)
+		(end 137.7 95.1322)
+		(width 0.18)
+		(layer "F.Cu")
+		(net "VIN_3V3")
+		(uuid "c355aeee-c6d1-4ee3-a0b2-94be7dc75d6b")
+	)
+	(segment
+		(start 138.6662 94.166)
+		(end 144.291 94.166)
+		(width 0.18)
+		(layer "F.Cu")
+		(net "VIN_3V3")
+		(uuid "e057dada-0de2-4c14-a597-33cdc83364c3")
 	)
 	(segment
 		(start 152.665 99.635)
