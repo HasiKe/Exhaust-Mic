@@ -306,9 +306,20 @@ Kabelverschraubungen. Zwei Punkte sind dabei bindend:
   also nicht über und braucht keine Aussparung, wohl aber einen Schlitz im
   Deckel, durch den man sie einführt. Für den laufenden Betrieb ist der
   Download über WLAN vorgesehen.
-- Die Nase der USB-C-Buchse ragt 3 mm über die rechte Kante. Das ist bei
-  diesem Landmuster so vorgesehen (Marke *PCB Edge* im Footprint) und
-  verhindert, dass die Umspritzung des Steckers auf die Platine trifft.
+- ⚠️ **Die USB-C-Buchse ragt 2,51 mm über die rechte Kante — das gehört so
+  und darf nicht „korrigiert" werden.** Der GCT USB4085 ist laut Datenblatt
+  eine *Dip Type, PCB Top Mount*; im *Recommended PCB Layout* auf Blatt 2
+  zeichnet GCT eine durchgezogene Linie als Platinenkante und lässt den
+  Bauteilumriss darüber hinausragen. KiCad hat diese Linie als `PCB Edge`
+  auf Dwgs.User übernommen, bei lokal y = +6,1. Grund: die Buchse steht nur
+  rund 3,5 mm über der Platine, die Umspritzung eines USB-C-Steckers ist
+  aber etwa 6,5 mm hoch und mittig auf der Steckachse — ihre untere Hälfte
+  liegt unterhalb der Platinenoberfläche. Reicht die Platine dort hin, stößt
+  der Stecker gegen die Kante, bevor er einrastet. Das Gehäuse braucht an
+  dieser Stelle ohnehin eine Öffnung; die Buchse ragt in sie hinein.
+  Wer den Überstand wirklich loswerden will, braucht eine andere Bauform
+  (senkrechte Buchse oder eine bündig aufsetzende SMD-Variante), nicht eine
+  andere Position.
 
 Anordnung der Bedienteile:
 
