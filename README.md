@@ -106,9 +106,12 @@ tools/pipeline.sh <arbeitsverzeichnis>              # alles in einem Lauf
 python3 tools/build_outputs.py                      # Gerber, Bohrdaten, PDF
 ```
 
-`pipeline.sh` führt der Reihe nach aus: Bestückung, Autorouting,
-Restverbindungen, Aufräumen, Regelprüfung. Die Einzelschritte lassen sich
-auch getrennt aufrufen:
+`pipeline.sh` führt der Reihe nach aus: Bestückung, Autorouting, Massefläche
+vernähen, Restverbindungen, beanstandetes Kupfer entfernen, Restverbindungen
+noch einmal, Versorgung aufweiten, Aufräumen, Regelprüfung. Die beiden
+Nachbesserungsläufe sind kein Versehen: `fix_drc.py` schneidet Kupfer heraus
+und reißt dabei Verbindungen auf, die der zweite Durchgang zurückholt. Die
+Einzelschritte lassen sich auch getrennt aufrufen:
 
 | Schritt | Was er tut |
 |---|---|
@@ -119,8 +122,55 @@ auch getrennt aufrufen:
 | `widen_supply.py` | Versorgungsleitungen aufweiten, soweit der Platz reicht |
 | `trim_warnings.py` | lose Bahnenden und zu dichte Bohrungen einzeln entfernen |
 | `swap_footprint.py` | Landmuster tauschen, Netze über die Padnamen zuordnen |
-| `cleanup.py` | doppelte Bohrungen, Nullbahnen, lose Enden entfernen |
+| `cleanup.py` | doppelte Bohrungen, Nullbahnen, lose Enden entfernen — mit Nachzählen, siehe unten |
 | `verify.py` | eigene Abnahme (Kontur, Durchgang, Abstände) |
+
+### Kupfer entfernen ist gefährlich
+
+Drei Werkzeuge nehmen Kupfer weg — `fix_drc.py`, `cleanup.py`,
+`trim_warnings.py`. Alle drei können dabei Verbindungen aufreißen, und zwar
+aus demselben Grund: **ein Segment, das nirgends an einem Pad hängt, kann
+trotzdem tragen.** Läuft es quer durch eine gefüllte Massefläche, verbindet
+es deren Stücke miteinander. Der Test „beide Enden frei in der Luft" sieht
+das nicht.
+
+Pauschal entfernt hat das die offenen Verbindungen von 7 auf 9 gehoben.
+`cleanup.py` zählt deshalb nach: wird es nach dem Entfernen schlechter,
+kommt alles zurück und jedes Segment wird einzeln probiert. `fix_drc.py`
+zerstört weiterhin ein bis zwei Verbindungen je Lauf — dafür laufen die
+Nachbesserungen ein zweites Mal.
+
+Ebenso setzten `handroute.py` und `stitch.py` ihre Durchkontaktierungen
+früher ohne Blick auf die Kontur. Zwei Nähvias landeten 0,7 mm neben dem
+Anker der Massefläche bei (0,3 / 0,3) und damit **außerhalb der Platine** —
+Kupfer, das die Fräse wegnimmt. `pcbgen.inside_outline()` prüft jetzt acht
+Punkte auf dem Rand des Vias gegen das Konturpolygon; ein Mittelpunkttest
+allein übersieht die abgerundeten Ecken.
+
+### Steckverbinder ausrichten
+
+Bei `rot=0` zeigt die Öffnung eines Kantensteckers auf **+y**, nicht auf −y.
+Die Annahme war einmal andersherum, und dadurch zeigten J1 bis J4 mit der
+Öffnung ins Platineninnere; beim USB-C-Anschluss war die Buchse damit gar
+nicht erreichbar. Der Footprint sagt es selbst:
+
+| Footprint | Woran man es sieht |
+|---|---|
+| `JST_XH_S*B-XH-A_..._Horizontal` | Der F.Fab-Umriss hat zwischen den beiden Seitenohren eine Aussparung von y −2,3 bis +2,2 — dort treten die Stifte nach unten aus. Die Kontaktkanäle laufen von y 3,2 bis 8,7 nach vorn, die Frontfläche liegt bei y = +9,2. |
+| `USB_C_Receptacle_GCT_USB4085` | Eine Linie auf `Dwgs.User` mit der Aufschrift **PCB Edge** bei y = +6,1. Dort muss die Platinenkante liegen, die Nase ragt bis y = +8,61 darüber hinaus. |
+| `microSD_HC_Hirose_DM3D-SF` | Der Kartenumriss auf F.Fab reicht bis y = +10,08, der Halterkörper endet bei +5,73. Die Karte steht also 4,35 mm heraus — das Kollisionsrechteck von `place()` muss diesen Kanal enthalten, sonst stellt `pack()` etwas darunter. |
+
+Für die Kante gilt damit:
+
+| Kante | Drehung |
+|---|---|
+| oben (−y) | 180 |
+| rechts (+x) | 90 |
+| unten (+y) | 0 |
+| links (−x) | 270 |
+
+Vor jeder Platzierung eines Kantensteckers die Marke oder die Aussparung im
+Footprint nachsehen, nicht raten.
 
 ### Leiterbahnbreiten
 
@@ -251,30 +301,68 @@ Kabelverschraubungen. Zwei Punkte sind dabei bindend:
 - Die Antenne des ESP32-Moduls ragt 6 mm über die linke Platinenkante. Dort
   muss das Gehäuse ausgespart und metallfrei sein. Bei einem Metallgehäuse
   stattdessen den pinkompatiblen ESP32-S3-WROOM-1**U** mit externer Antenne.
-- Die microSD-Karte ist nur bei geöffnetem Deckel erreichbar. Für den
-  laufenden Betrieb ist der Download über WLAN vorgesehen.
+- Die microSD-Karte sitzt so weit innen, dass ihre Spitze im
+  eingeschobenen Zustand 0,5 mm **vor** der Platinenkante endet. Sie steht
+  also nicht über und braucht keine Aussparung, wohl aber einen Schlitz im
+  Deckel, durch den man sie einführt. Für den laufenden Betrieb ist der
+  Download über WLAN vorgesehen.
+- Die Nase der USB-C-Buchse ragt 3 mm über die rechte Kante. Das ist bei
+  diesem Landmuster so vorgesehen (Marke *PCB Edge* im Footprint) und
+  verhindert, dass die Umspritzung des Steckers auf die Platine trifft.
+
+Anordnung der Bedienteile:
+
+| Wo | Was |
+|---|---|
+| obere Kante | Mikrofon A, Mikrofon B, Bordnetz — drei JST XH nebeneinander, Kabel gehen alle in dieselbe Richtung ab |
+| rechte Kante | USB-C oben, microSD darunter |
+| untere Kante | drei Leuchtdioden als Säule, daneben die vier Taster in einer Reihe |
+| Rückseite | nur flache Bauteile, nichts über 2,7 mm |
+
+⚠️ Damit liegt das Bordnetzkabel mit 12 V, CAN und dem geschalteten Strom
+des Buck-Wandlers **1,5 mm neben den Mikrofonleitungen**. Auf der Platine
+ist das beherrscht — Gleichtaktdrosseln und Klemmdioden sitzen direkt hinter
+J2 und J3, und der Regler steht am anderen Ende —, im Kabelbaum aber nicht:
+dort gehören die Mikrofonleitungen geschirmt und getrennt vom Versorgungs-
+strang geführt. J1 hat sechs Wege, J2 und J3 fünf; vertauschen kann man sie
+nicht. J2 und J3 sind untereinander gleich, ein Tausch dreht nur die Kanäle.
+
+Bauhöhe: Oberseite 7,6 mm (JST XH), Rückseite 2,7 mm (DS3231 im SOIC-16W).
+Mit 1,6 mm Platine sind das **11,9 mm** Gesamtaufbau. Vorher saß die
+Knopfzelle mit 4,3 mm hinten, das waren 13,5 mm. Die beiden stehenden
+Stiftleisten J6 und J7 ragen 8,5 mm heraus und sind damit das höchste auf
+der Platine; J6 (GPS) ist unbestückt, J7 (I2C-Erweiterung) lässt sich bei
+Platznot durch eine liegende Bauform ersetzen.
 
 ## Stand
 
 | | Mikrofonkopf | Hauptplatine |
 |---|---|---|
 | Bauteile | 14 | 127 |
-| Leiterbahnen | 116 (259 mm) | 1273 (3344 mm) |
-| Durchkontaktierungen | 3 | 934 |
-| Offene Verbindungen | **0** | **5** |
+| Leiterbahnen | 116 (259 mm) | 1047 (3236 mm) |
+| Durchkontaktierungen | 3 | 919 |
+| Offene Verbindungen | **0** | **7** |
 | DRC-Fehler | **0** | **0** |
-| DRC-Warnungen | 0 | 9 (nur Siebdruck) |
+| DRC-Warnungen | 0 | 5 (Siebdruck, ein loses Via) |
 | ERC-Fehler | **0** | **0** |
 | Schaltplanparität | 2 (Bohrungen) | 4 (Bohrungen) |
-| Leiterbahnbreiten | 0,18 mm | 0,18 mm Signale, 0,4–0,5 mm Versorgung |
+| Leiterbahnbreiten | 0,18 mm | 0,18 mm Signale, 0,25–0,5 mm Versorgung |
+| Bauhöhe | — | 7,6 mm oben, 2,7 mm unten |
 
-Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **5 Verbindungen
-offen** — allesamt Massefläche-Stücke auf der Rückseite, die durch die
-Leiterbahnen abgeschnitten wurden und deren Anbindung an die durchgehende
-Fläche auf In1 der Autorouter nicht findet. Kein Signalnetz ist betroffen.
+Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **7 Verbindungen
+offen**: vier Massefläche-Stücke auf der Rückseite und drei Pads
+(U5 Pin 7 und C34 an Masse, R47 an +3V3D). Kein Signalnetz ist betroffen.
 Sie sind in KiCads interaktivem Router (Push-and-Shove) in wenigen Minuten
 zu schließen; der ist den hier verwendeten Werkzeugen an engen Stellen
 deutlich überlegen. Vor der Fertigung müssen sie geschlossen sein.
+
+Vorher waren es fünf. Die Oberseite trägt seit dem Umbau die Knopfzelle,
+die vier Taster und den Piezo zusätzlich — rund 590 mm² mehr Sperrfläche —,
+und die Masseflächen auf den Außenlagen zerfallen entsprechend in mehr
+Stücke. Der Autorouter streut dabei stark: sechs Läufe mit identischer
+Bestückung endeten zwischen 7 und 15 offenen Verbindungen. Es lohnt sich,
+`pipeline.sh` zwei- bis dreimal laufen zu lassen und das beste Ergebnis zu
+behalten.
 
 Beschaffung: von 75 Stücklistenpositionen brauchen drei kein Bauteil (TP1,
 TP2, Lötpads am Mikrofonkopf), 71 haben eine bei DigiKey lagernde

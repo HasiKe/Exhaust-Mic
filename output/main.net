@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/exhaust-mic.kicad_sch")
-		(date "2026-08-31T22:30:27")
+		(date "2026-09-01T09:18:49")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
