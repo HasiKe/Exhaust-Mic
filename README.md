@@ -116,8 +116,46 @@ auch getrennt aufrufen:
 | `route.py` | Autorouting über Specctra-DSN und freerouting |
 | `stitch.py` | Durchkontaktierung von Pads auf ihre Versorgungsfläche |
 | `handroute.py` | einfache Wege für den Rest, sonst Via auf die Fläche |
+| `widen_supply.py` | Versorgungsleitungen aufweiten, soweit der Platz reicht |
+| `trim_warnings.py` | lose Bahnenden und zu dichte Bohrungen einzeln entfernen |
+| `swap_footprint.py` | Landmuster tauschen, Netze über die Padnamen zuordnen |
 | `cleanup.py` | doppelte Bohrungen, Nullbahnen, lose Enden entfernen |
 | `verify.py` | eigene Abnahme (Kontur, Durchgang, Abstände) |
+
+### Leiterbahnbreiten
+
+freerouting verlegt alles in der Vorgabebreite von 0,18 mm. Für Signale ist
+das richtig, für den Versorgungspfad nicht: 0,18 mm bei 35 µm Außenkupfer
+tragen nach IPC-2221 rund 0,5 A bei 10 K Erwärmung, der ESP32 zieht in
+Sendespitzen annähernd 0,5 A allein. `widen_supply.py` weitet deshalb im
+Nachgang auf — gestaffelt und gruppenweise, die Gruppe mit dem größten Strom
+zuerst, damit sie den Platz bekommt:
+
+| Gruppe | Ziel |
+|---|---|
+| Schaltknoten, Buck-Ausgang, +4V6, +3V3D | 0,5 mm |
+| Bordnetzeingang, VBAT12, USB_VBUS, GND | 0,4 mm |
+| +3V3A | 0,3 mm |
+
+Zurückgenommen wird nach **KiCads** Regelprüfung, nicht nach der Näherung in
+`pcbgen.py`: die kennt die tatsächlichen Padformen nicht und lässt Bahnen
+durchgehen, die an einer Kühlfahne zu nah liegen. Zwei Fallen dabei, beide
+teuer bezahlt:
+
+* Nur auf `clearance` zu filtern reicht nicht. Eine aufgeweitete Bahn kann
+  ein fremdes Pad überdecken, und das meldet KiCad als **Kurzschluss** oder
+  als Brücke im Lötstopplack. Beim ersten Versuch blieben so fünf echte
+  Kurzschlüsse stehen, während das Werkzeug „keine Abstandsfehler mehr"
+  meldete.
+* Je Verstoß wird höchstens **eine** Bahn verschmälert, die breitere der
+  beteiligten. Nimmt man beide zurück, verliert man an jeder engen Stelle
+  doppelt.
+
+Was danach noch bei 0,18 mm liegt, lässt sich ohne neues Routing nicht
+verbreitern — der Nachbar steht im Weg. Der auffälligste Rest ist eine
+24 mm lange USB_VBUS-Strecke auf In2 zwischen zwei SD-Datenleitungen: bei
+0,5 A aus dem USB-Anschluss rund 23 K Erwärmung. Das passiert nur am
+Schreibtisch, nicht auf der Fahrt.
 
 `stitch.py` und `handroute.py` nehmen die offenen Verbindungen aus
 `kicad-cli pcb drc` statt aus eigener Vermutung und lehnen jeden Weg ab,
@@ -228,6 +266,7 @@ Kabelverschraubungen. Zwei Punkte sind dabei bindend:
 | DRC-Warnungen | 0 | 9 (nur Siebdruck) |
 | ERC-Fehler | **0** | **0** |
 | Schaltplanparität | 2 (Bohrungen) | 4 (Bohrungen) |
+| Leiterbahnbreiten | 0,18 mm | 0,18 mm Signale, 0,4–0,5 mm Versorgung |
 
 Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **5 Verbindungen
 offen** — allesamt Massefläche-Stücke auf der Rückseite, die durch die
