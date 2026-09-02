@@ -33,11 +33,17 @@ static const char *TAG = "main";
 
 static QueueHandle_t BEFEHLE;      /* true = starten, false = stoppen */
 
+/* Die Kamera hat ihren Zustand geaendert - das ist der Hauptweg: Video
+ * starten, Aufnahme laeuft mit. Der Taster weiter unten ist nur der
+ * Zusatz fuer die Gegenrichtung.
+ *
+ * Gerufen wird das aus dem NimBLE-Task, nicht aus einer Unterbrechung.
+ * Deshalb xQueueSend und nicht xQueueSendFromISR - die ISR-Fassung
+ * erwartet Unterbrechungskontext, und portYIELD_FROM_ISR aus einer
+ * Aufgabe heraus ist schlicht falsch. */
 static void gopro_meldet(bool laeuft, void *arg)
 {
-    BaseType_t geweckt = pdFALSE;
-    xQueueSendFromISR(BEFEHLE, &laeuft, &geweckt);
-    portYIELD_FROM_ISR(geweckt);
+    xQueueSend(BEFEHLE, &laeuft, 0);
 }
 
 static void aufnahme_starten(void)
@@ -94,6 +100,7 @@ static void schreiber(void *arg)
 static void aufsicht(void *arg)
 {
     zeit_anker_t letzter = {0}, jetzt;
+    bool funk_gemeldet = false;
     while (true) {
         if (speicher_laeuft() && zeitbasis_anker(&jetzt) &&
             jetzt.sample != letzter.sample) {
@@ -101,9 +108,18 @@ static void aufsicht(void *arg)
             speicher_notiz("%llu,uhr,%lld", (unsigned long long)jetzt.sample,
                            (long long)jetzt.utc);
         }
+        /* Bricht die Funkstrecke waehrend einer Aufnahme ab, laeuft die
+         * Aufnahme weiter - aber man soll es sehen. */
+        bool funk_weg = speicher_laeuft() && gopro_zustand() != GOPRO_BEREIT;
+        if (funk_weg != funk_gemeldet) {
+            funk_gemeldet = funk_weg;
+            speicher_notiz("%llu,gopro,%s",
+                           (unsigned long long)*audio_rahmenzaehler(),
+                           funk_weg ? "verbindung weg" : "verbindung wieder da");
+        }
         float a = audio_spitze(0), b = audio_spitze(1);
         /* -0,5 dBFS. Darueber ist der Wandler praktisch am Anschlag. */
-        led(LED_ERR, a > 0.944f || b > 0.944f);
+        led(LED_ERR, a > 0.944f || b > 0.944f || funk_weg);
         vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

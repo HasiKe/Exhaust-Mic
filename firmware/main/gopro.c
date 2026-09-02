@@ -316,7 +316,17 @@ static int gap_ereignis(struct ble_gap_event *e, void *arg)
 
     case BLE_GAP_EVENT_DISCONNECT:
         ESP_LOGW(TAG, "Verbindung getrennt, Grund %d", e->disconnect.reason);
-        aufnahme_melden(false);
+        /* Kein Stopp melden. Ein Funkabriss heisst nicht, dass die Kamera
+         * aufgehoert hat - sie filmt weiter, und eine abgeschnittene
+         * Tonspur waere der groessere Schaden. Die Aufnahme laeuft also
+         * weiter, bis die Kamera es sagt oder jemand die Taste drueckt.
+         *
+         * Den gemerkten Zustand aber zuruecksetzen: nach dem
+         * Wiederverbinden liefert die Anmeldung den wahren Wert, und
+         * aufnahme_melden() meldet nur Aenderungen. Ohne das Zuruecksetzen
+         * bliebe ein zwischenzeitlicher Stopp der Kamera unbemerkt. */
+        G.nimmt_auf = false;
+        G.zustand = GOPRO_SUCHT;
         suche_starten();
         return 0;
 

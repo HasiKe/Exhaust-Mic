@@ -1,6 +1,25 @@
+# KiCad
 fp-info-cache
 *.kicad_prl
 *-backups/
-tools/__pycache__/
+*.lck
+~*
+
+# Erzeugte Zwischenstaende
 logs/
 output/.gerber-*/
+
+# Python
+__pycache__/
+*.pyc
+.venv*/
+
+# ESP-IDF: sdkconfig entsteht aus sdkconfig.defaults, build/ ohnehin
+firmware/build/
+firmware/sdkconfig
+firmware/sdkconfig.old
+firmware/managed_components/
+firmware/dependencies.lock
+
+# Unix-Sockets, die Werkzeuge im Arbeitsverzeichnis ablegen
+Claude*
