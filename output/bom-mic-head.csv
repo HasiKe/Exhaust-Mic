@@ -3,7 +3,7 @@ Menge,Referenzen,Wert,Footprint,MPN,Hersteller,DigiKey,Hinweis,Bestueckung
 2,C3 C7,1u/16V,C_0603_1608Metric,CL10A105KA8NFNC,Samsung Electro-Mechanics,1276-1859-1-ND,,ja
 2,C5 C6,100n,C_0603_1608Metric,0603B104K250CT,Walsin Technology Corporation,1292-1642-1-ND,,ja
 1,FB1,600R@100MHz,R_0603_1608Metric,BLM18AG601SN1D,Murata Electronics,490-1014-1-ND,,ja
-1,J1,Loetpads_Kabel_5x,SolderWire-0.25sqmm_1x05_P4.2mm_D0.65mm_OD1.7mm_Relief,-,,,,ja
+1,J1,Loetpads_Kabel_5x,SolderWire-0.1sqmm_1x05_2reihig_P2.6mm,-,,,,ja
 1,MK1,IM73A135V01,Infineon_PG-LLGA-5-1,IM73A135V01XTSA1,,,,ja
 2,R1 R2,100R,R_0603_1608Metric,CRCW0603100RFKEA,Vishay Dale,541-100HCT-ND,,ja
 1,R3,47k,R_0603_1608Metric,RC0603FR-0747KL,YAGEO,311-47.0KHRCT-ND,,ja

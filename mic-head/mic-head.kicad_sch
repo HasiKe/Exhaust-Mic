@@ -4537,7 +4537,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x05_P4.2mm_D0.65mm_OD1.7mm_Relief"
+		(property "Footprint" "exhaust-mic:SolderWire-0.1sqmm_1x05_2reihig_P2.6mm"
 			(at 340.36 74.93 0)
 			(hide yes)
 			(show_name no)

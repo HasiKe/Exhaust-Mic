@@ -19,7 +19,7 @@ Auslegung, Rauschbudget, Pegelplan und Begründung der Bauteilwahl:
 | `04-mcu.kicad_sch` | ESP32-S3-WROOM-1, USB-C, microSD |
 | `05-io.kicad_sch` | DS3231-RTC, CAN, Bedienung, Sync-Marker |
 | `exhaust-mic.kicad_pcb` | Layout der Hauptplatine, 72 × 55 mm, vier Lagen |
-| `mic-head/` | Eigenes Projekt für den Mikrofonkopf, 2× identisch bestückt |
+| `mic-head/` | Eigenes Projekt für den Mikrofonkopf, 8 × 27 mm, 2× identisch bestückt |
 | `lib/exhaust-mic.kicad_sym` | Symbole, die KiCad nicht mitbringt |
 | `lib/exhaust-mic.pretty/` | Footprints, die KiCad 7 nicht mitbringt |
 | `output/bom-*.csv` | Stücklisten |
@@ -124,6 +124,47 @@ Einzelschritte lassen sich auch getrennt aufrufen:
 | `swap_footprint.py` | Landmuster tauschen, Netze über die Padnamen zuordnen |
 | `cleanup.py` | doppelte Bohrungen, Nullbahnen, lose Enden entfernen — mit Nachzählen, siehe unten |
 | `verify.py` | eigene Abnahme (Kontur, Durchgang, Abstände) |
+
+### Der Mikrofonkopf ist auf ein Fünftel geschrumpft
+
+Von 22 × 40 mm auf **8 × 27 mm**, 880 mm² auf 216 mm². Dieselben vierzehn
+Bauteile. Drei Dinge haben den Platz gekostet:
+
+| Was | Ersparnis |
+|---|---|
+| Lötpad-Landmuster mit Zugentlastung, 20,05 × 13,27 mm | 228 mm² |
+| Alles auf der Oberseite | rund die Hälfte der Restfläche |
+| Zwei M2,2-Bohrungen mit 4 mm Pad an der Unterkante | rund 5 mm Länge |
+
+Das Landmuster war der größte Posten: 266 mm² für einen einzigen Steckplatz,
+mehr als die anderen dreizehn Bauteile zusammen (121 mm²). Fünf Pads
+nebeneinander sind allein 20 mm breit und haben damit die Platinenbreite
+diktiert. `lib/exhaust-mic.pretty/SolderWire-0.1sqmm_1x05_2reihig_P2.6mm`
+setzt sie zweireihig versetzt auf 5,15 × 7,35 mm; die Drähte laufen jetzt
+längs aus der Platine heraus statt quer, was für einen Kopf im Röhrchen
+ohnehin die richtige Richtung ist.
+
+Zwei Stolpersteine beim Umbau:
+
+- **Die Durchsteckpads sperren die Rückseite auf ihrer ganzen Fläche.** Der
+  erste Entwurf stellte die Kleinteile hinter die Kabelpads, `check()`
+  meldete fünf Kollisionen. C1, C4 und FB1 sitzen deshalb vorn im freien
+  Feld zwischen Wandler und Kabelpads.
+- **Bei 8 mm Breite muss ein Kanal frei bleiben.** Erst blieb `OUT_P` als
+  einziges Netz offen, weil der Regler U1 links im Weg stand — `OUT_N` kam
+  rechts durch. Ab y 9,9 ist auf der Rückseite alles nach rechts gerückt;
+  links bleiben 2,7 mm für die Bahn von R1 zu den Kabelpads.
+
+### Der Autorouter kennt den Kantenabstand nicht
+
+freerouting hält zur Begrenzung nur den allgemeinen Abstand ein — hier
+0,15 mm. KiCad verlangt zur Platinenkante aber 0,25 mm
+(`min_copper_edge_clearance`). Auf dem 8 mm schmalen Kopf hat der Router
+deshalb drei Bahnen mit 0,23 mm an die rechte Kante gelegt: drei
+Regelfehler, nachträglich nur durch Aufreißen der Bahn zu beheben.
+`route.py` rückt die Begrenzung im DSN jetzt um 0,12 mm ein, bevor
+freerouting startet — gerechnet auf den Koordinaten im DSN selbst, damit
+offen bleibt, wo KiCad den Nullpunkt hingelegt hat.
 
 ### Kupfer entfernen ist gefährlich
 
@@ -298,6 +339,12 @@ JST XH, und die Superseal-Trennstellen wandern ins Kabel.
 Vorgesehen ist ein IP67-Kunststoffkasten von etwa 80 × 62 × 25 mm mit
 Kabelverschraubungen. Zwei Punkte sind dabei bindend:
 
+- Der Mikrofonkopf hat **keine Befestigungsbohrungen und keine
+  Zugentlastung** mehr. Beides muss das Röhrchen übernehmen: Platine
+  klemmen oder vergießen, und den Kabelzug abfangen, bevor er an den
+  Lötstellen zieht. Rund um die Schallbohrung bleibt die Rückseite bis
+  y 5,7 mm frei — dort dichtet das Röhrchen ab; Bauteile stehen erst
+  darüber.
 - Die Antenne des ESP32-Moduls ragt 6 mm über die linke Platinenkante. Dort
   muss das Gehäuse ausgespart und metallfrei sein. Bei einem Metallgehäuse
   stattdessen den pinkompatiblen ESP32-S3-WROOM-1**U** mit externer Antenne.
@@ -349,16 +396,17 @@ Platznot durch eine liegende Bauform ersetzen.
 
 | | Mikrofonkopf | Hauptplatine |
 |---|---|---|
+| Größe | 8 × 27 mm | 72 × 55 mm |
 | Bauteile | 14 | 127 |
-| Leiterbahnen | 116 (259 mm) | 1047 (3236 mm) |
-| Durchkontaktierungen | 3 | 919 |
+| Leiterbahnen | 120 (199 mm) | 1047 (3236 mm) |
+| Durchkontaktierungen | 7 | 919 |
 | Offene Verbindungen | **0** | **7** |
 | DRC-Fehler | **0** | **0** |
 | DRC-Warnungen | 0 | 5 (Siebdruck, ein loses Via) |
 | ERC-Fehler | **0** | **0** |
-| Schaltplanparität | 2 (Bohrungen) | 4 (Bohrungen) |
+| Schaltplanparität | **0** | 4 (Bohrungen) |
 | Leiterbahnbreiten | 0,18 mm | 0,18 mm Signale, 0,25–0,5 mm Versorgung |
-| Bauhöhe | — | 7,6 mm oben, 2,7 mm unten |
+| Bauhöhe | 1,8 mm oben, 1,5 mm unten | 7,6 mm oben, 2,7 mm unten |
 
 Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **7 Verbindungen
 offen**: vier Massefläche-Stücke auf der Rückseite und drei Pads

@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/home/kevin/projects/hayabusa/hardware/exhaust-mic/mic-head/mic-head.kicad_sch")
-		(date "2026-08-31T22:30:28")
+		(date "2026-09-02T09:21:30")
 		(tool "Eeschema 10.0.6-10.0.6~ubuntu24.04.1")
 		(sheet
 			(number "1")
@@ -561,12 +561,12 @@
 		(comp
 			(ref "J1")
 			(value "Loetpads_Kabel_5x")
-			(footprint "Connector_Wire:SolderWire-0.25sqmm_1x05_P4.2mm_D0.65mm_OD1.7mm_Relief")
+			(footprint "exhaust-mic:SolderWire-0.1sqmm_1x05_2reihig_P2.6mm")
 			(fields
 				(field
 					(name "MPN") "-")
 				(field
-					(name "Footprint") "Connector_Wire:SolderWire-0.25sqmm_1x05_P4.2mm_D0.65mm_OD1.7mm_Relief")
+					(name "Footprint") "exhaust-mic:SolderWire-0.1sqmm_1x05_2reihig_P2.6mm")
 				(field
 					(name "Datasheet")
 				)
