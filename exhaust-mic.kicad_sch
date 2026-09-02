@@ -54,7 +54,7 @@
 		)
 		(uuid "6eb22eb6-9023-8ee3-e8f4-f18afd45edef")
 	)
-	(text "docs/superpowers/specs/2026-08-28-exhaust-mic-design.md"
+	(text "docs/specs/2026-08-28-exhaust-mic-design.md"
 		(exclude_from_sim no)
 		(at 30 86 0)
 		(effects

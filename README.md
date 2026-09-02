@@ -6,7 +6,7 @@ aufgezeichnet von einem ESP32-S3 auf microSD, mit Zeitstempeln zur
 Synchronisation mit Videomaterial.
 
 Auslegung, Rauschbudget, Pegelplan und Begründung der Bauteilwahl:
-[`docs/superpowers/specs/2026-08-28-exhaust-mic-design.md`](../../docs/superpowers/specs/2026-08-28-exhaust-mic-design.md)
+[`docs/specs/2026-08-28-exhaust-mic-design.md`](../../docs/specs/2026-08-28-exhaust-mic-design.md)
 
 ## Inhalt
 
