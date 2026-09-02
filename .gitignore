@@ -22,4 +22,4 @@ firmware/managed_components/
 firmware/dependencies.lock
 
 # Unix-Sockets, die Werkzeuge im Arbeitsverzeichnis ablegen
-Claude*
+*.sock
