@@ -25,6 +25,7 @@ Auslegung, Rauschbudget, Pegelplan und Begründung der Bauteilwahl:
 | `output/bom-*.csv` | Stücklisten |
 | `output/*-gerber.zip` | Fertigungsdaten |
 | `tools/` | Generatoren, siehe unten |
+| `case/` | Gehäuse als build123d-Quelltext, Maße aus den Platinen gelesen |
 
 ## Schaltpläne neu erzeugen
 
@@ -330,6 +331,90 @@ und auf die Fab-Lage gelegt. Ohne das landen sie sichtbar im Siebdruck und
 Regelwarnungen.
 
 ## Gehäuse
+
+Fünf gedruckte Teile, erzeugt aus `case/` mit build123d. **Die Maße kommen
+aus den Platinendateien**, nicht aus einer Tabelle: `case/geometrie.py`
+liest Umriss, Bohrungen, Bauteillagen und Courtyards direkt aus der
+`.kicad_pcb`. Wandert ein Stecker, wandert die Öffnung mit.
+
+| Teil | Maße | Volumen |
+|---|---|---|
+| `hauptgehaeuse-unterschale` | 94,0 × 73,4 × 16,6 mm | 34,6 cm³ |
+| `hauptgehaeuse-deckel` | 89,0 × 73,4 × 8,7 mm | 16,4 cm³ |
+| `hauptgehaeuse-serviceklappe` | 2,0 × 43,0 × 9,6 mm | 0,8 cm³ |
+| `mikrofonkopf-unterschale` | 23,0 × 39,0 × 5,4 mm | 1,9 cm³ |
+| `mikrofonkopf-oberschale` | 23,0 × 39,0 × 7,0 mm | 2,2 cm³ |
+
+Ausgabe in `output/case/`: STEP und STL je Teil,
+`gehaeuse-zeichnungen.pdf` mit drei bemaßten Blättern,
+`gehaeuse-stueckliste.csv` mit den Zukaufteilen.
+
+```sh
+python3 -m venv .venv-cad
+.venv-cad/bin/pip install build123d matplotlib
+.venv-cad/bin/python case/bauen.py          # STEP, STL, Zeichnungen
+set -a; . ~/.config/secrets.env; set +a
+python3 case/beschaffung.py                 # Stückliste mit Bestand
+```
+
+build123d bringt OpenCascade mit und lässt sich unter PEP 668 nicht
+systemweit installieren, daher die eigene Umgebung. Die
+Elektronikwerkzeuge brauchen sie nicht.
+
+### Was das Hauptgehäuse groß macht
+
+72 × 55 mm Platine, aber 94 × 73 mm außen. Drei Posten:
+
+| Posten | Kostet |
+|---|---|
+| Antennenüberstand des WROOM-1 nach links | 6,55 mm |
+| Kabelkanal vor den Steckern für die Hutmuttern | 8,00 mm |
+| 5 mm Wand, zweimal je Achse | 10,00 mm |
+| Verdickung für die Serviceklappe rechts | 5,00 mm |
+
+Die Wand ist mit 5 mm dicker als üblich, weil die Dichtnut 2,6 mm breit
+ist und beidseitig 1,2 mm Steg braucht. Ein dünnerer Rand mit angesetztem
+Flansch wäre leichter, aber der Absatz nach außen ist beim Drucken ein
+Überhang. Der Kabelkanal ist nicht verzichtbar: die Steckergehäuse
+beginnen 0,8 mm hinter der Platinenkante, die Hutmuttern der
+Verschraubungen brauchen davor Platz.
+
+### Dichtheit ohne Durchbrüche
+
+- **Taster**: über jedem Taster steht der Deckel nur 0,7 mm stark, darunter
+  ein Stempel Ø4,0 bis 0,3 mm über die Tasterkappe. Die Membran federt, die
+  Dichtung bleibt geschlossen. Schaltweg des TL3342 ist 0,25 mm — das
+  schafft eine 0,7-mm-Membran über Ø9,0. Ein Durchbruch mit Stößel und
+  O-Ring wäre präziser, aber vier weitere Leckstellen.
+- **Leuchtdioden**: 0,6 mm Restwand statt Loch. Nur mit lichtdurchlässigem
+  Filament sinnvoll; sonst die Tasche durchbohren und Lichtleiter einsetzen.
+- **USB-C und microSD** liegen hinter einer gemeinsamen Serviceklappe mit
+  eigener Dichtschnur. Die Nase der USB-Buchse ragt ohnehin 3 mm in die
+  Wand hinein.
+- **Dichtung**: Rundschnur Ø2,0 mm, rund 290 mm Umfang, abgelängt und
+  stumpf geklebt. Für diesen Umfang gibt es keinen O-Ring von der Stange.
+
+### Der Mikrofonkopf verträgt kein PLA und kein PETG
+
+⚠️ **Das Mikrofon ist auf 85 °C begrenzt.** Für Kopf B in der Airbox ist
+das unkritisch. Kopf A am Endrohr braucht ein Filament, das mindestens so
+viel aushält wie das Mikrofon:
+
+| Filament | Formbeständig bis etwa | Kopf A |
+|---|---|---|
+| PLA | 55 °C | nein |
+| PETG | 75 °C | nein |
+| ASA / ABS | 95 °C | brauchbar, UV-fest |
+| PC, PA-CF | 110 °C und mehr | besser |
+
+Das Gehäuse ist damit nicht das begrenzende Teil, aber es darf auch nicht
+das schwächste sein. Für die Hauptplatine am Heck ebenfalls ASA: PETG
+kreidet unter UV.
+
+Offen bleibt O4 aus der Spezifikation — die zulässige Einbauposition von
+Kopf A muss vor der Endmontage mit einem Thermoelement ausgemessen werden.
+Hitzeschild und Abstandshalter sind **nicht** Teil dieser Lieferung.
+
 
 Die Dichtheit macht das Gehäuse, nicht die Platinensteckverbinder: Superseal
 1.0 gibt es nur mit 26, 34 oder 60 Wegen als Platinenheader, die kleinen 5-

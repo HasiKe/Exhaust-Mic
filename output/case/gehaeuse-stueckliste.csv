@@ -1,0 +1,13 @@
+Bezeichnung,Menge,MPN,Hersteller,DigiKey,Bestand,Preis,Hinweis
+"Kabelverschraubung M8x1,5, Kabel 2..5 mm",2,CG-P-M8-1.25,Adam Tech,2057-CG-P-M8-1.25-ND,4549,0.70,"Hauptgehaeuse, Mikrofonkabel A und B. Gewindelaenge >= 6 mm fuer 5 mm Wand"
+"Kabelverschraubung M12x1,5, Kabel 3..6,5 mm",1,AIO-CSM12,Amphenol Industrial Operations,AIO-CSM12-ND,28817,1.87,"Hauptgehaeuse, Bordnetzstrang"
+Gewindeeinsatz M3 zum Einschmelzen,8,,,,,,"6 x Deckel, 2 x Serviceklappe. Laenge <= 5 mm, sonst bricht der Einsatz an der Klappe in den Hohlraum durch | kein lagernder Treffer, Begriff verfeinern"
+"Gewindeeinsatz M2,5 zum Einschmelzen",4,,,,,,"Platinensockel im Hauptgehaeuse | kein lagernder Treffer, Begriff verfeinern"
+"Zylinderschraube M3x10, Innensechskant",6,,,,,,"Deckel. Normteil, Baumarkt oder Schraubenhandel"
+"Zylinderschraube M3x8, Innensechskant",2,,,,,,Serviceklappe
+"Zylinderschraube M2,5x6",4,,,,,,Platine im Hauptgehaeuse
+Blechschraube M2x8 oder Schraube M2x10,8,,,,,,"Mikrofonkoepfe, 4 je Kopf"
+"Rundschnur NBR d2,0 mm",300,,,,,,"Hauptgehaeusedichtung, rund 290 mm Umfang. Ablaengen und stumpf kleben - fuer diesen Umfang gibt es keinen O-Ring von der Stange | kein lagernder Treffer, Begriff verfeinern"
+"Rundschnur NBR d1,5 mm",120,,,,,,"Serviceklappe, rund 110 mm Umfang"
+"Kabelbinder 2,5 mm breit",2,,,,,,Zugentlastung an den Mikrofonkoepfen
+"Vergussmasse, 2-Komponenten",1,,,,,,Mikrofonkoepfe. Schallbohrung und Dichtsockel freihalten
