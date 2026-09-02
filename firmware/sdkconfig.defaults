@@ -1,0 +1,32 @@
+# Modul ESP32-S3-WROOM-1-N8R2: 8 MB Flash, 2 MB PSRAM in Quad-Ausfuehrung.
+CONFIG_IDF_TARGET="esp32s3"
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+
+# PSRAM traegt den Ringpuffer der Aufnahme (F1). Ohne ihn passen bei
+# 48 kHz / 2 Kanaelen / 32 Bit nur Bruchteile einer Sekunde in den RAM,
+# und jede Schreibpause der Karte gaebe eine Luecke.
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_QUAD=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_USE_MALLOC=y
+CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=4096
+
+# Bluetooth LE mit NimBLE. Classic gibt es auf dem S3 nicht - siehe
+# gopro.h, warum die GoPro damit nicht als Tonquelle zu bedienen ist.
+CONFIG_BT_ENABLED=y
+CONFIG_BT_NIMBLE_ENABLED=y
+CONFIG_BT_NIMBLE_ROLE_CENTRAL=y
+CONFIG_BT_NIMBLE_ROLE_OBSERVER=y
+CONFIG_BT_NIMBLE_ROLE_PERIPHERAL=n
+CONFIG_BT_NIMBLE_ROLE_BROADCASTER=n
+CONFIG_BT_NIMBLE_MAX_CONNECTIONS=1
+
+# Die Karte schreibt in Schueben. Ein grosszuegiger Sektorpuffer haelt
+# die Schreibpausen von der Aufnahme fern.
+CONFIG_FATFS_LFN_HEAP=y
+CONFIG_FATFS_MAX_LFN=255
+
+CONFIG_FREERTOS_HZ=1000
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=6144
+CONFIG_COMPILER_WARN_WRITE_STRINGS=y

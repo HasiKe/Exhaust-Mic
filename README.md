@@ -26,6 +26,7 @@ Auslegung, Rauschbudget, Pegelplan und Begründung der Bauteilwahl:
 | `output/*-gerber.zip` | Fertigungsdaten |
 | `tools/` | Generatoren, siehe unten |
 | `case/` | Gehäuse als build123d-Quelltext, Maße aus den Platinen gelesen |
+| `firmware/` | ESP-IDF-Firmware, Pinbelegung aus der Netzliste erzeugt |
 
 ## Schaltpläne neu erzeugen
 
@@ -476,6 +477,42 @@ Knopfzelle mit 4,3 mm hinten, das waren 13,5 mm. Die beiden stehenden
 Stiftleisten J6 und J7 ragen 8,5 mm heraus und sind damit das höchste auf
 der Platine; J6 (GPS) ist unbestückt, J7 (I2C-Erweiterung) lässt sich bei
 Platznot durch eine liegende Bauform ersetzen.
+
+## Firmware
+
+ESP-IDF v5.3.2 in `firmware/`, baut warnungsfrei. Einzelheiten in
+[`firmware/README.md`](firmware/README.md).
+
+Umgesetzt sind F1–F6 und F8 der Spezifikation sowie die GoPro-Kopplung;
+offen bleiben F7 (Zündungsautomat), F9 (WLAN/NTP), F10 (CAN) und F11
+(Download). **Auf Hardware gelaufen ist noch nichts** — es gibt keinen
+Aufbau. Geprüft ist bisher nur der Übersetzungslauf.
+
+Die Pinbelegung wird aus `output/main.net` erzeugt, nicht abgetippt:
+`python3 firmware/tools/pins_aus_netzliste.py` schreibt
+`firmware/main/pins.h`.
+
+### GoPro: Auslösen ja, Mikrofon nein
+
+Der Rekorder hängt sich über Bluetooth LE an die Open-GoPro-Schnittstelle
+und meldet sich für den Status `ENCODING` an. Beginnt die Kamera zu
+kodieren, läuft die Aufnahme mit; hört sie auf, wird die Datei
+geschlossen. Der Taster am Gerät löst umgekehrt die Kamera aus.
+
+⚠️ **Die Platine kann der GoPro keinen Ton liefern.** Zwei unabhängige
+Gründe:
+
+| | |
+|---|---|
+| Funk | Der ESP32-S3 beherrscht **nur Bluetooth LE**. Espressif schreibt für beide Host-Stapel „Classic Bluetooth is not supported". GoPro nimmt drahtlosen Ton aber über **HFP** an, ein Bluetooth-Classic-Profil — so werden AirPods und die DJI Mic 2 eingebunden. |
+| Qualität | HFP ist Telefonie: einkanalig, 8 oder 16 kHz. Diese Platine ist für zwei Kanäle mit 24 Bit bei 48 kHz und 135 dBSPL gebaut. Der Weg über HFP würfe die gesamte Auslegung weg. |
+
+Wenn der Ton wirklich in die Kameradatei muss: entweder verkabelt über den
+3,5-mm-Adapter am USB-C der Kamera — dafür bräuchte die Platine einen
+Analogausgang, also eine Rev B — oder getrennt aufnehmen und im Schnitt
+zusammenlegen. Für Letzteres ist die Zeitbasis ausgelegt: BWF-Zeitstempel,
+Sekundenanker, Blitz und Piep als framegenaue Marke. Zusammen mit der
+BLE-Kopplung passiert das ohne Handgriff.
 
 ## Stand
 
