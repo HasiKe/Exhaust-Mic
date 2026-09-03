@@ -1,11 +1,6 @@
 # Gehäuse
 
 
-Fünf gedruckte Teile, erzeugt aus `case/` mit build123d. **Die Maße kommen
-aus den Platinendateien**, nicht aus einer Tabelle: `case/geometrie.py`
-liest Umriss, Bohrungen, Bauteillagen und Courtyards direkt aus der
-`.kicad_pcb`. Wandert ein Stecker, wandert die Öffnung mit.
-
 | Teil | Maße | Volumen |
 |---|---|---|
 | `hauptgehaeuse-unterschale` | 94,0 × 73,4 × 16,6 mm | 34,6 cm³ |
@@ -14,21 +9,6 @@ liest Umriss, Bohrungen, Bauteillagen und Courtyards direkt aus der
 | `mikrofonkopf-unterschale` | 23,0 × 39,0 × 5,4 mm | 1,9 cm³ |
 | `mikrofonkopf-oberschale` | 23,0 × 39,0 × 7,0 mm | 2,2 cm³ |
 
-Ausgabe in `output/case/`: STEP und STL je Teil,
-`gehaeuse-zeichnungen.pdf` mit drei bemaßten Blättern,
-`gehaeuse-stueckliste.csv` mit den Zukaufteilen.
-
-```sh
-python3 -m venv .venv-cad
-.venv-cad/bin/pip install build123d matplotlib
-.venv-cad/bin/python case/bauen.py          # STEP, STL, Zeichnungen
-set -a; . ~/.config/secrets.env; set +a
-python3 case/beschaffung.py                 # Stückliste mit Bestand
-```
-
-build123d bringt OpenCascade mit und lässt sich unter PEP 668 nicht
-systemweit installieren, daher die eigene Umgebung. Die
-Elektronikwerkzeuge brauchen sie nicht.
 
 ### Was das Hauptgehäuse groß macht
 

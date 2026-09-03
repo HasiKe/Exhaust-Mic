@@ -94,8 +94,6 @@ DigiKey aber ohne Bestand; andere Distributoren führen es.
 | `*.kicad_sch`, `exhaust-mic.kicad_pcb` | Hauptplatine, sechs Blätter |
 | `mic-head/` | eigenes Projekt für den Mikrofonkopf |
 | `lib/` | Symbole und Landmuster, die KiCad nicht mitbringt |
-| `tools/` | Generatoren für Schaltplan, Layout, Stückliste, Fertigungsdaten |
-| `case/` | Gehäuse als build123d-Quelltext |
 | `firmware/` | ESP-IDF-Firmware |
 | `output/` | Stücklisten, Gerber, PDF, STEP/STL, Bilder |
 | `docs/` | Beschaffung, Gehäuse, Entwicklungsnotizen |
@@ -109,19 +107,6 @@ diesem Projekt zweimal komplett umgezogen.
 ## Selbst erzeugen
 
 ```sh
-# Schaltpläne und Bibliothek
-python3 tools/build_lib.py
-python3 tools/build_mic_head.py
-python3 tools/build_main.py
-
-# Layout: Bestückung, Autorouting, Nachbesserung, Regelprüfung
-kicad-cli sch export netlist --output output/main.net exhaust-mic.kicad_sch
-tools/pipeline.sh <arbeitsverzeichnis>
-python3 tools/build_outputs.py              # Gerber, Bohrdaten, PDF
-
-# Gehäuse (eigene Umgebung, build123d bringt OpenCascade mit)
-python3 -m venv .venv-cad && .venv-cad/bin/pip install build123d matplotlib
-.venv-cad/bin/python case/bauen.py
 
 # Firmware
 . ~/esp/esp-idf/export.sh
