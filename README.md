@@ -106,8 +106,12 @@ diesem Projekt zweimal komplett umgezogen.
 
 ## Selbst erzeugen
 
-```sh
+Schaltplan, Layout und Gehäuse entstehen aus Generatorskripten, die
+**nicht im Repository liegen** (`tools/`, `case/`). Hier stehen ihre
+Ergebnisse: die KiCad-Dateien, die Modelle und alles unter `output/`.
+Die Firmware baut ohne sie:
 
+```sh
 # Firmware
 . ~/esp/esp-idf/export.sh
 cd firmware && idf.py set-target esp32s3 && idf.py build

@@ -7,6 +7,10 @@ Hand gepflegt, sondern gegen DigiKeys Produktdatenbank ermittelt — mit
 Lagerfilter, damit nichts in der Stückliste steht, was man nicht bestellen
 kann.
 
+> Die `tools/`-Skripte liegen **nicht im Repository**. Der Ablauf ist hier
+> beschrieben, seine Ergebnisse stehen in den Schaltplänen und unter
+> `output/`.
+
 ```sh
 set -a; . ~/.config/secrets.env; set +a     # DIGIKEY_CLIENT_ID / _SECRET
 kicad-cli sch export bom \

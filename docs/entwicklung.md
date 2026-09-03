@@ -4,6 +4,10 @@ Was beim Bauen schiefging und warum die Werkzeuge so aussehen, wie sie
 aussehen. Für alle, die an den Generatoren weiterarbeiten — oder
 dieselben Fallen umgehen wollen.
 
+> Die Generatoren selbst (`tools/`, `case/`) liegen **nicht im
+> Repository** — die Dateipfade unten benennen sie, ohne dass sie hier
+> mitgeliefert würden. Im Repository stehen ihre Ergebnisse.
+
 ## Inhalt
 
 - [Steckverbinder ausrichten](#steckverbinder-ausrichten)
