@@ -8,6 +8,8 @@ fp-info-cache
 # Erzeugte Zwischenstaende
 logs/
 output/.gerber-*/
+tools/
+case/
 
 # Python
 __pycache__/
