@@ -138,6 +138,7 @@ würde. Vor einem Neulauf lesen: [`docs/entwicklung.md`](docs/entwicklung.md).
 | [`docs/entwicklung.md`](docs/entwicklung.md) | Werkzeugfallen, Leiterbahnbreiten, Prüfung, Schaltplan gegen Platine |
 | [`firmware/README.md`](firmware/README.md) | Firmware, GoPro-Kopplung, Stand gegen die Anforderungen |
 | [`docs/specs/…`](../../docs/specs/2026-08-28-exhaust-mic-design.md) | Auslegung, Rauschbudget, Pegelplan |
+| [`CHANGELOG.md`](CHANGELOG.md) | Was in welcher Version dazukam, bekannte Einschränkungen |
 
 ## Zündung
 
