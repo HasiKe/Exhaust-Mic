@@ -48,6 +48,7 @@ NETZE = {
     "CAN_TX":      ("CAN_TX", "an den SN65HVD230"),
     "CAN_RX":      ("CAN_RX", ""),
     "PGOOD":       ("PGOOD", "Sammelmeldung der Versorgung"),
+    "PWR_HOLD":    ("PWR_HOLD", "Selbsthaltung: haelt EN/UVLO des LM5164"),
     "IGN_SENSE":   ("IGN_SENSE", "Zuendung ueber Teiler, ADC1"),
     "VBAT_SENSE":  ("VBAT_SENSE", "Bordnetz ueber Teiler, ADC1"),
     "GPS_TX":      ("GPS_TX", "Stiftleiste J6, unbestueckt"),

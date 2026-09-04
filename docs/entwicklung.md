@@ -10,6 +10,7 @@ dieselben Fallen umgehen wollen.
 
 ## Inhalt
 
+- [Die Zündung schaltet, nicht das Bordnetz](#die-zündung-schaltet-nicht-das-bordnetz)
 - [Steckverbinder ausrichten](#steckverbinder-ausrichten)
 - [Kupfer entfernen ist gefährlich](#kupfer-entfernen-ist-gefährlich)
 - [Der Autorouter kennt den Kantenabstand nicht](#der-autorouter-kennt-den-kantenabstand-nicht)
@@ -20,6 +21,146 @@ dieselben Fallen umgehen wollen.
 - [Bestückungsdruck](#bestückungsdruck)
 
 ---
+
+## Die Zündung schaltet, nicht das Bordnetz
+
+Bis Rev A hing `EN/UVLO` des LM5164 über R2/R3 fest an **VBAT12**, und
+VBAT12 ist Klemme 30 — Dauerplus. Damit lief die Platine, sobald sie am
+Fahrzeug hing: rund um die Uhr, mit dem Ruhestrom des NCP1117, dem
+CAN-Treiber, dem Wandler und der Uhr an 3V3. Auf einem Motorradakku ist
+das eine Frage von Wochen.
+
+Jetzt speist **IGN_IN** (Klemme 15) den Teiler, und der ESP32 hält seine
+eigene Versorgung fest, bis die Datei geschlossen ist:
+
+```
+IGN_IN ──[R2 680k]──┬── EN/UVLO (U1)
+                    ├──[R3 150k]── GND        Einschaltschwelle
+                    ├──[D7 BZX84C3V3]── GND   Klemme
+                    │
+PWR_HOLD ─┬─[R13 10k]──►|── D8 ───┘           Selbsthaltung
+          └─[R14 10k]── GND
+```
+
+### Die Freigabeschwelle ist 1,5 V, nicht 1,2 V
+
+Der naheliegende Fehler: 1,2 V aus dem Datenblatt ablesen und rechnen.
+1,2 V ist die **FB-Referenz**, nicht die Freigabeschwelle. Für EN/UVLO
+gilt (SNVSAU4D, Abschnitt 6.3.9, Gleichungen 13 und 14):
+
+| | Wert | mit R2 680k / R3 150k | mit den alten 1M / 150k |
+|---|---|---|---|
+| Freigabe steigend | 1,5 V | **8,3 V** | 11,5 V |
+| Freigabe fallend | 1,4 V | **7,8 V** | 10,7 V |
+
+11,5 V wären für eine Zündleitung zu hoch: ein halb leerer Akku steht bei
+11,8 V, und beim Anlassen bricht das Bordnetz ohnehin ein. 8,3 V liegen
+unter jeder brauchbaren Zündspannung und über allem, was noch als „aus"
+durchgeht. Unterhalb von 1,1 V an EN geht der Wandler in den Ruhezustand
+und zieht **3 µA**.
+
+### Warum eine Diode und ein Ableitwiderstand nötig sind
+
+**D8** trennt den Portpin vom Teiler. Ohne die Diode zöge R13 den
+EN-Knoten herunter, solange die Platine aus ist — der Portpin liegt dann
+stromlos auf Masse:
+
+    12 V × (150k ‖ 10k) / (680k + 150k ‖ 10k) = 0,16 V
+
+Die Platine würde nie anlaufen. Mit Diode sperrt der Zweig, solange
+PWR_HOLD nicht getrieben wird.
+
+**R14** deckt den umgekehrten Fall ab. Der Rücksetzzustand von GPIO42 ist
+nicht garantiert frei von einem internen Pullup; läge einer an, hielte
+die Platine sich selbst fest und ginge nie wieder aus. 10 k gegen die
+45 k des Pullups ergeben 0,6 V an der Anode — zu wenig, um D8 zu öffnen.
+
+Getrieben reicht es dagegen deutlich, gerechnet mit 3,2 V Versorgung und
+0,75 V Flussspannung im schlechtesten Fall:
+
+    (3,2 − 0,75) V × (150k ‖ 680k) / (10k + 150k ‖ 680k) = 2,27 V
+
+gegen 1,4 V Haltespannung.
+
+R13 und R14 stehen im Layout beim Funkmodul. Der naheliegendere Platz für
+R13 wäre neben D8 gewesen — dann läge der Knoten zwischen Widerstand und
+Diode nicht 30 mm lang quer über die Platine. Das Band unter dem Regler
+war damit aber überfüllt: dem Router fehlte der Ausweg, und **SD_CLK**
+zwischen U6 und dem Kartenhalter blieb offen. Die Leitung führt eine
+Gleichspannung aus einem Gegentaktausgang über eine durchgehende
+Massefläche; 30 mm sind dafür ohne Belang, eine offene Taktleitung zur
+Karte nicht.
+
+### Kein Stützkondensator
+
+Der Wandler hängt mit VIN weiter an Klemme 30. Geschaltet wird nur seine
+Freigabe — die Energie steht während der ganzen Nachlaufzeit an. Eine
+Selbsthaltung, die den Versorgungspfad selbst auftrennt, bräuchte einen
+Puffer für die Sekunde, die das Schließen der Datei dauert; diese hier
+nicht.
+
+### D7 ist für die negativen Pulse da
+
+Naheliegende Annahme: der Zener schützt EN gegen Überspannung. Das ist
+nicht nötig — **EN verträgt −0,3 bis 100 V** (SNVSAU4D, Abschnitt 5.1),
+und ein 60-V-Puls kommt über den Teiler nur auf 10,8 V.
+
+Die untere Grenze ist das Problem. ISO 7637-2 kennt Pulse bis −100 V, und
+bei −0,3 V ist am EN-Pin Schluss. In dieser Richtung leitet der Zener in
+Flussrichtung und klemmt auf −0,7 V; der Strom über R2 bleibt bei 150 µA.
+Für den Preis eines SOT-23, das ohnehin zweimal auf der Platine steckt.
+
+### Ruhestrom
+
+Bisher gab es kein Aus. Lag Bordspannung an, lief die Platine — und zwar
+nicht im Leerlauf, sondern vollständig: ESP32 wach, Wandler getaktet,
+CAN-Treiber aktiv, Karte eingehängt. Die Größenordnung liegt damit im
+Bereich **100 mA**, nicht im Mikroampere-Bereich.
+
+Jetzt bleibt bei abgezogener Zündung stehen:
+
+| | Quelle | Strom |
+|---|---|---|
+| LM5164 im Ruhezustand | Datenblatt, Abschnitt 6.4.1 | 3 µA |
+| Teiler `VBAT_SENSE` (470 k + 68 k) | 14,4 V / 538 kΩ | 27 µA |
+| Teiler EN (jetzt an Klemme 15) | Klemme 15 ist spannungslos | 0 |
+| TVS D2, Zener D1, PMOS Q1 | Sperrströme | wenige µA |
+| **zusammen** | | **rund 30 µA** |
+
+⚠️ Alle Werte sind **gerechnet**, nicht gemessen — es existiert kein
+Aufbau. Der Punkt ist aber nicht die zweite Stelle hinter dem Komma: der
+Unterschied zwischen „läuft durch" und „30 µA" ist der zwischen Tagen und
+Jahren, bis der Akku leer ist.
+
+Vorher hätte der EN-Teiler an VBAT12 selbst noch 13 µA gezogen
+(14,4 V / 1,15 MΩ) — neben allem anderen war das der kleinste Posten.
+
+### USB bleibt davon unberührt
+
+`+4V6` bekommt über D4 auch Strom aus `USB_VBUS`. Am Schreibtisch läuft
+die Platine also ohne Zündung weiter, und der Automat merkt das: er
+schaltet nur ab, wenn er die Zündung vorher einmal gesehen hat. `PGOOD`
+sagt zusätzlich, ob der Abwärtswandler regelt — der Pin hat **keinen
+äußeren Pullup**, die Firmware schaltet den im Modul zu.
+
+### Was beim Einbau schiefging
+
+- **An eine `.kicad_sch` anhängen geht nicht.** Alles hinter der
+  schließenden Klammer des Blattes liest KiCad wortlos nicht mehr. Die
+  Datei öffnet sich, das ERC läuft, und die Netzliste meldet nur
+  unverbundene Pins. Eingefügt wird vor `(sheet_instances`.
+- **Ein leeres Feld ist nicht dasselbe wie kein Feld.** R2 bekam beim
+  Wertwechsel ein leeres `DigiKey`-Feld. Leere Felder fallen aus der
+  Netzliste heraus, und die Schaltplanparität meldete daraufhin
+  „Fehlendes Symbolfeld DigiKey in Footprint". Das Feld muss ganz weg.
+- **Die Regionen von `pack()` sind enger, als sie aussehen.** Drei Teile
+  zusätzlich in „Buck-Umgebung" schoben C12 an eine Stelle, an die der
+  Router nicht mehr herankam — der 100n am 3V3D-Zweig blieb offen. Das
+  Band unter dem Regler beginnt deshalb jetzt bei x = 41 statt bei x = 43,
+  und die drei Teile stehen woanders.
+- **Feines Vernähen ist kein Gewinn.** Ein Rastermaß von 1,6 und 1,3 mm
+  schloss zwei Massestücke, brachte aber 800 zusätzliche
+  Durchkontaktierungen und 27 Regelfehler mit. Bei 2,0 mm ist Schluss.
 
 ## Steckverbinder ausrichten
 
@@ -190,7 +331,7 @@ python3 tools/build_bom.py /tmp/exhaust-mic.net output/bom-mainboard.csv
 
 Die Netzliste ist die eigentliche Abnahme des Schaltplans: jedes Netz und
 jeder offene Pin lassen sich gegen Abschnitt 7 und 10 der Spec abgleichen.
-Aktuell bleiben 20 Pins bewusst offen (Strapping-Pins des ESP32, unbenutzte
+Aktuell bleiben 19 Pins bewusst offen (Strapping-Pins des ESP32, unbenutzte
 Analogeingänge des PCM1863, die laut Datenblatt ausdrücklich nicht beschaltet
 werden dürfen, und ungenutzte Funktionspins).
 

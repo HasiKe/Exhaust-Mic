@@ -1,12 +1,12 @@
 /* exhaust-mic: zweikanaliger Rekorder mit GoPro-Kopplung.
  *
  * Ablauf: Wandler und Karte hochfahren, dann auf drei Ausloeser warten -
- * die Taste am Geraet, die Kamera ueber Bluetooth LE, spaeter die
- * Zuendung. Jeder startet dieselbe Aufnahme.
+ * die Taste am Geraet, die Kamera ueber Bluetooth LE und den Motor.
+ * Jeder startet dieselbe Aufnahme.
  *
  * Umgesetzt: F1 (I2S per DMA), F2/F3 (WAV mit BEXT), F4 (Sekundenanker),
- * F5 (Wandler ueber I2C), F6 (Uebersteuerung), F8 (Marker) sowie die
- * GoPro-Kopplung. Offen: F7 Zuendungsautomat, F9 WLAN und NTP, F10 CAN,
+ * F5 (Wandler ueber I2C), F6 (Uebersteuerung), F7 (Zuendungsautomat),
+ * F8 (Marker) sowie die GoPro-Kopplung. Offen: F9 WLAN und NTP, F10 CAN,
  * F11 Download - siehe firmware/README.md.
  */
 
@@ -24,6 +24,7 @@
 #include "pcm1863.h"
 #include "speicher.h"
 #include "zeitbasis.h"
+#include "zuendung.h"
 
 static const char *TAG = "main";
 
@@ -32,6 +33,7 @@ static const char *TAG = "main";
 #define BLOCK 16384
 
 static QueueHandle_t BEFEHLE;      /* true = starten, false = stoppen */
+static volatile bool ABSCHALTEN;   /* Zuendung ist aus, Datei zumachen */
 
 /* Die Kamera hat ihren Zustand geaendert - das ist der Hauptweg: Video
  * starten, Aufnahme laeuft mit. Der Taster weiter unten ist nur der
@@ -43,6 +45,23 @@ static QueueHandle_t BEFEHLE;      /* true = starten, false = stoppen */
  * Aufgabe heraus ist schlicht falsch. */
 static void gopro_meldet(bool laeuft, void *arg)
 {
+    xQueueSend(BEFEHLE, &laeuft, 0);
+}
+
+/* Der Motor ist die dritte Quelle neben Taster und Kamera: springt er an,
+ * steigt die Bordspannung von der Ruhespannung auf die Ladespannung, und
+ * genau das meldet der Automat als ZUENDUNG_MOTOR.
+ *
+ * ZUENDUNG_AUS geht nicht ueber die Warteschlange, sondern ueber ein
+ * eigenes Kennzeichen: danach faellt die Versorgung, und die Datei muss
+ * vorher zu sein - das darf nicht hinter anderen Befehlen anstehen. */
+static void zuendung_meldet(zuendung_t zustand, void *arg)
+{
+    if (zustand == ZUENDUNG_AUS) {
+        ABSCHALTEN = true;
+        return;
+    }
+    bool laeuft = zustand == ZUENDUNG_MOTOR;
     xQueueSend(BEFEHLE, &laeuft, 0);
 }
 
@@ -126,6 +145,11 @@ static void aufsicht(void *arg)
 
 void app_main(void)
 {
+    /* Zuerst die Selbsthaltung, vor allem anderen. Beim Anlassen bricht
+     * die Zuendspannung ein; ohne PWR_HOLD faellt die Platine dann genau
+     * in dem Moment aus, in dem die Aufnahme beginnen soll. */
+    zuendung_selbsthaltung();
+
     BEFEHLE = xQueueCreate(4, sizeof(bool));
 
     ESP_ERROR_CHECK(bedienung_start());
@@ -140,12 +164,24 @@ void app_main(void)
         led(LED_ERR, true);
     }
     ESP_ERROR_CHECK(gopro_start(gopro_meldet, NULL));
+    if (zuendung_start(zuendung_meldet, NULL) != ESP_OK) {
+        /* Ohne den Automaten laeuft alles weiter - nur schaltet sich das
+         * Geraet dann nicht mehr selbst ab. Das ist eine Meldung wert,
+         * aber kein Grund, die Aufnahme zu verweigern. */
+        led(LED_ERR, true);
+    }
 
     xTaskCreate(schreiber, "schreiber", 4096, NULL, 6, NULL);
     xTaskCreate(aufsicht, "aufsicht", 4096, NULL, 3, NULL);
     ESP_LOGI(TAG, "bereit");
 
     while (true) {
+        if (ABSCHALTEN) {
+            ABSCHALTEN = false;
+            ESP_LOGI(TAG, "Zuendung aus - Datei schliessen und abschalten");
+            aufnahme_stoppen();
+            zuendung_abschalten();
+        }
         bool befehl;
         if (xQueueReceive(BEFEHLE, &befehl, pdMS_TO_TICKS(20)) == pdTRUE) {
             ESP_LOGI(TAG, "Kamera: %s", befehl ? "start" : "stop");

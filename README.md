@@ -22,6 +22,7 @@ Gebaut für eine Suzuki Hayabusa: Kopf A am Endrohr, Kopf B in der Airbox.
 | Zeitbasis | DS3231-TCXO, ±2 ppm, Sekundenanker auf die Samplenummer |
 | Fahrzeug | CAN über SN65HVD230, Zündungs- und Bordnetzerkennung |
 | Versorgung | 12 V Bordnetz, LM5164-Abwärtswandler, Verpolschutz |
+| Einschalten | Zündung schaltet die Freigabe, Selbsthaltung bis die Datei zu ist, rechnerisch 30 µA im Ruhezustand |
 | Hauptplatine | 72 × 55 mm, vier Lagen, beidseitig bestückt |
 | Mikrofonkopf | 8 × 27 mm, zwei Lagen, 2× identisch |
 | Gehäuse | fünf gedruckte Teile, Rundschnurdichtung |
@@ -65,23 +66,29 @@ Samplezähler — das ergibt eine driftfreie Zuordnung Wanduhrzeit ↔ Sample
 | | Mikrofonkopf | Hauptplatine |
 |---|---|---|
 | Größe | 8 × 27 mm | 72 × 55 mm |
-| Bauteile | 14 | 127 |
-| Leiterbahnen | 120 (199 mm) | 1047 (3236 mm) |
-| Durchkontaktierungen | 7 | 919 |
-| Offene Verbindungen | **0** | **7** |
+| Bauteile | 14 | 131 |
+| Leiterbahnen | 120 (199 mm) | 1085 (3321 mm) |
+| Durchkontaktierungen | 7 | 879 |
+| Offene Verbindungen | **0** | **8** |
 | DRC-Fehler | **0** | **0** |
 | ERC-Fehler | **0** | **0** |
-| Schaltplanparität | **0** | 4 (Bohrungen) |
+| Schaltplanparität | **0** | 6 |
 | Bauhöhe oben / unten | 1,8 / 1,5 mm | 7,6 / 2,7 mm |
 
-Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **sieben
-Verbindungen offen** — vier Masseflächen-Stücke und drei Pads, kein
+Der Mikrofonkopf ist fertig. Auf der Hauptplatine bleiben **acht
+Verbindungen offen** — allesamt Stücke der Masseflächen, kein Pad und kein
 Signalnetz. Sie sind in KiCads interaktivem Router in wenigen Minuten zu
 schließen und müssen vor der Fertigung geschlossen sein.
 
-Beschaffung: 71 von 75 Positionen haben eine bei DigiKey lagernde
-Herstellernummer. Offen ist nur MK1 — das IM73A135V01XTSA1 ist aktiv, bei
-DigiKey aber ohne Bestand; andere Distributoren führen es.
+Die sechs Abweichungen der Schaltplanparität sind die vier
+Befestigungsbohrungen ohne Symbol und die Schirmanschlüsse von USB-C und
+Kartenhalter, die der Footprint führt und das Symbol nicht.
+
+Beschaffung: 71 von 76 Positionen haben eine bei DigiKey lagernde
+Herstellernummer. Offen sind zwei: MK1 — das IM73A135V01XTSA1 ist aktiv,
+bei DigiKey aber ohne Bestand, andere Distributoren führen es — und **R2
+(680 k)**, das beim Umbau auf die Zündungsfreigabe seinen Wert gewechselt
+hat und noch keine geprüfte Bestellnummer trägt.
 
 > **Nichts davon ist bisher aufgebaut worden.** Geprüft sind DRC, ERC,
 > Schaltplanparität, eine eigene Abnahme und der Übersetzungslauf der
@@ -131,6 +138,22 @@ würde. Vor einem Neulauf lesen: [`docs/entwicklung.md`](docs/entwicklung.md).
 | [`docs/entwicklung.md`](docs/entwicklung.md) | Werkzeugfallen, Leiterbahnbreiten, Prüfung, Schaltplan gegen Platine |
 | [`firmware/README.md`](firmware/README.md) | Firmware, GoPro-Kopplung, Stand gegen die Anforderungen |
 | [`docs/specs/…`](../../docs/specs/2026-08-28-exhaust-mic-design.md) | Auslegung, Rauschbudget, Pegelplan |
+
+## Zündung
+
+Die Freigabe des Abwärtswandlers hängt an **Klemme 15**, die Versorgung
+selbst an Klemme 30. Zündung an heißt anlaufen; Zündung aus heißt nicht
+sofort stromlos, sondern: der ESP32 hält seine eigene Versorgung über
+`PWR_HOLD` fest, schließt die Datei und lässt dann los. Im Ruhezustand
+bleiben rechnerisch **30 µA** statt der rund 100 mA, die eine dauernd
+laufende Platine zieht — vorher gab es kein Aus.
+
+**Der Motor startet die Aufnahme.** Springt er an, hebt die Lichtmaschine
+das Bordnetz von der Ruhespannung auf 14 V — das ist der dritte Auslöser
+neben Taster und Kamera. Schwellen und Zeiten stehen in
+[`firmware/README.md`](firmware/README.md#zündung-motorlauf-und-abschalten),
+die Schaltung in
+[`docs/entwicklung.md`](docs/entwicklung.md#die-zündung-schaltet-nicht-das-bordnetz).
 
 ## GoPro
 

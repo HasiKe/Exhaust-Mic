@@ -13,7 +13,8 @@ Menge,Referenzen,Wert,Footprint,MPN,Hersteller,DigiKey,Hinweis,Bestueckung
 1,D1,BZX84C15,SOT-23,BZX84C15-7-F,Diodes Incorporated,BZX84C15-FDICT-ND,"Ersatz fuer BZX84C15LT1G: onsemi-Typ nicht lagernd; Diodes-Typ gleiche Z-Spannung, gleiches SOT-23",ja
 1,D2,SMBJ36A,D_SMB,SMBJ36A-13-F,Diodes Incorporated,SMBJ36A-FDICT-ND,"unidirektional, Kathode nach +12V",ja
 2,D3 D4,PMEG3020,D_SOD-123,"PMEG3020EP,115",Nexperia USA Inc.,1727-5836-1-ND,"Ersatz fuer PMEG3020EP-115: gleicher Typ, DigiKey schreibt ihn mit Komma",ja
-2,D5 D6,BZX84C3V3,SOT-23,BZX84C3V3LT1G,onsemi,BZX84C3V3LT1GOSCT-ND,,ja
+3,D5 D6 D7,BZX84C3V3,SOT-23,BZX84C3V3LT1G,onsemi,BZX84C3V3LT1GOSCT-ND,,ja
+1,D8,1N4148WS,D_SOD-323,1N4148WS-7-F,Diodes Incorporated,1N4148WS-FDICT-ND,,ja
 4,D10 D11 D12 D13,PESD3V3L1BA,D_SOD-123,SLPESD3V3L1BA,"Shenzhen Slkormicro Semicon Co., Ltd.",5399-SLPESD3V3L1BACT-ND,,ja
 1,D20,gruen,LED_0603_1608Metric,LTST-C190GKT,Lite-On Inc.,160-LTST-C190GKTCT-ND,,ja
 1,D21,rot,LED_0603_1608Metric,LTST-C190KRKT,Lite-On Inc.,160-1436-1-ND,,ja
@@ -32,8 +33,8 @@ Menge,Referenzen,Wert,Footprint,MPN,Hersteller,DigiKey,Hinweis,Bestueckung
 1,LS1,Piezo_9x9_SMD,Buzzer_Murata_PKMCS0909E,CPT-9019A-SMT-TR,Same Sky (Formerly CUI Devices),2223-CPT-9019A-SMT-TRCT-ND,"Landmuster aus der Murata-Bibliothek; Murata PKMCS0909E ist abgekuendigt und nur fuer 1,5 V, darum ein 3-V-Typ gleicher Bauform - Landmuster gegen Datenblatt pruefen",ja
 1,Q1,SI2309CDS,SOT-23,SI2309CDS-T1-GE3,Vishay Siliconix,SI2309CDS-T1-GE3CT-ND,"Drain am Bordnetz, Source zur Last | Ersatz fuer ZXMP6A17E6TA: ZXMP6A17E6 nicht lagernd und ohnehin SOT-26, der Footprint ist SOT-23; Si2309 60 V / 1,6 A / 345 mOhm passt zum Verpolschutz",ja
 2,Q3 Q4,2N7002,SOT-23,"T2N7002BK,LM",Toshiba Semiconductor and Storage,T2N7002BKLMCT-ND,,ja
-10,R1 R30 R31 R42 R43 R44 R45 R46 R47 R48,10k,R_0603_1608Metric,RC0603FR-0710KL,YAGEO,311-10.0KHRCT-ND,,ja
-1,R2,1M,R_0603_1608Metric,ERJ-3EKF1004V,Panasonic Industry,P1.00MHCT-ND,,ja
+12,R1 R13 R14 R30 R31 R42 R43 R44 R45 R46 R47 R48,10k,R_0603_1608Metric,RC0603FR-0710KL,YAGEO,311-10.0KHRCT-ND,,ja
+1,R2,680k,R_0603_1608Metric,ERJ-3EKF6803V,Panasonic Industry,,,ja
 1,R3,150k,R_0603_1608Metric,RC0603FR-07150KL,YAGEO,311-150KHRCT-ND,,ja
 1,R4,28k7,R_0603_1608Metric,RMCF0603FT28K7,Stackpole Electronics Inc,RMCF0603FT28K7CT-ND,,ja
 1,R5,34k0,R_0603_1608Metric,CRCW060334K0FKEAC,Vishay Dale,541-5362-1-ND,,ja

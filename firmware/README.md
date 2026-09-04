@@ -20,6 +20,57 @@ Quelle ist `output/main.net`, also der Schaltplan. Der Header ist
 mitversioniert: ein Diff zeigt sofort, wenn ein GPIO gewandert ist. Von
 Hand geändert wird er nicht.
 
+## Zündung, Motorlauf und Abschalten
+
+Die Platine hängt mit `VBAT12` an Klemme 30, ihre Freigabe `EN/UVLO` aber
+an Klemme 15 — Zündung an heißt anlaufen. Zündung aus würde den Strom
+mitten im Schreiben abstellen, deshalb hält `PWR_HOLD` (GPIO42) die
+Freigabe über D8 fest, bis die Datei zu ist. Der Aufbau steht in
+[`docs/entwicklung.md`](../docs/entwicklung.md#die-zündung-schaltet-nicht-das-bordnetz).
+
+`zuendung_selbsthaltung()` ist die **erste Zeile in `app_main`** — vor
+allem anderen. Beim Anlassen bricht die Zündspannung ein; ohne die
+Selbsthaltung fiele die Platine genau dann aus, wenn die Aufnahme
+beginnen soll.
+
+Gemessen wird über die beiden Teiler auf dem Versorgungsblatt:
+
+| | Teiler | Bereich |
+|---|---|---|
+| Klemme 15 | R9 100k / R10 47k, Zenerklemme D5 | brauchbar bis rund 10 V, darüber gekappt |
+| Bordnetz | R11 470k / R12 68k | ungekappt bis über 20 V |
+
+Klemme 15 ist damit ein Anwesenheitsmelder, das Bordnetz eine Messung.
+Daraus die drei Zustände:
+
+| Zustand | Bedingung | Wirkung |
+|---|---|---|
+| `ZUENDUNG_AUS` | Klemme 15 unter 5 V für 2 s | Datei schließen, Selbsthaltung lösen |
+| `ZUENDUNG_AN` | Klemme 15 über 7 V für 0,3 s | bereit, keine Aufnahme |
+| `ZUENDUNG_MOTOR` | Bordnetz über 13,2 V für 2 s | Aufnahme läuft |
+
+**Der Motor ist der dritte Auslöser** neben Taster und Kamera: springt er
+an, hebt die Lichtmaschine das Bordnetz von der Ruhespannung (12,6 bis
+12,8 V, direkt nach der Fahrt bis 13,0 V) auf 14,0 bis 14,4 V. 13,2 V
+trennt beides. Zurück geht es erst unter 12,9 V und nach zehn Sekunden —
+im Leerlauf mit Lüfter und Licht bricht die Spannung sonst kurz genug
+ein, um die Aufnahme zu zerhacken.
+
+Die Abschaltschwelle für Klemme 15 liegt mit 5 V bewusst tief: beim
+Anlassen geht die Zündleitung mit dem Bordnetz in die Knie, und wer hier
+9 V ansetzt, schaltet das Gerät genau beim Motorstart ab. Der
+Schlüsseldreh dagegen fällt hart auf null.
+
+Am Schreibtisch stört das nichts: `+4V6` kommt über D4 auch aus
+`USB_VBUS`, und der Automat schaltet nur ab, wenn er die Zündung vorher
+einmal gesehen hat. `PGOOD` sagt zusätzlich, ob der Abwärtswandler
+regelt.
+
+⚠️ **Die Werkskalibrierung des ADC ist Pflicht.** Ohne den eFuse-Wert
+liegen die Spannungen um bis zu zehn Prozent daneben — das ist genau der
+Abstand zwischen Ruhe- und Ladespannung. `zuendung_start()` gibt dann
+einen Fehler zurück, statt zu raten.
+
 ## GoPro
 
 ### Was geht: Aufnahme automatisch mitlaufen lassen
@@ -80,7 +131,7 @@ Zwei Auswege, falls der Ton wirklich in die Kameradatei soll:
 | F4 | 1-Hz-Anker latcht den Samplezähler | ✅ `zeitbasis.c` |
 | F5 | PCM1863 über I²C, differentiell, Taktherr | ✅ `pcm1863.c` |
 | F6 | Übersteuerung mit Anzeige | ✅ Anzeige; automatische Absenkung offen |
-| F7 | Zündungsautomat, sauberes Herunterfahren | ❌ offen |
+| F7 | Zündungsautomat, sauberes Herunterfahren | ✅ `zuendung.c` |
 | F8 | Sync-Marker Blitz + Piep, Samplenummer | ✅ `bedienung.c` |
 | F9 | WLAN nur außerhalb der Aufnahme, NTP | ❌ offen |
 | F10 | CAN über TWAI in die Begleitdatei | ❌ offen |
@@ -102,6 +153,7 @@ die I²C-Adresse 0x4A folgt aus MS/AD an Masse.
 | `pcm1863.c` | Wandler über I²C |
 | `speicher.c` | Karte, WAV mit BEXT, Begleitdatei |
 | `zeitbasis.c` | DS3231, Sekundenanker |
+| `zuendung.c` | Klemme 15 und Bordspannung, Selbsthaltung, Abschalten |
 | `bedienung.c` | Taster, Leuchtdioden, Piezo, Marker |
 | `i2cbus.c` | gemeinsamer I²C-Strang |
 | `pins.h` | erzeugt, siehe oben |

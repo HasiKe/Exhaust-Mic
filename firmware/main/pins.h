@@ -30,6 +30,7 @@
 #define PIN_CAN_TX           4   /* Modulpin  4, an den SN65HVD230 */
 #define PIN_CAN_RX          16   /* Modulpin  9 */
 #define PIN_PGOOD           41   /* Modulpin 34, Sammelmeldung der Versorgung */
+#define PIN_PWR_HOLD        42   /* Modulpin 35, Selbsthaltung: haelt EN/UVLO des LM5164 */
 #define PIN_IGN_SENSE        1   /* Modulpin 39, Zuendung ueber Teiler, ADC1 */
 #define PIN_VBAT_SENSE       2   /* Modulpin 38, Bordnetz ueber Teiler, ADC1 */
 #define PIN_GPS_TX          35   /* Modulpin 28, Stiftleiste J6, unbestueckt */

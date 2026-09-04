@@ -2508,10 +2508,6 @@
 		(uuid "85c10574-1277-f300-af76-cb8cbaa3681e")
 	)
 	(no_connect
-		(at 180.34 157.48)
-		(uuid "b254dba4-1e22-843a-6a70-40948c80250c")
-	)
-	(no_connect
 		(at 180.34 160.02)
 		(uuid "be0be5f5-2541-9a88-8ae9-8d61c4679b4d")
 	)
@@ -8146,6 +8142,39 @@
 				(path "/24901e4d-8246-6c3d-a980-c1f8cf14e631/aa42088f-c695-e1ae-f9ab-ed9f37a26eb4"
 					(reference "C42")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 180.34 157.48) (xy 199.39 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3f33726-bb7f-4683-a074-4e411b2c090c")
+	)
+	(global_label "PWR_HOLD"
+		(shape output)
+		(at 199.39 157.48 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "611cbda3-0cc2-4c1c-b67b-49aa7c3c86cc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 199.39 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)

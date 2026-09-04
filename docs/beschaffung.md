@@ -54,7 +54,7 @@ keine laufende Quelle.
 
 behalten.
 
-Beschaffung: von 75 Stücklistenpositionen brauchen drei kein Bauteil (TP1,
+Beschaffung: von 76 Stücklistenpositionen brauchen drei kein Bauteil (TP1,
 TP2, Lötpads am Mikrofonkopf), 71 haben eine bei DigiKey lagernde
 Herstellernummer — Stand 31.08.2026, siehe `output/beschaffung-digikey.csv`;
 rund 65 EUR Bauteilkosten für die Hauptplatine und 4 EUR für den
@@ -69,8 +69,13 @@ noch lagernd und am Abend leer. Beide sind auf gleichwertige Typen umgestellt
 (PCM1863**Q**DBTR**Q1** in Automotive-Qualifizierung, LP5907MFX-2.8). Vor
 einer Bestellung lohnt ein erneuter Lauf von `pick_digikey.py`.
 
-Eine Position bleibt offen:
+Zwei Positionen bleiben offen:
 
 | Position | Grund |
 |---|---|
 | MK1 | IM73A135V01XTSA1 ist aktiv, aber bei DigiKey ohne Bestand; ein Ersatz mit gleichem Gehäuse und Schallöffnung von unten existiert nicht. Andere Distributoren führen ihn. |
+| R2 | Beim Umbau auf die Zündungsfreigabe von 1 M auf **680 k** gewechselt (siehe [`entwicklung.md`](entwicklung.md#die-zündung-schaltet-nicht-das-bordnetz)). Eingetragen ist `ERJ-3EKF6803V` aus derselben Panasonic-Reihe wie vorher; die DigiKey-Nummer und der Bestand sind **nicht geprüft** — dafür fehlten die Zugangsdaten. Vor der Bestellung `DIGIKEY_CLIENT_ID`/`DIGIKEY_CLIENT_SECRET` setzen und `tools/pick_digikey.py` laufen lassen. |
+
+Neu hinzugekommen sind außerdem drei Positionen, die keine neue Bestellung
+auslösen: D7 teilt sich die Zenerdiode mit D5/D6, R13 und R14 laufen im
+10-k-Posten mit. Nur **D8** (1N4148WS, SOD-323) ist ein zusätzlicher Typ.
